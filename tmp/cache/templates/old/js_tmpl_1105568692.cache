@@ -1,0 +1,37 @@
+<?php echo '<script'?> type="text/javascript">
+window.Console = {log: function () {}};
+if (!('console' in window)) {
+    window.console = {log: function () {}};
+}
+var URL = <?php echo json::encode($url)?>;
+var ENV = <?php echo json::encode($env)?>;
+var IE8 = false;
+var IE9 = false;
+</script>
+<!--[if IE 8]>
+<?php echo '<script'?> type="text/javascript">IE8 = true;</script>
+<![endif]-->
+<!--[if IE 9]>
+<?php echo '<script'?> type="text/javascript">IE9 = true;</script>
+<![endif]-->
+<?php if ($getsession == 'yes' && !Access::loggedIn()) {?>
+<?php echo '<script'?> type="text/javascript" src="<?php echo ($Conf->URL->has('sso') ? $Conf->URL->{"sso"} : 'sso')?>getsession/?host=<?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?>"></script>
+<?php }?>
+<?php if ($packed == 'yes') {?>
+<?php echo '<script'?> type="text/javascript" src="<?php echo ($Conf->URL->has('js') ? $Conf->URL->{"js"} : 'js')?>cache/<?php echo (isset($packed_name) ? $packed_name : '')?>
+.js"></script>
+<?php } else {?>
+    <?php foreach ($files as $file) {?>
+<?php echo '<script'?> type="text/javascript" src="<?php echo (isset($file) ? $file : '')?>
+"></script>
+    <?php }?>
+<?php }?>
+<?php echo '<script'?> type="text/javascript">
+ENV.chart_type = window.location.getParameter ? (window.location.getParameter('env_chart_type') || 'googlevis') : 'googlevis';
+document.addLoader(function () {
+    try {
+        Console.log('{!gen} s., {!memory}');
+    } catch (e) {
+    }
+});
+</script>

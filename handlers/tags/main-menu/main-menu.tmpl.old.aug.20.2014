@@ -1,0 +1,18 @@
+<ul id="main-menu">
+    {foreach $menu as $item}
+    <li>
+        {if $item['url'] != $Conf->URL->this}
+        <a href="{$item['url']}">{$item['title']}</a>
+        {else}
+        <a href="{$item['url']}">{$item['title']}</a>
+        {end}
+    </li>
+    {end}
+    {foreach $languages as $name => $language}
+        {if $name != $Conf->ENV->language}
+    <li>
+        <a href="http://{$language.domain}/{$query|htmlspecialchars}"><img src="{@img}site/{$name}.png" alt="{$name}" title="{$language.in_title}" /> {$language.in_title}</a>
+    </li>
+        {end}
+    {end}
+</ul>

@@ -1,0 +1,20 @@
+<?php if ($notifications) {?>
+<div id="notifications">
+    <a id="notifications-indicator" href="#notifications" onclick="return false;">
+        <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/notification.png" alt="!" />
+        <small><?php echo count($notifications)?></small>
+    </a>
+    <ul id="notifications-list">
+        <?php foreach ($notifications as $notification) {?>
+        <li><a href="<?php echo (isset($notification['url']) ? $notification['url'] : '')?>
+" onclick="return Notifications.read(this);" id="notification-<?php echo (isset($notification['id']) ? $notification['id'] : '')?>
+">
+            <small><?php echo locales::datetime($notification['time'])?></small> 
+            <?php echo (isset($notification['text']) ? $notification['text'] : '')?>
+</a>
+        </li>
+        <?php }?>
+        <li class="all"><a href="#readall" onclick="Notifications.readAll();"><?php echo ($Conf->LNG->has('Mark_all_as_read') ? $Conf->LNG->{"Mark_all_as_read"} : 'Mark_all_as_read')?></a></li>
+    </ul>
+</div>
+<?php }?>

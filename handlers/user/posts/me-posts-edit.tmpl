@@ -1,0 +1,36 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=$user /}
+        <form action="{@home}api/posts/{$post['id']}/" id="me-post-form" method="post" onsubmit="Posts.submit(this); return false;">
+            <fieldset>
+                <ul class="fields">
+                    <li>
+                        <label for="post-community">{~Where_to_publish}:</label>
+                        {select name="data[community]" options=$communities value=$post['community'] /}
+                    </li>
+                    <li>
+                        <label for="post-title" class="block">{~Title}:</label>
+                        <input name="data[title]" id="post-title" value="{$post['title']|htmlspecialchars}" />
+                    </li>
+                    <li>
+                        <label for="post-text" class="block">{~Text}:</label>
+                        <textarea name="data[text]" id="post-text">{$post['text']}</textarea>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button class="button" type="submit"><span><span>{~Save}</span></span></button>
+                    <span class="or">{~or}</span>
+                    <a href="{@home}users/{$Conf.ENV.user.login}/posts/">{~go_to_posts}</a>
+                    <img src="{@img}site/chart-delete.png" class="delete" onclick="PostsRemove.submit(this.ancestorTag('form'))" alt="{~Delete}" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{/block}

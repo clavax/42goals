@@ -1,0 +1,22 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {community-profile community=$community /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu community=$community /}
+        <div id="community-description">{$community['description']|nl2br}</div>
+        
+        <h2 class="border">{~Recent_members} <small>(<a href="{@this}{$community['name']}/members/">{~all_members}</a>)</small></h2>
+        {users-list users=$members /}
+
+        {*<h2 class="border">{~Recent_posts} <small>(<a href="{@this}{$community['name']}/posts/">{~all_posts}</a>)</small></h2>
+        {posts-list posts=$posts /}*}
+        
+        <h2 class="border">{~News_feed}</h2>
+        {feed-list activities=$activities /}
+    </div>
+</div>
+{/block}

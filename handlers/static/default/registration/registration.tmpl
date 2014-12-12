@@ -1,0 +1,99 @@
+﻿<div id="form-container">
+    <div class="wrap">
+        {if $Conf->ENV->language == 'ru'}
+        <h1>Зачем регистрироваться?</h1>
+        <ul>
+            <li>Регистрация в 42гола абсолютно бесплатна.</li>
+            <li>Вам не нужно платить за использование сервисом (если вы не выбрали подписку на <a href="{@home}premium/">премиум аккаунт</a>).</li>
+            <li>Регистрация нужна для защиты вашей персональной информации.</li>
+            <li>Также вы можете войти, используя существующий Твиттер или Фейсбук аккаунт. Тогда вам не нужно заполнять никаких форм.</li>
+        </ul>
+        {elseif $Conf->ENV->language == 'fr'}
+        <h1>Pourquoi s'inscrire?</h1>
+        <ul>
+            <li>L'inscription a 42goals est totalement gratuite.</li>
+            <li>Vous ne serez pas facture pour l'utilisation de notre service (sauf si vous avez specifiquement choisi un compte <a href="{@home}premium/">premium</a>).</li>
+            <li>L'inscription est necessaire pour proteger vos informations personnelles.</li>
+            <li>Vous pouvez egalement vous connecter avec votre compte Twitter ou Facebook pour eviter de remplir ce formulaire.</li>
+        </ul>
+        {elseif $Conf->ENV->language == 'jp'}
+        <h1>なぜ登録しますか？</h1>
+        <ul>
+            <li>42goalsでの登録は、全てにおいて無料です。</li>
+            <li>当社のサービスを使用するための請求は一切ありません。(<a href="{@home}premium/">プレミアム・アカウント</a>のサインアップを選択される場合を除く)。</li>
+            <li>登録は、あなたの個人情報を保護するために必要とされます。</li>
+            <li>あらゆるフォームへの入力を避けたい場合、ご自身のTwitter or Facebookのアカウントを用いてサインインすることもできます。</li>
+        </ul>
+        {else}
+        <h1>Why register?</h1>
+        <ul>
+            <li>Registration at 42goals is totally free.</li>
+            <li>You will not be charged for using our service (unless you choose specifically to sign up for a <a href="{@home}premium/">premium account</a>).</li>
+            <li>The registration is needed to protect your personal information.</li>
+            <li>You can also sign in with your existing Twitter or Facebook account to avoid filling any forms.</li>
+        </ul>
+        {end}
+    </div>
+    <form id="registration-form" class="common-form" action="{@home}api/registration/" method="post" onsubmit="Registration.submit(this); return false;">
+        <fieldset>
+            <ul class="fields">
+                <li class="third-party">
+                    <a href="{@home}system/twitter/connect/?redirect={$redirect}" class="btn"><img src="{@img}site/login-with-twitter.png" alt="Twitterでサインイン" /></a>
+                    <a href="{@home}system/facebook/connect/?redirect={$redirect}" class="btn"><img src="{@img}site/login-with-facebook.png" alt="Facebookでサインイン" /></a>
+                </li>
+                <li>
+                    <label for="reg-name" class="fixed">{~Name}</label>
+                    <input id="reg-name" class="text" name="data[name]" onchange="Registration.setLoginExample(this);" />
+                    <br />
+                    <i>{~name_hint}</i>
+                </li>
+                <li>
+                    <label for="reg-email" class="fixed">{~Email}</label>
+                    <input id="reg-email" class="text" name="data[email]" />
+                    <br />
+                    <i>{~email_hint}</i>
+                </li>
+                <li>
+                    <label for="reg-login" class="fixed">{~Login}</label>
+                    <input id="reg-login" class="text" name="data[login]" />
+                    <br />
+                    <i>{~login_hint}, e.g.: <span id="login-example" onclick="this.parentNode.previousTag('INPUT').value=this.innerHTML;">yourname</span></i>
+                </li>
+                <li>
+                    <label for="reg-password" class="fixed">{~Password}</label>
+                    <input type="password" class="text" id="reg-password" name="data[password]" autocomplete="off" />
+                    <br />
+                    <i>{~password_hint}</i>
+                </li>
+                <li>
+                    <label for="reg-password2" class="fixed">{~Confirm_password}</label>
+                    <input type="password" class="text" id="reg-password2" name="data[password2]" autocomplete="off" />
+                    <br />
+                    <i>{~password2_hint}</i>
+                </li>
+                <li>
+                    <label for="reg-captcha" class="fixed">{~Control_digits}</label>
+                    <input class="text small" id="reg-captcha" name="data[captcha]" />
+                    <img src="{@home}system/captcha/" alt="CAPTCHA" id="captcha" />
+                    <br />
+                    <i>{~captcha_hint}</i>
+                </li>
+            </ul>
+            <input type="hidden" name="premium" value="{if isset($_GET['premium'])}1{end}" />
+            <div class="submit">
+                <p id="registration-agreement">
+                {if $Conf->ENV->language == 'ru'}
+                    Нажимая на "{~Submit}", вы соглашаетесь на нашу <a href="{@home}privacy/" target="_blank">политику конфиденциальности</a>.
+                {elseif $Conf->ENV->language == 'fr'}
+                    En cliquant sur &laquo;Soumettre&raquo;, vous acceptez notre <a href="{@home}privacy/" target="_blank">politique de confidentialite</a>.
+                {elseif $Conf->ENV->language == 'jp'}
+                    "送信"ボタンをクリックすることで、当社の<a href="{@home}privacy/" target="_blank">個人情報保護方針</a>に同意するものとみなします。
+                {else}
+                    By clicking on "Submit" button, you are agreeing to our <a href="{@home}privacy/" target="_blank">privacy policy</a>.                    
+                {end}
+                </p>
+                <button type="submit" class="submit-button button"><span><span>{~Submit}</span></span></button>
+            </div>
+        </fieldset>
+    </form>
+</div>

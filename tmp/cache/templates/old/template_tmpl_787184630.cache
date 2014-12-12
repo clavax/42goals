@@ -1,0 +1,27 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="me-profile">
+    <div class="wrap">
+        {category-templates category=\$category template=\$template['id'] /}
+    </div>
+</div>
+<div id="me-content">
+    <div id="template-description">
+        <h1>
+            <img src="<?php echo (isset(\$template['icon']) ? \$template['icon'] : '')?>
+" />
+            <?php echo (isset(\$template['title']) ? \$template['title'] : '')?>
+
+        </h1>
+        <div class="text"><?php echo nl2br(\$template['preview'])?></div>
+    </div>
+</div>
+
+block
+);?>

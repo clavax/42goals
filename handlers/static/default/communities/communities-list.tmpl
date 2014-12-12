@@ -1,0 +1,28 @@
+{block type="ground" loose="yes"}
+<div id="communities-page-wrap">
+    <div class="wrap">
+        <h1>{~Our_communities}</h1>
+        <ul id="communities-page-list">
+        {foreach $communities as $community}
+            <li>
+                <div>
+                    <img src="{@communitypics}{$community['thumbnail']|htmlspecialchars}" />
+                    <div>
+                        <h2><a href="{@this}{$community['name']}/">{$community['title']|htmlspecialchars}</a></h2>
+                        <i>{$community['overview']}</i>
+                        {if $community['posts']}
+                        <ul>
+                            {foreach $community['posts'] as $post}
+                            <li><a href="{@this}{$community['name']}/posts/{$post['id']}/">{$post['title']|htmlspecialchars}</a></li>
+                            {end}
+                        </ul>
+                        <p><a href="{@this}{$community['name']}/posts/">Read more posts</a></p>
+                        {end}
+                    </div>
+                </div>
+            </li>
+        {end}
+        </ul>
+    </div>
+</div>
+{/block}

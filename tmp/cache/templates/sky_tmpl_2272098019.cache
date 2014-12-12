@@ -1,0 +1,19 @@
+<div id="sky">
+<?php if (!array_get($params, 'wide')) {?>
+    <div class="bg">
+        <div class="fix-width">
+            <div class="wrap">
+                <?php echo (isset($content) ? $content : '')?>
+
+            </div>
+        </div>
+    </div>
+<?php } else {?>
+    <div class="bg">
+        <div class="wrap">
+            <?php echo (isset($content) ? $content : '')?>
+
+        </div>
+    </div>
+<?php }?>
+</div>

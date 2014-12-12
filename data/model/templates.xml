@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<model>
+	<table type="primary">
+		<field name="id"></field>
+		<field name="user"></field>
+		<field name="title"></field>
+		<field name="name"></field>
+		<field name="preview"></field>
+		<field name="description"></field>
+		<field name="instructions"></field>
+		<field name="type"></field>
+		<field name="icon_item"></field>
+		<field name="icon_zero"></field>
+		<field name="icon_true"></field>
+		<field name="icon_false"></field>
+		<field name="position"></field>
+		<field name="unit"></field>
+		<field name="prepend"></field>
+		<field name="aggregate"></field>
+		<field name="approved"></field>
+		<field name="category"></field>
+	</table>
+</model>

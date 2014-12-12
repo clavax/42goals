@@ -1,0 +1,2 @@
+<img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>badges/premium.png" />
+<span>Вы только что получили награду "Премиум"!</span>

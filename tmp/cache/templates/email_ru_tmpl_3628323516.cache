@@ -1,0 +1,10 @@
+Привет, <?php echo (isset($name) ? $name : '')?>
+!
+Вы сделали запрос на восстановление пароля для <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?>.
+
+Чтобы получить новый пароль, перейдите по ссылке: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/recovery/<?php echo (isset($code) ? $code : '')?>
+/
+Мы пришлем новый пароль по эл. почте.
+--
+Команда 42гола
+http://ru.42goals.com

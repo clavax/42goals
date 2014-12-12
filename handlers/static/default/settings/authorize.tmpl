@@ -1,0 +1,15 @@
+<div class="fix-width">
+    <h2>Authorize application: {$app['title']|htmlspecialchars}</h2>
+    <p>
+    </p>
+    
+    <form id="authorize-form" class="common-form" action="{@this}authorize/{$Conf.ENV.token}/" method="post">
+        <fieldset>
+            <div class="submit">
+                <button type="submit" id="deny-button" name="deny">{~Deny}</button>
+                <button type="submit" id="allow-button" name="allow">{~Allow}</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+    

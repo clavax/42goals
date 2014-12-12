@@ -1,0 +1,31 @@
+{block type="ground"}
+<div id="content">
+    <div id="ninja">
+{if $Conf->ENV->language == 'ru'}
+    <h1>Обнаружена скрытая страница</h1>
+    <p><img src="{@img}site/ninja.png" /></p>
+    <p>
+        Эта страница защищена владельцем.<br />
+        Если она принадлежит вам,<br />
+        Просто войдите
+    </p>
+{elseif $Conf->ENV->language == 'fr'}
+    <h1>Page privé est détecté</h1>
+    <p><img src="{@img}site/ninja.png" /></p>
+    <p>
+        Cette page est protégée par son propriétaire.<br />
+        Si il vous appartient,<br />
+        Il suffit d'entrer
+    </p>
+{else}
+    <h1>Ninja page is detected</h1>
+    <p><img src="{@img}site/ninja.png" /></p>
+    <p>
+        This page is protected by its owner.<br />
+        If it belongs to you,<br />
+        Simply enter
+    </p>
+{end}
+    </div>
+</div>
+{/block}

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<model>
+	<table type="primary">
+		<field name="id"></field>
+		<field name="appkey"></field>
+		<field name="secret"></field>
+		<field name="user"></field>
+		<field name="title"></field>
+		<field name="description"></field>
+		<field name="url"></field>
+	</table>
+</model>

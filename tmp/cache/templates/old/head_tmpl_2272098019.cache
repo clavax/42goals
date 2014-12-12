@@ -1,0 +1,40 @@
+<head>
+    <title>
+        <?php if ($Conf->URL->self == $Conf->URL->home) {?>
+            <?php if (isset($page_title)) {?><?php echo (isset($page_title) ? $page_title : '')?>
+<?php } else {?><?php echo ($Conf->LNG->has('site_title') ? $Conf->LNG->{"site_title"} : 'site_title')?><?php }?>
+        <?php } else {?>
+            <?php if (isset($page_title)) {?><?php echo (isset($page_title) ? $page_title : '')?>
+ / <?php }?><?php echo ($Conf->LNG->has('site_title') ? $Conf->LNG->{"site_title"} : 'site_title')?>
+        <?php }?>
+    </title>
+    <link rel="shortcut icon" href="<?php echo ($Conf->URL->has('main') ? $Conf->URL->{"main"} : 'main')?>favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="<?php echo ($Conf->LNG->has('site_keywords') ? $Conf->LNG->{"site_keywords"} : 'site_keywords')?>" /> 
+    <meta name="description" content="<?php echo ($Conf->LNG->has('site_description') ? $Conf->LNG->{"site_description"} : 'site_description')?>" />
+    <?php if ($Conf->CNF->site->local) {?>
+    <?php $Template->tag("css", array('packed' => <<<d7fa3b767c460b54a2be4d49030b349c7
+no
+d7fa3b767c460b54a2be4d49030b349c7
+));?>
+    <?php $Template->tag("js", array('packed' => <<<d7fa3b767c460b54a2be4d49030b349c7
+no
+d7fa3b767c460b54a2be4d49030b349c7
+,'getsession' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+));?>
+    <?php } else {?>
+    <?php $Template->tag("css", array('packed' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+));?>
+    <?php $Template->tag("js", array('packed' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+,'getsession' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+));?>
+    <?php }?>
+</head>

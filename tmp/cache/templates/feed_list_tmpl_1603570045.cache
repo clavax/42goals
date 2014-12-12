@@ -1,0 +1,10 @@
+<?php if ($activities) {?>
+<ul id="news-feed">
+    <?php foreach ($activities as $activity) {?>
+    <li class="clearfix"><?php echo (isset($activity['text']) ? $activity['text'] : '')?>
+</li>
+    <?php }?>
+</ul>
+<?php } else {?>
+<p class="empty-message"><?php echo ($Conf->LNG->has('No_activities') ? $Conf->LNG->{"No_activities"} : 'No_activities')?></p>
+<?php }?>

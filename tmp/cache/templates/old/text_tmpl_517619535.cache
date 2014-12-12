@@ -1,0 +1,8 @@
+Здравствуйте, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+.
+
+<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+ добавил(а) вас в друзья.
+--
+Команда 42гола
+http://ru.42goals.com

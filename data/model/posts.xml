@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<model>
+	<table type="primary">
+		<field name="id"></field>
+		<field name="user"></field>
+		<field name="date"></field>
+		<field name="title" required="yes"></field>
+		<field name="url"></field>
+		<field name="text"></field>
+		<field name="type"></field>
+		<field name="community"></field>
+		<field name="draft"></field>
+	</table>
+</model>

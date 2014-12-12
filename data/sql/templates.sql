@@ -1,0 +1,20 @@
+create table templates (
+    id int unsigned not null primary key auto_increment,
+    user int unsigned not null,
+    title varchar(255) not null,
+    name varchar(255) not null,
+    preview text,
+    description text,
+    instructions text,
+    type varchar(16) not null,
+    icon_item int unsigned,
+    icon_zero int unsigned,
+    icon_true int unsigned,
+    icon_false int unsigned,
+    position smallint unsigned not null default 0,
+    unit varchar(32),
+    prepend enum('no', 'yes') not null default 'no',
+    aggregate varchar(32) default 'sum',
+    approved enum('no', 'yes') not null default 'no',
+    category int not null
+) default charset = utf8;

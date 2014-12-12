@@ -1,0 +1,62 @@
+﻿{block type="sky"}
+    <h1>プレミアムへアップグレード!</h1>
+    <p>
+        <strong>無料</strong>で42goalsを使用することができ、全ての基本機能から収入を得ることができます。
+        プレミアム・アカウントへアップグレードすると決めていただければ、さらに拡張機能やを入手でき42goalsを支援するための温かい快適な感覚を手に入れられます。
+        下記から当社の販売プランの比較表で確認していただけます：
+    </p>
+    
+    <ul id="pricing">
+        <li id="plan-free">
+            <h2>無料</h2>
+            <p class="price"><strong>$0/month</strong></p>
+            <p>
+                全ての基本目標の種類:<br /> 
+                数値、カウンター、ブール値、時間
+            </p>
+            <p class="sign-up">
+                {if !Access::loggedIn()}
+                <a href="{@home}registration/" class="button"><span><span>サインアップ</span></span></a>
+                {end}
+            </p>
+        </li>
+        <li id="plan-premium">
+            <h2>プレミアム</h2>
+            <p class="price"><strong>$5/月</strong></p>
+            <p>
+                全ての基本目標の種類:<br />
+                拡張した目標の種類: ストップ・ウォッッチ<br />
+                タブ別グループ目標<br />
+                Eメールを介した優先サポート
+            </p>
+            <p class="sign-up">
+                {if Access::loggedIn()}
+                <a href="{@home}pay/" class="button"><span><span>今すぐ購入</span></span></a>
+                {else}
+                <a href="{@home}registration/?premium" class="button"><span><span>サインアップ</span></span></a>
+                {end}
+            </p>
+        </li>
+        <li id="plan-corporate">
+            <h2>企業</h2>
+            <p class="price"><strong>詳しい情報については、<a href="mailto:info@42goals.com">お問い合わせ</a>ください</strong></p>
+            <p>
+                全ての基本目標の種類<br />
+                拡張した目標の種類: ストップ・ウォッッチh<br />
+                タブ別グループ目標<br />
+                Eメールを介した優先サポート<br />
+                あなたの企業のための42goals
+            </p>
+            <p class="sign-up"><a href="{@home}corporate/" class="button"><span><span>サインアップ</span></span></a></p>
+        </li>
+    </ul>
+{/block}
+{block type="ground"}
+    <blockquote>
+        <h2>
+            実行して全ての基本および拡張機能を見るには、当社の無料 <a href="{@home}demo/">デモ</a>で確認していただけます。
+            <br />
+            当社のプレミアム・アカウントの手数料は: a bottle of beerビール（ボトル）・1パックのタバコ・ファーストフードでの食事・チョコレートよりも安いです
+        </h2>
+    </blockquote>
+{/block}

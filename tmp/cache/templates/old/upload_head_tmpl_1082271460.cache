@@ -1,0 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo ($Conf->URL->has('css') ? $Conf->URL->{"css"} : 'css')?>common/upload.css" />
+<?php echo '<script'?> type="text/javascript">
+<?php if (isset($data)) {?>window.data = <?php echo json::encode($data)?><?php }?>
+</script>

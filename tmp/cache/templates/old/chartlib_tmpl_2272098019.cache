@@ -1,0 +1,8 @@
+<?php if (get_user_var('env_chart_type') == 'protovis') {?>
+<?php echo '<script'?> type="text/javascript" src="<?php echo ($Conf->URL->has('js') ? $Conf->URL->{"js"} : 'js')?>3dparty/protovis/protovis-d3.3.js"></script>
+<?php } else {?>
+<?php echo '<script'?> type="text/javascript" src="http://www.google.com/jsapi"></script>
+<?php echo '<script'?> type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+</script>
+<?php }?>

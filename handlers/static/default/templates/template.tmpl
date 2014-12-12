@@ -1,0 +1,16 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {category-templates category=$category template=$template['id'] /}
+    </div>
+</div>
+<div id="me-content">
+    <div id="template-description">
+        <h1>
+            <img src="{$template['icon']}" />
+            {$template['title']}
+        </h1>
+        <div class="text">{$template['preview']|nl2br}</div>
+    </div>
+</div>
+{/block}

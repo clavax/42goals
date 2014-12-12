@@ -1,0 +1,35 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=$user /}
+        {if Access::loggedIn() && $user['id'] == $Conf->ENV->UID}
+        <p id="user-posts-add"><a href="{@this}add/" class="button"><span><span>{~Add_post}</span></span></a></p>
+        {end}
+        {if $posts}
+            {posts-list posts=$posts /}
+
+            {if count($pages) > 1}
+            <ul class="paging">
+                {foreach $pages as $p => $page}
+                <li>
+                    {if $p == $current_page}
+                    <b>{$page}</b>
+                    {else}
+                    <a href="{@this}{$user['login']}/posts/{if $p > 1}p{$p}/{end}">{$page}</a>
+                    {end}
+                </li>
+                {end}
+            </ul>
+            {end}
+            
+        {else}
+        <p class="empty-message">No posts yet</p>
+        {end}
+    </div>
+</div>
+{/block}

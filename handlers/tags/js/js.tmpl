@@ -1,0 +1,35 @@
+<script type="text/javascript">
+window.Console = {log: function () {}};
+if (!('console' in window)) {
+    window.console = {log: function () {}};
+}
+var URL = {$url|json::encode};
+var ENV = {$env|json::encode};
+var IE8 = false;
+var IE9 = false;
+</script>
+<!--[if IE 8]>
+<script type="text/javascript">IE8 = true;</script>
+<![endif]-->
+<!--[if IE 9]>
+<script type="text/javascript">IE9 = true;</script>
+<![endif]-->
+{if $getsession == 'yes' && !Access::loggedIn()}
+<script type="text/javascript" src="{@sso}getsession/?host={@host}"></script>
+{end}
+{if $packed == 'yes'}
+<script type="text/javascript" src="{@js}cache/{$packed_name}.js"></script>
+{else}
+    {foreach $files as $file}
+<script type="text/javascript" src="{$file}"></script>
+    {end}
+{end}
+<script type="text/javascript">
+ENV.chart_type = window.location.getParameter ? (window.location.getParameter('env_chart_type') || 'googlevis') : 'googlevis';
+document.addLoader(function () {
+    try {
+        Console.log('{!gen} s., {!memory}');
+    } catch (e) {
+    }
+});
+</script>

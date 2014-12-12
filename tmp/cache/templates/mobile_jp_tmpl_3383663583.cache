@@ -1,0 +1,20 @@
+﻿<div id="description">
+    <h2>42goalsとは？</h2>
+    <p>
+        <strong>42goals</strong>は、あなたの毎日の目標を進捗状況を管理したり毎日の活動のログを保存する簡単なツールです。
+    </p>
+   <p>あなたの目標を辿るには、<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>m/">ログイン</a>してください。</p>
+    <p>あなたは、WEBサイトの<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>?desktop">デスクトップ版</a>の無料登録をしていただけます</p>
+    <p>こちらは、あなたがここで行えるもののリストです:</p>
+    <ul>
+        <li>毎日の生産効率を監視</li>
+        <li>トレーニングを記録</li>
+        <li>禁煙</li>
+        <li>体重の観察</li>
+        <li>薬を飲むことを思い出す</li>
+        <li>日常経費を記録する</li>
+        <li>走った距離数を数える</li>
+        <li>コーヒー消費量を抑える</li>
+        <li>など&hellip;</li>
+    </ul>
+ </div>

@@ -1,0 +1,17 @@
+<?php if ($community['picture']) {?><img src="<?php echo ($Conf->URL->has('communitypics') ? $Conf->URL->{"communitypics"} : 'communitypics')?><?php echo htmlentities($community['picture'])?>" width="180" /><?php }?>
+<h1><?php echo htmlspecialchars($community['title'])?></h1>
+<blockquote><?php echo htmlspecialchars($community['overview'])?></blockquote>
+<div id="community-tools">
+    <div id="community-membership" class="<?php if (isset($community['joined']) && !empty($community['joined'])) {?>joined<?php } else {?>not-joined<?php }?>">
+        <p id="community-not-joined">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/join.png" alt="join" /> 
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading24.gif" alt="" class="loading" /> 
+            <a href="#join" class="script" onclick="Community.join(); return false;"><?php echo ($Conf->LNG->has('join_community') ? $Conf->LNG->{"join_community"} : 'join_community')?></a>
+        </p>
+        <p id="community-joined">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/leave.png" alt="leave" />
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading24.gif" alt="" class="loading" />
+            <a href="#leave" class="script" onclick="Community.leave(); return false;"><?php echo ($Conf->LNG->has('leave_community') ? $Conf->LNG->{"leave_community"} : 'leave_community')?></a>
+        </p>
+    </div>
+</div>

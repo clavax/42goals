@@ -1,0 +1,58 @@
+<div id="ground">
+    <div class="deco"></div>
+    <div class="fix-width">
+    <div class="wrap">
+    <h1>42goals?とは？</h1>
+    <p>
+        42goalsが、あなたを<a href="http://worktrek.com">Worktrek</a>に連れてくる小さいチームのプロジェクトです。
+        当社の使命は、人々の目標を達成させ彼らの人生を有意義にするお手伝いをすることです。
+        当社は、様々な分野で働いていますが、当社全員は、勉強や仕事などの日々の活動に集中するために役に立つこのようなサービスを必要としていました。
+        だから当社は42goalsを作ったのです。
+    </p>
+    
+    <h2>Who we are?</h2>
+    <div id="team">
+        <div class="teammate">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>team/alex.png" />
+            <h3>Alex Pak</h3>
+            <cite>founder</cite>
+        </div>
+        <div class="teammate">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>team/joe.png" />
+            <h3>George Gulyaev</h3>
+            <cite>poker expert</cite>
+        </div>
+        <div class="teammate">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>team/anna.png" />
+            <h3>Anna Chen</h3>
+            <cite>inspirer</cite>
+        </div>
+        <div class="teammate">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>team/ayumi.png" />
+            <h3>Ayumi</h3>
+            <cite>&ldquo;meow&rdquo;</cite>
+        </div>
+    </div>
+    <p> 
+        当社に謝辞していただけるのであれば、下記の当社の連絡先を見つけていただけます。（バグの報告/サービスに関する苦情）
+        あなたが、レンタルサーバーのお支払いや学校の書籍を購入するプロジェクトをサポートしていただきたいのであれば、<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>donate/">贈与ページ</a>で自由にそれを行えます。 
+    </p>
+    
+    <h2 id="for-bloggers">For bloggers</h2>
+    <p>
+        あなたは、ブロガーで42goalsについてのレビューを書きたいですか？
+        当社は、あなたに無料の<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>premium/">プレミアム・アカウント</a>を差し上げます。（ 既存の<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>demo/">無料デモページ</a>に加え ）、当社の機能をお試しいただけます。
+        当社をあなたのブログへのリンク付きで<a href="mailto:info@42goals.com">Eメール</a>にドロップするだけです。おそらくいくつかあなたが書こうとしているアイデアがあるでしょう。あなた用のアカウントを設定します。
+        既に42goalsの登録が完了されていつのであれば、Eメールにあなたのユーザー名を単に追加してください。
+    </p>
+    
+    <h2>連絡先</h2>
+    <p>
+        Email: <a href="mailto:info@42goals.com">info@42goals.com</a>
+        <br />Twitter: <a href="http://twitter.com/42goals">@42goals</a>
+        <br /><a href="http://www.facebook.com/42goals">Facebookページ</a>
+        <br /><a href="http://blog.42goals.com">当社ブログ</a>
+    </p>
+    </div>
+    </div>
+</div>

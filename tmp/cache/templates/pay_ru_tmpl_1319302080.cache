@@ -1,0 +1,73 @@
+<div id="form-container">
+    <div class="wrap">
+        <h1>Наши цены</h1>
+        <p>
+            Получите выгоду, приобретая более длинный период подписки!
+        </p>
+    </div>
+    <form class="common-form" id="premium-form" action="<?php echo ($Conf->URL->has('this') ? $Conf->URL->{"this"} : 'this')?>redirect/" method="post">
+        <fieldset>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            <input id="package-1mo" type="radio" name="product_id" value="1" checked="checked" />
+                            <label for="package-1mo">1 месяц</label>
+                        </th>
+                        <td><small>$</small><big>5</big></td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input id="package-6mo" type="radio" name="product_id" value="2" />
+                            <label for="package-6mo">6 месяцев</label>
+                        </th>
+                        <td><small>$</small><big><s>30</s>25</big> <i>1 месяц бесплатно</i></td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input id="package-1yr" type="radio" name="product_id" value="3" checked="checked" />
+                            <label for="package-1yr">12 месяцев</label>
+                        </th>
+                        <td><small>$</small><big><s>60</s>45</big> <i>3 месяца бесплатно</i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<input type="hidden" name="option" value="2checkout" />-->
+    <div class="wrap">
+        
+        <p>
+            Выберите Payment Gateway
+        </p>
+    </div>
+
+ <table><tbody>
+    <tr>
+        <td>
+            <input type="radio" name="option" value="2checkout" checked="checked" /> 
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/2co.png" align="center" alt="2Checkout" />
+         </td>
+         <td>
+            <input type="radio" name="option" value="paypal"  />  
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/paypalBig.png" align="center" alt="PayPal" />
+         </td>   
+     </tr>
+                </tbody>
+            </table>
+            <div class="submit">
+                <button type="submit" class="button"><span><span>Купить</span></span></button>
+            </div>
+        </fieldset>
+    </form>
+    <div class="wrap">
+        <p id="payment-instructions">
+            Нажимая на 'Купить', вы будете автоматически перенаправлены на <a href="http://2checkout.com">2Checkout.com</a>, который является авторизованным продавцом 42гола.
+        </p>
+        <ul id="payment-icons">
+            <li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/2co.png" alt="2Checkout" /></li>
+            <li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/visa.png" alt="VISA" /></li>
+            <li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/mastercard.png" alt="MasterCard" /></li>
+            <li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/paypal.png" alt="PayPal" /></li>
+            <li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/amex.png" alt="American Express" /></li>
+        </ul>
+    </div>
+</div>

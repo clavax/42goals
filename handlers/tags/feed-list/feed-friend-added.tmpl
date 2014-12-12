@@ -1,0 +1,15 @@
+<img src="{if $activity['user_thumbnail']}{@userpics}{$activity['user_thumbnail']|htmlspecialchars}{else}{@img}site/no-thumbnail.png{end}" class="thumbnail" />
+<div class="content">
+    <p class="meta">
+        <a href="{@home}users/{$activity['user_login']}/"><b>{$activity['user_name']|htmlspecialchars}</b></a>
+        {if $Conf->ENV->language == 'ru'}
+            добавил в друзья
+        {elseif  $Conf->ENV->language == 'fr'}
+            a ajouté un ami
+        {else}
+            added friend
+        {end}
+        {if $data->name}<a href="{@home}users/{$data.login}/">{$data.name|htmlspecialchars}</a>{end}
+    </p>
+    <small>{$activity['time']|locales::datetime}</small>
+</div>

@@ -1,0 +1,12 @@
+{$content}
+
+{if $language == 'ru'}
+Чтобы прекратить получать уведомления от 42goals, отпишитесь здесь: {$unsubscribe} 
+Вы всегда можете настроить свой профиль, контактные данные и уведомления на странице настроек: {$host}{@home}settings/
+{elseif $language == 'fr'}
+Pour cesser de recevoir des notifications par email à partir 42goals, désabonner ici: {$unsubscribe}. 
+Vous pouvez toujours revenir à votre page de paramètres pour régler votre compte, les coordonnées et préférences de courriel: {$host}{@home}settings/
+{else}
+To stop receving email notifications from 42goals, unsubscribe here: {$unsubscribe}. 
+You can always go to your settings page to adjust your account, contact info, and email preferences: {$host}{@home}settings/
+{end}

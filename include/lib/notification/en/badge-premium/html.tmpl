@@ -1,0 +1,24 @@
+<table width="100%" align="center" style="border-collapse:collapse;" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td colspan="2">
+            {email-tag tag="p"}
+                Hello {$user['name']},<br />
+                Congrats! You've just received the "Premium" badge!
+            {/email-tag}
+        </td>
+    </tr>
+    <tr>
+        <td width="120" align="center">
+            <img src="{$host}{@img}email/premium-big.png" width="100" height="100" />
+        </td>
+        <td>
+            {email-tag tag="p"}Premium - you supported 42goals!{/email-tag}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            {email-tag tag="p"}Check your profile: <a href="{$host}{@home}users/{$user['login']}/" target="_blank">{$host}{@home}users/{$user['login']}/</a>{/email-tag}
+            {email-tag tag="p"}- 42goals Team{/email-tag}
+        </td>
+    </tr>
+</table>

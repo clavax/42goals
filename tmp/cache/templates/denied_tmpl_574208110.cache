@@ -1,0 +1,4 @@
+<div class="fix-width">
+    <h2>Access for <?php echo htmlspecialchars($app['title'])?> is denied!</h2>
+</div>
+    

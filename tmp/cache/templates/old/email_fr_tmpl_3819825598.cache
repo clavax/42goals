@@ -1,0 +1,8 @@
+Bonjour, <?php echo (isset($data['name']) ? $data['name'] : '')?>
+!
+Pour terminer l'inscription, suivez le lien: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/registration/<?php echo (isset($code) ? $code : '')?>
+/<?php echo (isset($premium) ? $premium : '')?>
+
+-
+L'équipe 42goals
+http://fr.42goals.com

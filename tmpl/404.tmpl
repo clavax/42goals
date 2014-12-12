@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            {if $Conf->URL->self == $Conf->URL->home}
+                {if isset($page_title)}{$page_title}{else}{~site_title}{end}
+            {else}
+                {if isset($page_title)}{$page_title}: {end}{~site_title}
+            {end}
+        </title>
+        <link rel="shortcut icon" href="{@main}favicon.ico" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="{~site_keywords}" /> 
+        <meta name="description" content="{~site_description}" />
+        {if $Conf->CNF->site->local}
+        {js packed="no" getsession="no" /}
+        {css packed="no" /}
+        {else}
+        {js packed="yes" getsession="no" /}
+        {css packed="yes" /}
+        {end}
+    </head>
+    <body{if $page_id} id="{$page_id}"{end}>
+        <div id="wrapper">
+            <!--[if lt IE 7]>
+            <div id="ie-warning">The version of your browser is not fully supported. Please, consider <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">upgrading to a newer version</a>.</div>
+            <![endif]-->
+            <div id="header">
+                <h1 id="logo">
+                    {if $Conf->URL->this == $Conf->URL->home}
+                    <img src="{@img}site/logo.png" alt="42goals" />
+                    <span>{~site_slogan}</span>
+                    {else}
+                    <a href="{@home}"><img src="{@img}site/logo.png" alt="42goals" /></a>
+                    {end}
+                </h1>
+                {if Access::loggedIn()}
+                <div id="userbox">
+                    <b>{$Conf.ENV.user.name}</b>
+                    <a href="#logout" onclick="Auth.logout(); return false;" class="exit"><img src="{@img}site/exit.png" alt="Logout" /></a>
+                    <ul>
+                        <li><a href="{@home}goals/">{~Goals}</a></li>
+                        <li><a href="{@home}settings/">{~Settings}</a></li>
+                    </ul>
+                </div>
+                {else}
+                <div id="userbox">
+                    <a href="{@home}goals/">{~Sign_in}</a>
+                </div>
+                {end}
+            </div>
+            <div id="content">
+            {$content}
+            </div>
+        </div>
+        <div id="footer">
+            <p id="credits">
+                &copy; <a href="http://42goals.com">{~owner}</a>, 2010
+                <br />
+                {~Design_by} <a href="http://emuravjev.ru">{~designer}</a>
+            </p>
+            {bottom-menu /}
+        </div>
+    {block type="counters" /}
+    </body>
+</html>

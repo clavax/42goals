@@ -1,0 +1,22 @@
+<script type="text/javascript">
+Data = {};
+Data.today = {$today|json::encode};
+Data.goals = {$goals|json::encode_array};
+Data.charts = {$charts|json::encode_array};
+Data.data = {$data|json::encode};
+Data.plan = {$plan|json::encode};
+</script>
+{block type="chartlib" /}
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=$user /} 
+        <div id="me-layout"></div>
+    </div>
+</div>
+{/block}

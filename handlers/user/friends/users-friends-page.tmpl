@@ -1,0 +1,37 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=$user /}
+
+        {if Access::loggedIn() && $user['id'] == $Conf->ENV->UID}
+        <p id="find-friends"><a href="{@home}users/" class="button"><span><span>{~Find_friends}</span></span></a></p>
+    
+            {if isset($user['requests_in']) && !empty($user['requests_in'])}
+            <h2 class="border">{~Requests_in}</h2>
+                {users-list users=$user['requests_in'] /}
+            {end}
+    
+            {if isset($user['requests_out']) && !empty($user['requests_out'])}
+            <h2 class="border">{~Requests_out}</h2>
+                {users-list users=$user['requests_out'] /}
+            {end}
+    
+            {if isset($user['friends']) && !empty($user['friends'])}
+            <h2 class="border">{~Your_friends}</h2>
+                {users-list users=$user['friends'] /}
+            {end}
+        {else}
+            {if isset($user['friends']) && !empty($user['friends'])}
+                {users-list users=$user['friends'] /}
+            {else}
+                <p class="empty-message">No friends :(</p>
+            {end}
+        {end}
+    </div>
+</div>
+{/block}

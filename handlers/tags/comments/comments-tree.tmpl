@@ -1,0 +1,18 @@
+{foreach $comments as $comment}
+<li id="comment-{$comment['id']}">
+    <img src="{if $comment['user']['thumbnail']}{@userpics}{$comment['user']['thumbnail']}{else}{@img}site/no-thumbnail.png{end}" class="userpic" />
+    <div class="comment">
+        <b><a href="{@home}users/{$comment['user']['login']}/">{$comment['user']['name']}</a></b>
+        <div class="text">{$comment['text']|htmlspecialchars}</div>
+        <div class="meta">
+            <small>{$comment['date']|locales::datetime}</small>
+            {if Access::loggedIn()}<a href="#reply-{$comment['id']}" class="script">{~reply}</a>{end}
+        </div>
+    </div>
+    {if $comment['replies']}
+    <ul>
+    {$comment['replies']|CommentsTag::buildTree}
+    </ul>
+    {end}
+</li>
+{end}

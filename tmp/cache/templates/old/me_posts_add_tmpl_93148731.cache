@@ -1,0 +1,55 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=\$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=\$user /}
+        <form action="<?php echo (\$Conf->URL->has('home') ? \$Conf->URL->{"home"} : 'home')?>api/posts/" id="me-post-form" method="post" onsubmit="Posts.submit(this); return false;">
+            <fieldset>
+                <ul class="fields">
+                    <li>
+                        <label for="post-type"><?php echo (\$Conf->LNG->has('Share_a') ? \$Conf->LNG->{"Share_a"} : 'Share_a')?></label>
+                        <select id="post-type" name="data[type]" onchange="Posts.setType(this.value);">
+                            <option value="post"><?php echo (\$Conf->LNG->has('share_post') ? \$Conf->LNG->{"share_post"} : 'share_post')?></option>
+                            <option value="link"><?php echo (\$Conf->LNG->has('share_link') ? \$Conf->LNG->{"share_link"} : 'share_link')?></option>
+                        </select>
+                        <label for="post-community"><?php echo (\$Conf->LNG->has('share_in') ? \$Conf->LNG->{"share_in"} : 'share_in')?></label>
+                        {select id="post-community" name="data[community]" options=\$communities value=\$_REQUEST['community'] /}
+                    </li>
+                    <li class="hidden">
+                        <label for="post-url" class="block"><?php echo (\$Conf->LNG->has('URL') ? \$Conf->LNG->{"URL"} : 'URL')?>:</label>
+                        <input name="data[url]" id="post-url" />
+                    </li>
+                    <li>
+                        <label for="post-title" class="block"><?php echo (\$Conf->LNG->has('Title') ? \$Conf->LNG->{"Title"} : 'Title')?>:</label>
+                        <input name="data[title]" id="post-title" />
+                    </li>
+                    <li>
+                        <label for="post-text" class="block"><?php echo (\$Conf->LNG->has('Text') ? \$Conf->LNG->{"Text"} : 'Text')?>:</label>
+                        <textarea name="data[text]" id="post-text"></textarea>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <button class="button hidden" type="button" id="post-fetch" onclick="Posts.fetch(this.form)"><span><span><?php echo (\$Conf->LNG->has('Fetch') ? \$Conf->LNG->{"Fetch"} : 'Fetch')?></span></span></button>
+                    <button class="button" type="submit" id="post-save"><span><span><?php echo (\$Conf->LNG->has('Save') ? \$Conf->LNG->{"Save"} : 'Save')?></span></span></button>
+                    <span class="or"><?php echo (\$Conf->LNG->has('or') ? \$Conf->LNG->{"or"} : 'or')?></span>
+                    <a href="<?php echo (\$Conf->URL->has('home') ? \$Conf->URL->{"home"} : 'home')?>users/<?php echo (isset(\$Conf->ENV->user->login) ? \$Conf->ENV->user->login : 'Conf->ENV->user->login')?>
+/posts/"><?php echo (\$Conf->LNG->has('go_to_posts') ? \$Conf->LNG->{"go_to_posts"} : 'go_to_posts')?></a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+block
+);?>

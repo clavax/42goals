@@ -1,0 +1,19 @@
+<?php echo (isset($content) ? $content : '')?>
+
+
+<?php if ($language == 'ru') {?>
+Чтобы прекратить получать уведомления от 42goals, отпишитесь здесь: <?php echo (isset($unsubscribe) ? $unsubscribe : '')?>
+ 
+Вы всегда можете настроить свой профиль, контактные данные и уведомления на странице настроек: <?php echo (isset($host) ? $host : '')?>
+<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/
+<?php } elseif ($language == 'fr') {?>
+Pour cesser de recevoir des notifications par email à partir 42goals, désabonner ici: <?php echo (isset($unsubscribe) ? $unsubscribe : '')?>
+. 
+Vous pouvez toujours revenir à votre page de paramètres pour régler votre compte, les coordonnées et préférences de courriel: <?php echo (isset($host) ? $host : '')?>
+<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/
+<?php } else {?>
+To stop receving email notifications from 42goals, unsubscribe here: <?php echo (isset($unsubscribe) ? $unsubscribe : '')?>
+. 
+You can always go to your settings page to adjust your account, contact info, and email preferences: <?php echo (isset($host) ? $host : '')?>
+<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/
+<?php }?>

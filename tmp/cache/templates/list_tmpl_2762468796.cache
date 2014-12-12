@@ -1,0 +1,11 @@
+<?php $Template->tag("block", array('type' => <<<d900bc885d7553375aec470198a9514f3
+sky
+d900bc885d7553375aec470198a9514f3
+), <<<block
+
+    <h1>42goals apps</h1>
+    <p>As soon as we have some critic mass of 42goals apps, we will list them here.</p>
+    <p>Meanwhile, you may <a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?>add/">add or edit</a> yours.</p>
+
+block
+);?>

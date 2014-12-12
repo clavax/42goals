@@ -1,0 +1,41 @@
+<script type="text/javascript">
+Data = {};
+Data.today = {$today|json::encode};
+Data.goals = {$goals|json::encode_array};
+Data.tabs = {$tabs|json::encode_array};
+Data.icons = {$icons|json::encode};
+Data.categories = {$categories|json::encode_array};
+Data.templates = {$templates|json::encode_array};
+Data.data = {$data|json::encode};
+Data.plan = {$plan|json::encode};
+</script>
+{block type="chartlib" /}
+{block type="sky" wide="true"}
+<div id="tabs">
+    <p id="all-goals"><a href="#all-goals" class="script">{~Show_all_goals}</a></p>
+    <div id="goals-tabs"></div>
+    {if $Conf->ENV->user->valid}
+    <a href="#new-tab" id="add-tab" onclick="Tabs.create(); return false;">+</a>
+    {else}
+    <a href="#new-tab" onclick="return show_premium();" id="add-tab">+</a>
+{*     <a href="{@home}premium/" onclick="return show_premium();" id="add-tab"><img src="{@img}site/premium.png" alt="*" title="{~Premium_feature}" /></a> *}
+    {end}
+{if $Conf->ENV->user->valid}
+<a href="{@this}export/" class="script">{~Export}</a>  
+{else}
+<a href="{@home}premium/" onclick="return show_premium();" class="script"> {~Export}</a>
+{end}
+</div>
+{/block}
+{block type="ground" wide="true"}
+<div id="goals-wrapper">
+    <div id="goals-table">
+        <div id="frame">
+            <p class="building">{~Building_interface} ...</p>
+        </div>
+        <p id="goal-add">
+            <a href="#add-goal" class="script" onclick="Goals.Add.setData(); return false;">{~Add_goal}</a>
+        </p>
+    </div>
+</div>
+{/block}

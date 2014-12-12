@@ -1,0 +1,32 @@
+<script type="text/javascript">
+Data = {};
+Data.today = {$today|json::encode};
+Data.start = {$start|json::encode};
+Data.goals = {$goals|json::encode_array};
+Data.data = {$data|json::encode};
+Data.icons = {$icons|json::encode};
+</script>
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=$user /}
+        <div id="me-goals-list-wrap">
+            <div id="me-goals-list"></div>
+            <button type="button" class="button" onclick="Me.doneGoals()"><span><span>{~Done}</span></span></button>
+        </div>
+        <div id="me-goals-table-wrap">
+            <div id="me-goals"></div>
+            <p id="me-goals-move">
+                <a href="{@this}{$prev_start}/" class="prev">&larr; {$prev_week}</a>
+                <a href="{@this}{$next_start}/" class="next">{$next_week} &rarr;</a>
+            </p>
+        </div>
+        {comments thread_type=$thread_type thread_id=$thread_id /}
+    </div>
+</div>
+{/block}

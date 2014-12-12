@@ -1,0 +1,56 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="badges-page-wrap">
+    <div class="wrap">
+        <h1>Badges</h1>
+        <p>Check your achievements and earn badges.</p>
+        <table id="badges-table">
+            <tbody>
+                <tr>
+                    <th><img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>badges/newbie<?php if (Access::loggedIn() && !in_array('newbie', \$badges)) {?>-off<?php }?>.png" /></th>
+                    <td>
+                        <h2>Newbie</h2>
+                        <p>Your first badge, way to go!</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>badges/diligent<?php if (Access::loggedIn() && !in_array('diligent', \$badges)) {?>-off<?php }?>.png" /></th>
+                    <td>
+                        <h2>Diligent</h2>
+                        <p>First week checked, keep going.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>badges/progressive<?php if (Access::loggedIn() && !in_array('progressive', \$badges)) {?>-off<?php }?>.png" /></th>
+                    <td>
+                        <h2>Progressive</h2>
+                        <p>You have progressed your first month.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>badges/social<?php if (Access::loggedIn() && !in_array('social', \$badges)) {?>-off<?php }?>.png" /></th>
+                    <td>
+                        <h2>Social</h2>
+                        <p>You added 3 friends.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>badges/premium<?php if (Access::loggedIn() && !in_array('premium', \$badges)) {?>-off<?php }?>.png" /></th>
+                    <td>
+                        <h2>Premium</h2>
+                        <p>You supported 42goals.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+block
+);?>

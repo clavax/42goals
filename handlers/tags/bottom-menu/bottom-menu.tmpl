@@ -1,0 +1,14 @@
+<ul id="bottom-menu">
+    {foreach $menu as $item}
+    <li>
+        {if $item['url'] != $this->URL->this}
+        <a href="{$item['url']}">{$item['title']}</a>
+        {else}
+        <b>{$item['title']}</b>
+        {end}
+    </li>
+    {end}
+    <li><a href="http://getsatisfaction.com/42goals">{~Feedback}</a></li>
+    {*<li><a href="http://twitter.com/42goals"><img src="{@img}site/twitter.png" /></a></li>
+    <li><a href="http://facebook.com/42goals"><img src="{@img}site/facebook.png" /></a></li>*}
+</ul>

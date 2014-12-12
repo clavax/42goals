@@ -1,0 +1,18 @@
+
+<?php if ($posts) {?>
+<div id="blogroll">
+    <h2><?php echo ($Conf->LNG->has('Our_blog') ? $Conf->LNG->{"Our_blog"} : 'Our_blog')?></h2>
+    <ul>
+        <?php foreach ($posts as $post) {?>
+        <li>
+            <p><a href="<?php echo (isset($post['link']) ? $post['link'] : '')?>
+"><?php echo (isset($post['title']) ? $post['title'] : '')?>
+</a></p>
+            <small><?php echo (isset($post['time']) ? $post['time'] : '')?>
+</small>
+        </li>
+        <?php }?>
+    </ul>
+</div>
+<?php }?>
+

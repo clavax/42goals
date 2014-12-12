@@ -1,0 +1,21 @@
+<img src="{if $activity['user_thumbnail']}{@userpics}{$activity['user_thumbnail']}{else}{@img}site/no-thumbnail.png{end}" class="thumbnail" />
+<div class="content">
+    <p class="meta">
+        <a href="{@home}users/{$activity['user_login']}/"><b>{$activity['user_name']|htmlspecialchars}</b></a>
+        {if $Conf->ENV->language == 'ru'} 
+            добавил(а) {if $data->type == 'link'}ссылку{else}пост{end} <a href="{@home}{$data.path}">{$data.title|htmlspecialchars}</a>
+            {if $activity['community_name']} в <a href="{@home}communities/{$activity['community_name']|htmlspecialchars}/">{$activity['community_title']|htmlspecialchars}</a>{end}
+        {elseif $Conf->ENV->language == 'fr'}
+            a ajouté un {if $data->type == 'link'}lien{else}article{end} <a href="{@home}{$data.path}">{$data.title|htmlspecialchars}</a>
+            {if $activity['community_name']} dans <a href="{@home}communities/{$activity['community_name']|htmlspecialchars}/">{$activity['community_title']|htmlspecialchars}</a>{end}
+        {else}
+            added a {if $data->type == 'link'}link{else}post{end} <a href="{@home}{$data.path}">{$data.title|htmlspecialchars}</a>
+            {if $activity['community_name']} in <a href="{@home}communities/{$activity['community_name']|htmlspecialchars}/">{$activity['community_title']|htmlspecialchars}</a>{end}
+        {end}
+    </p>
+    <blockquote class="preview">
+        {if $data->image}<img src="{$data.image|htmlspecialchars}" />{end} 
+        {$data.preview}
+    </blockquote>
+    <small>{$activity['time']|locales::datetime}</small>
+</div>

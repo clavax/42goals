@@ -1,0 +1,20 @@
+﻿こんにちは <?php echo (isset($user['name']) ? $user['name'] : '')?>
+,
+
+<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+から新しいコメントを受け取りました:
+
+"<?php echo (isset($data['text']) ? $data['text'] : '')?>
+"
+
+コメント表示: <?php echo (isset($host) ? $host : '')?>
+<?php echo (isset($url) ? $url : '')?>
+#comment-<?php echo (isset($data['id']) ? $data['id'] : '')?>
+
+コメント返信: <?php echo (isset($host) ? $host : '')?>
+<?php echo (isset($url) ? $url : '')?>
+#reply-<?php echo (isset($data['id']) ? $data['id'] : '')?>
+
+--
+42goalsチーム
+http://42goals.com

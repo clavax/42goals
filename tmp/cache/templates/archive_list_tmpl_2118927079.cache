@@ -1,0 +1,13 @@
+<?php echo '<script'?> type="text/javascript">
+window.Data = {};
+Data.today = <?php echo json::encode($today)?>;
+Data.goals = <?php echo json::encode_array($goals)?>;
+</script>
+
+<div id="form-container">
+    <div class="wrap">
+        <h1><?php echo ($Conf->LNG->has('Archive') ? $Conf->LNG->{"Archive"} : 'Archive')?></h1>
+        <div id="archive-list"></div>
+        <div id="archive-empty"><?php echo ($Conf->LNG->has('No_archived_goals') ? $Conf->LNG->{"No_archived_goals"} : 'No_archived_goals')?></div>
+    </div>
+</div>

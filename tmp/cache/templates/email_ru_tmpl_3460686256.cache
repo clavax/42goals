@@ -1,0 +1,9 @@
+Привет, <?php echo (isset($data['name']) ? $data['name'] : '')?>
+!
+Вы указали этот адрес в настройках.
+Чтобы подтвердить новый адрес, перейдите по ссылке: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/settings/<?php echo (isset($type) ? $type : '')?>
+-<?php echo (isset($code) ? $code : '')?>
+/
+--
+Команда 42гола
+http://ru.42goals.com

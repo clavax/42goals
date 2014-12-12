@@ -1,0 +1,26 @@
+Hello, {$user['name']}!
+We have received your payment for the premium account subscription.
+Below you may find the invoice.
+
+Distributed by:
+    42goals (http://42goals.com)
+
+Contents of your purchase:
+    Order number : {$order['order_number']}
+    Product Description : {$order['product_description']}
+    Quantity : 1
+    Handling Fee : 0.00
+
+Total: {$order['total']} (USD)
+
+Billing information:
+    {$order['card_holder_name']}
+    {$order['email']}
+    {$order['phone']}
+    {$order['street_address']} {$order['street_address2']}
+    {$order['city']}, {$order['state']} {$order['zip']} ({$order['country']})
+    
+Customer service: info@42goals.com
+--
+The 42goals team
+http://42goals.com

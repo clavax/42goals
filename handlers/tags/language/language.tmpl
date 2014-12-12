@@ -1,0 +1,7 @@
+<div id="language">
+{foreach $languages as $name => $language}
+    {if $name != $Conf->ENV->language}
+<a href="http://{$language.domain}/{$query}"><img src="{@img}site/{$name}.png" alt="{$name}" title="{$language.in_title}" /> {$language.in_title}</a>
+    {end}
+{end}
+</div>

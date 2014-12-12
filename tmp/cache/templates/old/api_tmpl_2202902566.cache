@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            <?php if ($Conf->URL->self == $Conf->URL->home) {?>
+                <?php if (isset($page_title)) {?><?php echo (isset($page_title) ? $page_title : '')?>
+<?php } else {?><?php echo ($Conf->LNG->has('site_title') ? $Conf->LNG->{"site_title"} : 'site_title')?><?php }?>
+            <?php } else {?>
+                <?php if (isset($page_title)) {?><?php echo (isset($page_title) ? $page_title : '')?>
+: <?php }?><?php echo ($Conf->LNG->has('site_title') ? $Conf->LNG->{"site_title"} : 'site_title')?>
+            <?php }?>
+        </title>
+        <link rel="shortcut icon" href="<?php echo ($Conf->URL->has('main') ? $Conf->URL->{"main"} : 'main')?>favicon.ico" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="<?php echo ($Conf->LNG->has('site_keywords') ? $Conf->LNG->{"site_keywords"} : 'site_keywords')?>" /> 
+        <meta name="description" content="<?php echo ($Conf->LNG->has('site_description') ? $Conf->LNG->{"site_description"} : 'site_description')?>" />
+        <?php if ($Conf->CNF->site->local) {?>
+        <?php $Template->tag("js", array('packed' => <<<d7fa3b767c460b54a2be4d49030b349c7
+no
+d7fa3b767c460b54a2be4d49030b349c7
+,'getsession' => <<<d7fa3b767c460b54a2be4d49030b349c7
+no
+d7fa3b767c460b54a2be4d49030b349c7
+));?>
+        <?php $Template->tag("css", array('packed' => <<<d7fa3b767c460b54a2be4d49030b349c7
+no
+d7fa3b767c460b54a2be4d49030b349c7
+));?>
+        <?php } else {?>
+        <?php $Template->tag("js", array('packed' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+,'getsession' => <<<d7fa3b767c460b54a2be4d49030b349c7
+no
+d7fa3b767c460b54a2be4d49030b349c7
+));?>
+        <?php $Template->tag("css", array('packed' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+));?>
+        <?php }?>
+        <link rel="stylesheet" type="text/css" href="<?php echo ($Conf->URL->has('css') ? $Conf->URL->{"css"} : 'css')?>common/api.css" />
+    </head>
+    <body<?php if ($page_id) {?> id="<?php echo (isset($page_id) ? $page_id : '')?>
+"<?php }?>>
+        <div id="wrapper">
+            <!--[if lt IE 7]>
+            <div id="ie-warning">The version of your browser is not fully supported. Please, consider <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">upgrading to a newer version</a>.</div>
+            <![endif]-->
+            <div id="header">
+                <h1 id="logo">
+                    <?php if ($Conf->URL->this == $Conf->URL->home) {?>
+                    <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/logo.png" alt="42goals" />
+                    <?php } else {?>
+                    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/logo.png" alt="42goals" /></a>
+                    <?php }?>
+                    <span><?php echo ($Conf->LNG->has('for_developers') ? $Conf->LNG->{"for_developers"} : 'for_developers')?></span>
+                </h1>
+            </div>
+            <div id="content">
+            <?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+), <<<block
+<?php echo (isset(\$content) ? \$content : '')?>
+
+block
+);?>
+            </div>
+        </div>
+        <div id="footer">
+            <p id="credits">
+                &copy; <a href="http://42goals.com"><?php echo ($Conf->LNG->has('owner') ? $Conf->LNG->{"owner"} : 'owner')?></a>, 2010
+            </p>
+        </div>
+    <?php $Template->tag("block", array('type' => <<<d0976bdd439161deff5797776ec6873ad
+counters
+d0976bdd439161deff5797776ec6873ad
+));?>
+    </body>
+</html>

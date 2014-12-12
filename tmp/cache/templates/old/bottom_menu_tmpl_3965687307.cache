@@ -1,0 +1,16 @@
+<ul id="bottom-menu">
+    <?php foreach ($menu as $item) {?>
+    <li>
+        <?php if ($item['url'] != $this->URL->this) {?>
+        <a href="<?php echo (isset($item['url']) ? $item['url'] : '')?>
+"><?php echo (isset($item['title']) ? $item['title'] : '')?>
+</a>
+        <?php } else {?>
+        <b><?php echo (isset($item['title']) ? $item['title'] : '')?>
+</b>
+        <?php }?>
+    </li>
+    <?php }?>
+    <li><a href="http://getsatisfaction.com/42goals"><?php echo ($Conf->LNG->has('Feedback') ? $Conf->LNG->{"Feedback"} : 'Feedback')?></a></li>
+    
+</ul>

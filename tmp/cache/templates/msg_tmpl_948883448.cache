@@ -1,0 +1,2 @@
+﻿<img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>badges/diligent.png" />
+<span>あなたは、今まさに”勤勉”バッジを授与しました！</span>

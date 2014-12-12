@@ -1,0 +1,16 @@
+<div class="fix-width">
+    <h2>Authorize application: <?php echo htmlspecialchars($app['title'])?></h2>
+    <p>
+    </p>
+    
+    <form id="authorize-form" class="common-form" action="<?php echo ($Conf->URL->has('this') ? $Conf->URL->{"this"} : 'this')?>authorize/<?php echo (isset($Conf->ENV->token) ? $Conf->ENV->token : 'Conf->ENV->token')?>
+/" method="post">
+        <fieldset>
+            <div class="submit">
+                <button type="submit" id="deny-button" name="deny"><?php echo ($Conf->LNG->has('Deny') ? $Conf->LNG->{"Deny"} : 'Deny')?></button>
+                <button type="submit" id="allow-button" name="allow"><?php echo ($Conf->LNG->has('Allow') ? $Conf->LNG->{"Allow"} : 'Allow')?></button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+    

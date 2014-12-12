@@ -1,0 +1,8 @@
+<div id="feed">
+    <a id="feed-indicator" href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($Conf->ENV->user->login) ? $Conf->ENV->user->login : 'Conf->ENV->user->login')?>
+/feed/">
+        <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/feed.png" alt="feed" />
+        <?php if ($new_feeds) {?><small><?php echo (isset($new_feeds) ? $new_feeds : '')?>
+</small><?php }?>
+    </a>
+</div>

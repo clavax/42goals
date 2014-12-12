@@ -1,0 +1,2 @@
+<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+ хочет добавить вас в друзья

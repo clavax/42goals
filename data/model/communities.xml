@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<model>
+	<table type="primary">
+		<field name="id"></field>
+		<field name="user"></field>
+		<field name="title"></field>
+		<field name="name"></field>
+		<field name="picture"></field>
+		<field name="thumbnail"></field>
+		<field name="overview"></field>
+		<field name="description"></field>
+		<field name="post_permission"></field>
+		<field name="language"></field>
+	</table>
+</model>

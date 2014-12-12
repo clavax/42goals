@@ -1,0 +1,80 @@
+{block type="ground" loose="yes"}
+<div id="users-search">
+    <div class="wrap">
+        <ul id="me-menu">
+        {if isset($response['users'])}
+            <li><a href="{@this}">{~All_users}</a></li>
+            <li class="current">
+                <img src="{@img}site/find.png" />
+                <b>{~Search}</b>
+            </li>
+        {else}
+            <li class="current"><b>{~All_users}</b></li>
+        {end}
+            <li>
+                <img src="{@img}site/globe.png" />
+                <a href="{@this}location/">{~By_location}</a>
+            </li>
+        </ul>
+        
+        <form id="users-search-form" action="{@self}" method="get">
+            <fieldset>
+                <div>
+                    <input name="q" value="{if isset($query)}{$query|htmlspecialchars}{end}" />
+                    <button type="submit" class="button"><span><span>{~Search}</span></span></button>
+                </div>
+            </fieldset>
+        </form>
+        
+        {if isset($response['users'])}
+        <h2>{~Search_results}</h2>
+            {users-list users=$response['users'] /}
+        
+        {if count($response['pages']) > 1}
+        <ul class="paging">
+            {foreach $response['pages'] as $p => $page}
+            <li>
+                {if $p == $current_page}
+                <b>{$page}</b>
+                {else}
+                <a href="{@this}?q={$query|htmlspecialchars}{if $p > 1}&amp;p={$p}{end}">{$page}</a>
+                {end}
+            </li>
+            {end}
+        </ul>
+        {end}
+        
+        {end}
+        
+        {if isset($near_you) && !empty($near_you)}
+        <h2>{~People_near_you}</h2>
+            {users-list users=$near_you /}
+        {end}
+        
+        {if isset($similar) && !empty($similar)}
+        <h2>{~Similar_to_you}</h2>
+            {users-list users=$similar /}
+        {end}
+        
+        {if isset($recent_users) && !empty($recent_users)}
+        <h2>{~Recent_users}</h2>
+            {users-list users=$recent_users /}
+
+        {if count($pages) > 1}
+        <ul class="paging">
+            {foreach $pages as $p => $page}
+            <li>
+                {if $p == $current_page}
+                <b>{$page}</b>
+                {else}
+                <a href="{@this}{if $p > 1}p{$p}/{end}">{$page}</a>
+                {end}
+            </li>
+            {end}
+        </ul>
+        {end}
+        
+        {end}
+    </div>
+</div>
+{/block}

@@ -1,0 +1,18 @@
+<script type="text/javascript">
+Data = {};
+Data.templates = {$templates|json::encode_array};
+Data.icons = {$icons|json::encode};
+Data.categories = {$categories|json::encode_array};
+</script>
+<div id="categories">
+    <p id="all-templates"><a href="#all-templates" class="script">Show all templates</a></p>
+    <div id="templates-categories"></div>
+    <a href="#new-category" id="add-category" onclick="Categories.create(); return false;">+</a>
+</div>
+<div id="templates-wrapper">
+    <div id="templates-list">Building interface ...</div>
+</div>
+<p id="template-add">
+    <img src="{@img}site/goal.png" alt="" />
+    <a href="#add-template" class="script" onclick="Templates.Form.set(); return false;">Add a new template</a>
+</p>

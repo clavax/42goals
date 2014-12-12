@@ -1,0 +1,95 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="users-search">
+    <div class="wrap">
+        <ul id="me-menu">
+        <?php if (isset(\$response['users'])) {?>
+            <li><a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?>"><?php echo (\$Conf->LNG->has('All_users') ? \$Conf->LNG->{"All_users"} : 'All_users')?></a></li>
+            <li class="current">
+                <img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>site/find.png" />
+                <b><?php echo (\$Conf->LNG->has('Search') ? \$Conf->LNG->{"Search"} : 'Search')?></b>
+            </li>
+        <?php } else {?>
+            <li class="current"><b><?php echo (\$Conf->LNG->has('All_users') ? \$Conf->LNG->{"All_users"} : 'All_users')?></b></li>
+        <?php }?>
+            <li>
+                <img src="<?php echo (\$Conf->URL->has('img') ? \$Conf->URL->{"img"} : 'img')?>site/globe.png" />
+                <a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?>location/"><?php echo (\$Conf->LNG->has('By_location') ? \$Conf->LNG->{"By_location"} : 'By_location')?></a>
+            </li>
+        </ul>
+        
+        <form id="users-search-form" action="<?php echo (\$Conf->URL->has('self') ? \$Conf->URL->{"self"} : 'self')?>" method="get">
+            <fieldset>
+                <div>
+                    <input name="q" value="<?php if (isset(\$query)) {?><?php echo htmlspecialchars(\$query)?><?php }?>" />
+                    <button type="submit" class="button"><span><span><?php echo (\$Conf->LNG->has('Search') ? \$Conf->LNG->{"Search"} : 'Search')?></span></span></button>
+                </div>
+            </fieldset>
+        </form>
+        
+        <?php if (isset(\$response['users'])) {?>
+        <h2><?php echo (\$Conf->LNG->has('Search_results') ? \$Conf->LNG->{"Search_results"} : 'Search_results')?></h2>
+            {users-list users=\$response['users'] /}
+        
+        <?php if (count(\$response['pages']) > 1) {?>
+        <ul class="paging">
+            <?php foreach (\$response['pages'] as \$p => \$page) {?>
+            <li>
+                <?php if (\$p == \$current_page) {?>
+                <b><?php echo (isset(\$page) ? \$page : '')?>
+</b>
+                <?php } else {?>
+                <a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?>?q=<?php echo htmlspecialchars(\$query)?><?php if (\$p > 1) {?>&amp;p=<?php echo (isset(\$p) ? \$p : '')?>
+<?php }?>"><?php echo (isset(\$page) ? \$page : '')?>
+</a>
+                <?php }?>
+            </li>
+            <?php }?>
+        </ul>
+        <?php }?>
+        
+        <?php }?>
+        
+        <?php if (isset(\$near_you) && !empty(\$near_you)) {?>
+        <h2><?php echo (\$Conf->LNG->has('People_near_you') ? \$Conf->LNG->{"People_near_you"} : 'People_near_you')?></h2>
+            {users-list users=\$near_you /}
+        <?php }?>
+        
+        <?php if (isset(\$similar) && !empty(\$similar)) {?>
+        <h2><?php echo (\$Conf->LNG->has('Similar_to_you') ? \$Conf->LNG->{"Similar_to_you"} : 'Similar_to_you')?></h2>
+            {users-list users=\$similar /}
+        <?php }?>
+        
+        <?php if (isset(\$recent_users) && !empty(\$recent_users)) {?>
+        <h2><?php echo (\$Conf->LNG->has('Recent_users') ? \$Conf->LNG->{"Recent_users"} : 'Recent_users')?></h2>
+            {users-list users=\$recent_users /}
+
+        <?php if (count(\$pages) > 1) {?>
+        <ul class="paging">
+            <?php foreach (\$pages as \$p => \$page) {?>
+            <li>
+                <?php if (\$p == \$current_page) {?>
+                <b><?php echo (isset(\$page) ? \$page : '')?>
+</b>
+                <?php } else {?>
+                <a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?><?php if (\$p > 1) {?>p<?php echo (isset(\$p) ? \$p : '')?>
+/<?php }?>"><?php echo (isset(\$page) ? \$page : '')?>
+</a>
+                <?php }?>
+            </li>
+            <?php }?>
+        </ul>
+        <?php }?>
+        
+        <?php }?>
+    </div>
+</div>
+
+block
+);?>

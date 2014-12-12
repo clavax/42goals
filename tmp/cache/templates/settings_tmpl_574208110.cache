@@ -1,0 +1,111 @@
+﻿<div id="form-container">
+    <div class="wrap">
+        <h1><?php echo ($Conf->LNG->has('Settings') ? $Conf->LNG->{"Settings"} : 'Settings')?></h1>
+        <?php if ($Conf->ENV->language == 'ru') {?>
+        <p>
+            Здесь вы можете изменить свою информацию. Все изменения нужно подтвердить текущим паролем.
+        </p>
+        <p>
+            Если вы хотите <strong>удалить свой аккаунт</strong>, перейдите <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/delete/">сюда</a> (вы получите уведомление перед удалением чего-либо).
+        </p>
+        <?php } elseif ($Conf->ENV->language == 'fr') {?>
+        <p>
+            Vous pouvez modifier vos informations ici. Vous devrez confirmer vos modifications avec votre mot de passe actuel.
+        </p>
+        <p>
+            Si vous souhaitez <strong>supprimer votre compte</strong>, procedez <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/delete/">ici</a> (vous recevrez une notification avant de supprimer de quelque chose).
+        </p>
+        <?php } elseif ($Conf->ENV->language == 'jp') {?>
+        <p>
+            こちらであなたの情報を変更することができます。あなたの現パスワードを用いて全ての変更を確認する必要があります。
+        </p>
+        <p>
+            <strong>あなたのアカウントを削除</strong>したい場合は、<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/delete/">こちら</a>で進めていただけます（いかなる削除をする前に通知を入手するでしょう）。
+        </p>
+        <?php } else {?>
+        <p>
+            You can modify your information here. You will need to confirm all your changes with your current password.
+        </p>
+        <p>
+            If you want to <strong>delete your account</strong>, proceed <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/delete/">here</a> (you will get a notification before deleting anything).
+        </p>
+        <?php }?>
+    </div>
+    
+    <form id="settings-form" class="common-form" action="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/settings/" method="post" onsubmit="Settings.submit(this); return false;">
+        <fieldset>
+            <h2><?php echo ($Conf->LNG->has('Personal_info') ? $Conf->LNG->{"Personal_info"} : 'Personal_info')?></h2>
+            <ul class="fields">
+                <li>
+                    <span class="label"><?php echo ($Conf->LNG->has('Login') ? $Conf->LNG->{"Login"} : 'Login')?></span>: <b><?php echo (isset($Conf->ENV->user->login) ? $Conf->ENV->user->login : 'Conf->ENV->user->login')?>
+</b>
+                </li>
+      <li>
+         <span class="label"><?php echo ($Conf->LNG->has('Sign up date') ? $Conf->LNG->{"Sign up date"} : 'Sign up date')?></span>: <b><?php if ($Conf->ENV->registered != null) {?><?php echo (isset($Conf->ENV->registered) ? $Conf->ENV->registered : 'Conf->ENV->registered')?>
+<?php } else {?>---- -- --<?php }?></b>
+      </li>
+<?php if ($Conf->ENV->paid_till!= null) {?>
+      <li>
+         <span class="label"><?php if ($Conf->ENV->user->valid) {?><?php echo ($Conf->LNG->has('Premium account expires date') ? $Conf->LNG->{"Premium account expires date"} : 'Premium account expires date')?><?php } else {?> <?php echo ($Conf->LNG->has('Premium account expired date') ? $Conf->LNG->{"Premium account expired date"} : 'Premium account expired date')?><?php }?></span>: <b><?php echo (isset($Conf->ENV->user->paid_till) ? $Conf->ENV->user->paid_till : 'Conf->ENV->user->paid_till')?>
+ </b>
+      </li>
+<?php }?>
+                <li>
+                    <label for="settings-name" class="fixed"><?php echo ($Conf->LNG->has('Name') ? $Conf->LNG->{"Name"} : 'Name')?></label>
+                    <input id="settings-name" class="text" name="data[name]" value="<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+" onchange="Registration.setLoginExample(this);" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('name_hint') ? $Conf->LNG->{"name_hint"} : 'name_hint')?></i>
+                </li>
+            </ul>
+
+            
+            <h2><?php echo ($Conf->LNG->has('Email') ? $Conf->LNG->{"Email"} : 'Email')?></h2>
+            <ul class="fields">
+                <li>
+                    <span class="label"><?php echo ($Conf->LNG->has('Current_email') ? $Conf->LNG->{"Current_email"} : 'Current_email')?></span>: <b><?php echo (isset($Conf->ENV->user->email) ? $Conf->ENV->user->email : 'Conf->ENV->user->email')?>
+</b>
+                </li>
+                <li>
+                    <label for="settings-new-email" class="fixed"><?php echo ($Conf->LNG->has('New_email') ? $Conf->LNG->{"New_email"} : 'New_email')?></label>
+                    <input id="settings-new-email" class="text" name="data[new_email]" value="<?php if ($Conf->ENV->user->new_email) {?><?php echo (isset($Conf->ENV->user->new_email) ? $Conf->ENV->user->new_email : 'Conf->ENV->user->new_email')?>
+<?php }?>" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('new_email_hint') ? $Conf->LNG->{"new_email_hint"} : 'new_email_hint')?></i>
+                </li>
+                <li>
+                    <label for="settings-receive-emails" class="fixed"><?php echo ($Conf->LNG->has('Receive_emails') ? $Conf->LNG->{"Receive_emails"} : 'Receive_emails')?></label>
+                    <input id="settings-receive-emails" type="checkbox" name="data[receive_emails]" value="1"<?php if ($Conf->ENV->user->receive_emails) {?> checked="checked"<?php }?>" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('receive_emails_hint') ? $Conf->LNG->{"receive_emails_hint"} : 'receive_emails_hint')?></i>
+                </li>
+            </ul>
+            
+            <h2><?php echo ($Conf->LNG->has('Change_password') ? $Conf->LNG->{"Change_password"} : 'Change_password')?></h2>
+            <ul class="fields">
+                <li>
+                    <label for="settings-password1" class="fixed"><?php echo ($Conf->LNG->has('New_password') ? $Conf->LNG->{"New_password"} : 'New_password')?></label>
+                    <input type="password" class="text" id="settings-password1" name="data[password1]" autocomplete="off" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('new_password_hint') ? $Conf->LNG->{"new_password_hint"} : 'new_password_hint')?></i>
+                </li>
+                <li>
+                    <label for="settings-password2" class="fixed"><?php echo ($Conf->LNG->has('Confirm_password') ? $Conf->LNG->{"Confirm_password"} : 'Confirm_password')?></label>
+                    <input type="password" class="text" id="settings-password2" name="data[password2]" autocomplete="off" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('repeat_password') ? $Conf->LNG->{"repeat_password"} : 'repeat_password')?></i>
+                </li>
+            </ul>
+            
+            <h2><?php echo ($Conf->LNG->has('Confirm_changes') ? $Conf->LNG->{"Confirm_changes"} : 'Confirm_changes')?></h2>
+            <ul class="fields">
+                <li>
+                    <input type="password" class="text" id="settings-password" name="data[password]" autocomplete="off" />
+                    <p><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/recovery/"><?php echo ($Conf->LNG->has('Forgot_password') ? $Conf->LNG->{"Forgot_password"} : 'Forgot_password')?></a></p>
+                    <button type="submit" class="submit-button button"><span><span><?php echo ($Conf->LNG->has('Save') ? $Conf->LNG->{"Save"} : 'Save')?></span></span></button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</div>
+    

@@ -1,0 +1,20 @@
+<div id="description">
+    <h2>What is 42goals?</h2>
+    <p>
+        <strong>42goals</strong> is a simple tool for tracking your daily goals and keeping a log of your daily activities.
+    </p>
+   <p><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>m/">Log in</a> to track your goals.</p>
+    <p>You can register for free on the <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>?desktop">desktop version</a> of the web-site</p>
+    <p>Here is a list of things you can do here:</p>
+    <ul>
+        <li>Observe your daily productivity</li>
+        <li>Record your work out</li>
+        <li>Quit smoking</li>
+        <li>Track your weight</li>
+        <li>Remember to take pills</li>
+        <li>Record daily expenses</li>
+        <li>Count the number of miles you've run</li>
+        <li>Restrain your coffee consumption</li>
+        <li>and many more&hellip;</li>
+    </ul>
+ </div>

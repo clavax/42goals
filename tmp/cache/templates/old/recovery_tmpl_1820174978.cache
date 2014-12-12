@@ -1,0 +1,68 @@
+﻿<div id="form-container">
+    <div class="wrap">
+        <h1>
+            <?php if ($Conf->ENV->language == 'ru') {?>
+            Забыли пароль?
+            <?php } elseif ($Conf->ENV->language == 'fr') {?>
+            Mot de passe oublie?
+            <?php } elseif ($Conf->ENV->language == 'jp') {?>
+            Forgot your password?
+            <?php } else {?>
+            Forgot your password?
+            <?php }?>
+        </h1>
+        <?php if (Access::loggedIn()) {?>
+        <p>
+            <?php if ($Conf->ENV->language == 'ru') {?>
+            Если вы забыли свой пароль, нажмите на кнопку ниже.
+            Мы пришлем на вашу эл. почту письмо с ссылкой для генерации нового пароля. 
+            <?php } elseif ($Conf->ENV->language == 'fr') {?>
+            Si vous avez oublie votre mot de passe, cliquez sur le bouton ci-dessous.
+            Nous vous enverrons un lien de confirmation sur votre email qui vous generer un nouveau mot de passe et l'envoyer a votre email.
+            <?php } elseif ($Conf->ENV->language == 'jp') {?>
+     	    あなたのパスワードをお忘れになられたのであれば、下にあるボタンを押してください。
+            新しいパスワードを生成しあなたのEメールへ送信する確認リンク付Eメールをあなたに送信します。
+            <?php } else {?>
+            If you have forgotten your password, hit the button below.
+            We will send you a confirmation link on your email that will generate you a new password and send it to your email.
+            <?php }?>
+        </p>
+        <?php } else {?>
+        <p>
+            <?php if ($Conf->ENV->language == 'ru') {?>
+            Введите адрес эл. почты и мы вышлем вам инструкции по восстановлению пароля.
+            <?php } elseif ($Conf->ENV->language == 'fr') {?>
+            Saisir votre email dans le formulaire ci-dessous et nous vous enverrons les instructions pour recuperer votre mot de passe.
+            <?php } elseif ($Conf->ENV->language == 'jp') {?>
+            下記のフォームにあなたのEメールアドレスを入力していただくと、あなたのパスワードを回復する説明を送信します。
+            <?php } else {?>
+            Input your email in the form below and we will send you instructions to recover your password.
+            <?php }?>
+        </p>
+        <?php }?>
+    </div>
+    <form id="recover-form" class="common-form" action="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/recovery/" method="post" onsubmit="Recovery.submit(this); return false;">
+        <fieldset>
+            <?php if (!Access::loggedIn()) {?>
+            <ul class="fields">
+                <li>
+                    <label for="reg-email" class="fixed"><?php echo ($Conf->LNG->has('Email') ? $Conf->LNG->{"Email"} : 'Email')?></label>
+                    <input id="reg-email" class="text" name="data[email]" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('email_recovery_hint') ? $Conf->LNG->{"email_recovery_hint"} : 'email_recovery_hint')?></i>
+                </li>
+                <li>
+                    <label for="reg-captcha" class="fixed"><?php echo ($Conf->LNG->has('Control_digits') ? $Conf->LNG->{"Control_digits"} : 'Control_digits')?></label>
+                    <input class="text small" id="reg-captcha" name="data[captcha]" />
+                    <img src="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>system/captcha/" alt="CAPTCHA" id="captcha" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('captcha_hint') ? $Conf->LNG->{"captcha_hint"} : 'captcha_hint')?></i>
+                </li>
+            </ul>
+            <?php }?>
+            <div class="submit">
+                <button type="submit" class="submit-button button"><span><span><?php echo ($Conf->LNG->has('Reset_password') ? $Conf->LNG->{"Reset_password"} : 'Reset_password')?></span></span></button>
+            </div>
+        </fieldset>
+    </form>
+</div>

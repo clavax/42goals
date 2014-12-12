@@ -1,0 +1,15 @@
+<div id="twitter">
+<?php if ($statuses) {?>
+    <ul>
+        <?php foreach ($statuses as $status) {?>
+        <li>
+            <p><?php echo TwitterTag::urlify($status['text'])?></p>
+            <small><?php echo (isset($status['time']) ? $status['time'] : '')?>
+</small>
+        </li>
+        <?php }?>
+    </ul>
+    <div class="corner"></div>
+<?php }?>
+    <a class="follow-us" href="http://twitter.com/42goals"><?php echo ($Conf->LNG->has('Follow_us') ? $Conf->LNG->{"Follow_us"} : 'Follow_us')?></a>
+</div>

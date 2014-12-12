@@ -1,0 +1,63 @@
+﻿<div id="form-container">
+    <div class="wrap">
+        <?php if ($Conf->ENV->language == 'ru') {?>
+        <h1>Удалить аккаунт</h1>
+        <p>
+            Если вы не нашли наш сервис полезным, или же по какой-либо другой причине хотите удалить свой аккаунт, используйте форму ниже.
+        </p>
+        <p>
+            При удалении аккаунта вся ваша персональная информация на сайте также будет удалена, включая ваш профиль, настройки, цели, данные по целям.
+            Вы не сможете использовать наш сервис, если снова не зарегистрируетесь.
+        </p>
+        <?php } elseif ($Conf->ENV->language == 'fr') {?>
+        <h1>Supprimer le compte</h1>
+        <p>
+            Si vous n'avez pas trouve notre service utile ou pour une raison quelconque vous souhaitez supprimer votre compte, faire en utilisant le formulaire ci-dessous.
+        </p>
+        <p>
+            Suppression du compte va supprimer toutes vos informations personnelles sur ce site, y compris votre profil, les parametres, les buts et objectifs de donnees.
+            Vous ne pouvrez pas d'utiliser notre service, sauf si vous vous inscrivez a nouveau.
+        </p>
+        <?php } elseif ($Conf->ENV->language == 'jp') {?>
+        <h1>アカウントの削除</h1>
+        <p>
+            満足のいくサービスが見つけられない、あるいは他の理由がありご自身のアカウントを削除希望されのであれば、下記のフォームを使用して行えます。
+        </p>
+        <p>
+            アカウントの削除は、本WEBサイトにあるあなたの全ての個人情報（ご自身のプロフィール・設定・目標・目標データなど）を削除することになります。
+            もう一度登録しなければ当社のサービスを受けることができません。
+        </p>
+        <?php } else {?>
+        <h2>Delete account</h2>
+        <p>
+            If you did not find our service useful or for any reason you want to delete your account, do it using the form below.
+        </p>
+        <p>
+            Deleting the account will remove all your personal information on this web-site, including your profile, settings, goals, and goals data.
+            You will not be able to use our service unless you register again. 
+        </p>
+        <?php }?>
+    </div>
+    
+    <form id="delete-form" class="common-form" action="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/settings/" method="post" onsubmit="if (this.accept.checked) {DeleteAccount.submit(this)} return false;">
+        <fieldset>
+            <?php if ($Conf->ENV->user->status == 'active') {?><h2><?php echo ($Conf->LNG->has('Confirm_changes') ? $Conf->LNG->{"Confirm_changes"} : 'Confirm_changes')?></h2><?php }?>
+            <ul class="fields">
+                <?php if ($Conf->ENV->user->status == 'active') {?>
+                <li>
+                    <input type="password" class="text" id="settings-password" name="password" autocomplete="off" />
+                    <p><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/recovery/"><?php echo ($Conf->LNG->has('Forgot_password') ? $Conf->LNG->{"Forgot_password"} : 'Forgot_password')?></a></p>
+                </li>
+                <?php }?>
+                <li>
+                    <input type="checkbox" class="checkbox" id="i-understand" name="accept" onclick="ID('delete-button').disabled = !this.checked" />
+                    <label for="i-understand" class="inline"><?php echo ($Conf->LNG->has('Accept_deleting_account') ? $Conf->LNG->{"Accept_deleting_account"} : 'Accept_deleting_account')?></label>
+                </li>
+            </ul>
+            <div class="submit">
+                <button type="submit" disabled="disabled" id="delete-button" class="button"><span><span><?php echo ($Conf->LNG->has('Delete_account_forever') ? $Conf->LNG->{"Delete_account_forever"} : 'Delete_account_forever')?></span></span></button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+    

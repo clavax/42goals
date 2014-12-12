@@ -1,0 +1,10 @@
+Здравствуйте, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+.
+
+Вы только что получили награду "Премиум"!
+Ваш профиль: <?php echo (isset($host) ? $host : '')?>
+<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($user['login']) ? $user['login'] : '')?>
+/
+--
+Команда 42гола
+http://ru.42goals.com

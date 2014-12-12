@@ -1,0 +1,8 @@
+<div class="fix-width">
+    <h2>Payment error</h2>
+    <p>
+        There has been an error while proceeding your payment. Please contact us at <a href="mailto:{$Conf.CNF.site.email}">{$Conf.CNF.site.email}</a>.
+        <br />To help us better understand the problem, please, attach (or simply copy/paste) the following info to your email:
+        <textarea id="debug-info">{$_REQUEST|describe|htmlspecialchars}</textarea>
+    </p>
+</div>

@@ -1,0 +1,41 @@
+<?php if (Access::loggedIn()) {?>
+<div id="userbox">
+    <?php if ($Conf->ENV->user->premium) {?>
+        <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>pay/">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/premium.png" alt="*" title="Premium account" />
+            <?php echo ($Conf->LNG->has('Premium_extend') ? $Conf->LNG->{"Premium_extend"} : 'Premium_extend')?>
+        </a>
+    <?php } else {?>
+        <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>pay/">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/premium.png" alt="*" title="Premium account" />
+            <?php echo ($Conf->LNG->has('Premium_upgrade') ? $Conf->LNG->{"Premium_upgrade"} : 'Premium_upgrade')?>!
+        </a>
+    <?php }?>
+    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>goals/"><?php echo ($Conf->LNG->has('Goals') ? $Conf->LNG->{"Goals"} : 'Goals')?></a>
+
+    <?php $Template->tag("feed-count", array());?>
+    
+    <?php $Template->tag("notifications", array());?>
+    
+    <div class="profile">
+        <a id="userbox-name" href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($Conf->ENV->user->login) ? $Conf->ENV->user->login : 'Conf->ENV->user->login')?>
+/">
+            <img src="<?php if ($Conf->ENV->user->thumbnail) {?><?php echo ($Conf->URL->has('userpics') ? $Conf->URL->{"userpics"} : 'userpics')?><?php echo urlencode($Conf->ENV->user->thumbnail)?><?php } else {?><?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/no-thumbnail.png<?php }?>" />
+            <?php echo htmlspecialchars(strip_tags($Conf->ENV->user->name))?> 
+        </a>
+        <ul id="userbox-menu">
+
+            <li><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($Conf->ENV->user->login) ? $Conf->ENV->user->login : 'Conf->ENV->user->login')?>
+/compare/"><?php echo ($Conf->LNG->has('Compare') ? $Conf->LNG->{"Compare"} : 'Compare')?></a></li>
+            <li><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>archive/"><?php echo ($Conf->LNG->has('Archive') ? $Conf->LNG->{"Archive"} : 'Archive')?></a></li>
+            <li><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/"><?php echo ($Conf->LNG->has('Settings') ? $Conf->LNG->{"Settings"} : 'Settings')?></a></li>
+            <li><a href="#logout" onclick="Auth.logout()"><?php echo ($Conf->LNG->has('Sign_out') ? $Conf->LNG->{"Sign_out"} : 'Sign_out')?></a></li>
+        </ul>
+    </div>
+</div>
+<?php } else {?>
+<div id="userbox">
+    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>login/<?php if ($Conf->URL->self != $Conf->URL->home) {?>?redirect=<?php echo urlencode($Conf->URL->self)?><?php }?>" class="btn button"><span><span><?php echo ($Conf->LNG->has('Sign_in') ? $Conf->LNG->{"Sign_in"} : 'Sign_in')?></span></span></a>
+    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/" class="btn button"><span><span><?php echo ($Conf->LNG->has('Register') ? $Conf->LNG->{"Register"} : 'Register')?></span></span></a>
+</div>
+<?php }?>

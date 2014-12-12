@@ -1,0 +1,53 @@
+{block type="chartlib" /}
+<div id="sky">
+    <div class="bg">
+﻿<script type="text/javascript">
+Data = {};
+Data.today = {$today|json::encode};
+Data.goals = {$goals|json::encode_array};
+Data.tabs = {$tabs|json::encode_array};
+Data.icons = {$icons|json::encode};
+Data.categories = {$categories|json::encode_array};
+Data.templates = {$templates|json::encode_array};
+Data.data = {$data|json::encode};
+Data.plan = {/* ... */};
+</script>
+        <div class="wrap">
+    <p id="demo-warning">
+        {if $Conf->ENV->language == 'ru'}
+        Эта страница всего-лишь демо. Вы можете тестировать все возможности, но никакие изменения не будут сохранены.
+        <br /><a href="{@home}registration/">Зарегистрируйтесь</a>, чтобы сохранить свои данные и задать собственные цели.
+        {elseif $Conf->ENV->language == 'fr'}
+        Cette page n'est qu'une demo. Vous pouvez tester autant que vous voulez, mais tous vos modifications ne seront pas sauvegardees. 
+        <br />Veuillez <a href="{@home}registration/">vous inscrire</a> pour enregistrer vos informations et creer vos objectifs.
+	    {elseif $Conf->ENV->language == 'jp'}
+        本ページは、デモのみです。お試しになりたい分だけお使いになれますが、全てのあなたの変更は保存されません。
+        <br />あなたの情報を保存しご自身の目標を設定可能にするには、<a href="{@home}registration/">登録</a>してください。
+        {else}
+        This page is only a demo. You can play with it as much as you want, but all your modification will not be saved. 
+        <br />Please, <a href="{@home}registration/">register</a>  to be able to save your information and create your own goals.
+        {end}
+    </p>
+    <div id="tabs">
+        <p id="all-goals"><a href="#all-goals" class="script">{~Show_all_goals}</a></p>
+        <div id="goals-tabs"></div>
+        <a href="#new-tab" id="add-tab" onclick="Tabs.create(); return false;">+</a>
+<a href="{@this}export/" class="script">{~Export}</a> 
+    </div>
+        </div>
+    </div>
+</div>
+<div id="ground">
+    <div class="deco"></div>
+<div id="goals-wrapper">
+    <div id="goals-table">
+        <div id="frame">
+            {~Building_interface} ...
+        </div>
+        <p id="goal-add">
+            <img src="{@img}site/goal.png" alt="" />
+            <a href="#add-goal" class="script" onclick="Goals.Add.setData(); return false;">{~Add_goal}</a>
+        </p>
+    </div>
+</div>
+</div>

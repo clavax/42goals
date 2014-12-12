@@ -1,0 +1,21 @@
+<div id="comments-list">
+    <h3><?php echo ($Conf->LNG->has('Comments') ? $Conf->LNG->{"Comments"} : 'Comments')?></h3>
+    <div class="up-corner-bd"></div>
+    <div class="up-corner-bg"></div>
+    <?php if ($comments) {?>
+    <ul>
+        <?php echo CommentsTag::buildTree($comments)?>
+    </ul>
+    <?php }?>
+    <p class="leave-comment">
+    <?php if (Access::loggedIn()) {?>
+        <a href="#reply-0" class="script"><?php echo ($Conf->LNG->has('Leave_comment') ? $Conf->LNG->{"Leave_comment"} : 'Leave_comment')?></a>
+    <?php } else {?>
+        <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>login/<?php if ($Conf->URL->self != $Conf->URL->home) {?>?redirect=<?php echo urlencode($Conf->URL->self)?><?php }?>" class="btn button"><span><span><?php echo ($Conf->LNG->has('Login_to_comment') ? $Conf->LNG->{"Login_to_comment"} : 'Login_to_comment')?></span></span></a>
+        <span><?php echo ($Conf->LNG->has('or') ? $Conf->LNG->{"or"} : 'or')?></span>
+            <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>system/twitter/connect/<?php if ($Conf->URL->self != $Conf->URL->home) {?>?redirect=<?php echo urlencode($Conf->URL->self)?><?php }?>" class="btn"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/login-with-twitter.png" alt="Sign in with Twitter" /></a>
+            <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>system/facebook/connect/<?php if ($Conf->URL->self != $Conf->URL->home) {?>?redirect=<?php echo urlencode($Conf->URL->self)?><?php }?>" class="btn"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/login-with-facebook.png" alt="Sign in with Facebook" /></a>
+        </p>
+    <?php }?>
+    </p>
+</div>

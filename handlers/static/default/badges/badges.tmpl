@@ -1,0 +1,47 @@
+{block type="ground" loose="yes"}
+<div id="badges-page-wrap">
+    <div class="wrap">
+        <h1>Badges</h1>
+        <p>Check your achievements and earn badges.</p>
+        <table id="badges-table">
+            <tbody>
+                <tr>
+                    <th><img src="{@img}badges/newbie{if Access::loggedIn() && !in_array('newbie', $badges)}-off{end}.png" /></th>
+                    <td>
+                        <h2>Newbie</h2>
+                        <p>Your first badge, way to go!</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="{@img}badges/diligent{if Access::loggedIn() && !in_array('diligent', $badges)}-off{end}.png" /></th>
+                    <td>
+                        <h2>Diligent</h2>
+                        <p>First week checked, keep going.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="{@img}badges/progressive{if Access::loggedIn() && !in_array('progressive', $badges)}-off{end}.png" /></th>
+                    <td>
+                        <h2>Progressive</h2>
+                        <p>You have progressed your first month.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="{@img}badges/social{if Access::loggedIn() && !in_array('social', $badges)}-off{end}.png" /></th>
+                    <td>
+                        <h2>Social</h2>
+                        <p>You added 3 friends.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="{@img}badges/premium{if Access::loggedIn() && !in_array('premium', $badges)}-off{end}.png" /></th>
+                    <td>
+                        <h2>Premium</h2>
+                        <p>You supported 42goals.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{/block}

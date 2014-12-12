@@ -1,0 +1,40 @@
+<ul class="users-search-results">
+    <?php foreach ($users as $user) {?>
+    <li>
+        <img src="<?php if ($user['thumbnail']) {?><?php echo ($Conf->URL->has('userpics') ? $Conf->URL->{"userpics"} : 'userpics')?><?php echo htmlspecialchars($user['thumbnail'])?><?php } else {?><?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/no-thumbnail.png<?php }?>" class="thumbnail" />
+        <div class="info">
+            <h3><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($user['login']) ? $user['login'] : '')?>
+/"><?php echo htmlspecialchars($user['name'])?></a></h3>
+            <p><?php echo htmlspecialchars($user['location'])?></p>
+            <blockquote><?php echo htmlspecialchars($user['bio'])?></blockquote>
+            <?php if (isset($user['goals']) && ($goals_len = count($user['goals']))) {?>
+            <p>
+                <?php for ($n = 0; $n < min(2, $goals_len); $n ++) {?><?php if ($n) {?>, <?php }?><?php echo htmlspecialchars($user['goals'][$n]['title'])?><?php }?>
+                <?php if ($left = $goals_len - $n) {?>and <?php echo (isset($left) ? $left : '')?>
+ more goals<?php }?>
+            </p>
+            <?php }?>
+        </div>
+        <?php if (Access::loggedIn() && isset($user['connection']) && $user['id'] != $Conf->ENV->UID) {?>
+        <div class="connection <?php if ($user['connection'] == 'accepted') {?>accepted<?php } elseif ($user['connection'] == 'requested') {?>requested<?php } else {?>none<?php }?>">
+            <p class="accepted"><a href="#remove" onclick="Connection.remove(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/remove-friend.png" /> <?php echo ($Conf->LNG->has('remove_friend') ? $Conf->LNG->{"remove_friend"} : 'remove_friend')?></a></p>
+            <p class="requested"><a href="#cancel" onclick="Connection.remove(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/remove-friend.png" /> <?php echo ($Conf->LNG->has('cancel_request') ? $Conf->LNG->{"cancel_request"} : 'cancel_request')?></a></p>
+            <p class="none"><a href="#add" onclick="Connection.request(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/add-friend.png" /> <?php echo ($Conf->LNG->has('add_friend') ? $Conf->LNG->{"add_friend"} : 'add_friend')?></a></p>
+            <p class="loading"><span><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading16.gif" /> <?php echo ($Conf->LNG->has('loading') ? $Conf->LNG->{"loading"} : 'loading')?></span></p>
+        </div>
+        <?php }?>
+        <?php if ($show_community_tools == 'yes') {?>
+        <div class="community-tool <?php if ($user['role'] == 'admin') {?>admin<?php } else {?>member<?php }?>">
+            <p class="member"><a href="#remove" onclick="Community.assignAdmin(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/assign-admin.png" /> <?php echo ($Conf->LNG->has('assign_admin') ? $Conf->LNG->{"assign_admin"} : 'assign_admin')?></a></p>
+            <p class="admin"><a href="#cancel" onclick="Community.removeAdmin(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/remove-friend.png" /> <?php echo ($Conf->LNG->has('remove_admin') ? $Conf->LNG->{"remove_admin"} : 'remove_admin')?></a></p>
+            <p class="loading"><span><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading16.gif" /> <?php echo ($Conf->LNG->has('loading') ? $Conf->LNG->{"loading"} : 'loading')?></span></p>
+        </div>
+        <?php }?>
+    </li>
+    <?php }?>
+</ul>

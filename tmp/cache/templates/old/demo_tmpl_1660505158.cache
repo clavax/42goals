@@ -1,0 +1,56 @@
+<?php $Template->tag("block", array('type' => <<<d70dae45248fa4484138e9c25be02f358
+chartlib
+d70dae45248fa4484138e9c25be02f358
+));?>
+<div id="sky">
+    <div class="bg">
+﻿<?php echo '<script'?> type="text/javascript">
+Data = {};
+Data.today = <?php echo json::encode($today)?>;
+Data.goals = <?php echo json::encode_array($goals)?>;
+Data.tabs = <?php echo json::encode_array($tabs)?>;
+Data.icons = <?php echo json::encode($icons)?>;
+Data.categories = <?php echo json::encode_array($categories)?>;
+Data.templates = <?php echo json::encode_array($templates)?>;
+Data.data = <?php echo json::encode($data)?>;
+Data.plan = {/* ... */};
+</script>
+        <div class="wrap">
+    <p id="demo-warning">
+        <?php if ($Conf->ENV->language == 'ru') {?>
+        Эта страница всего-лишь демо. Вы можете тестировать все возможности, но никакие изменения не будут сохранены.
+        <br /><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/">Зарегистрируйтесь</a>, чтобы сохранить свои данные и задать собственные цели.
+        <?php } elseif ($Conf->ENV->language == 'fr') {?>
+        Cette page n'est qu'une demo. Vous pouvez tester autant que vous voulez, mais tous vos modifications ne seront pas sauvegardees. 
+        <br />Veuillez <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/">vous inscrire</a> pour enregistrer vos informations et creer vos objectifs.
+	    <?php } elseif ($Conf->ENV->language == 'jp') {?>
+        本ページは、デモのみです。お試しになりたい分だけお使いになれますが、全てのあなたの変更は保存されません。
+        <br />あなたの情報を保存しご自身の目標を設定可能にするには、<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/">登録</a>してください。
+        <?php } else {?>
+        This page is only a demo. You can play with it as much as you want, but all your modification will not be saved. 
+        <br />Please, <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>registration/">register</a>  to be able to save your information and create your own goals.
+        <?php }?>
+    </p>
+    <div id="tabs">
+        <p id="all-goals"><a href="#all-goals" class="script"><?php echo ($Conf->LNG->has('Show_all_goals') ? $Conf->LNG->{"Show_all_goals"} : 'Show_all_goals')?></a></p>
+        <div id="goals-tabs"></div>
+        <a href="#new-tab" id="add-tab" onclick="Tabs.create(); return false;">+</a>
+<a href="<?php echo ($Conf->URL->has('this') ? $Conf->URL->{"this"} : 'this')?>export/" class="script"><?php echo ($Conf->LNG->has('Export') ? $Conf->LNG->{"Export"} : 'Export')?></a> 
+    </div>
+        </div>
+    </div>
+</div>
+<div id="ground">
+    <div class="deco"></div>
+<div id="goals-wrapper">
+    <div id="goals-table">
+        <div id="frame">
+            <?php echo ($Conf->LNG->has('Building_interface') ? $Conf->LNG->{"Building_interface"} : 'Building_interface')?> ...
+        </div>
+        <p id="goal-add">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/goal.png" alt="" />
+            <a href="#add-goal" class="script" onclick="Goals.Add.setData(); return false;"><?php echo ($Conf->LNG->has('Add_goal') ? $Conf->LNG->{"Add_goal"} : 'Add_goal')?></a>
+        </p>
+    </div>
+</div>
+</div>

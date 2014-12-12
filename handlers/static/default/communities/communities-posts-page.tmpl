@@ -1,0 +1,39 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {community-profile community=$community /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu community=$community /}
+        <div id="user-post">
+            <h1>
+                {$post['title']}
+                {if Access::loggedIn() && $Conf->ENV->UID == $post['user']}
+                <a href="{@this}{$post['id']}/edit/" class="edit"><img src="{@img}site/chart-edit.png" alt="edit" /></a>
+                {end}
+            </h1>
+            <div class="meta">
+                <small>{$post['date']|locales::datetime}</small>
+                {if isset($post['name'])}
+                <a href="{@home}users/{$post['login']}/" class="user">{$post['name']|htmlspecialchars}</a>
+                {end}
+                {if $post['type'] == 'link'}
+                    <a href="{$post['url']}" class="url"><img src="{@img}site/link.png" alt="&rarr;" />{$post['url']|url::shorten(80,"&hellip;")}</a>
+                {end}
+            </div>
+            <div class="text clearfix">{$post['text']}</div>
+            <div class="social">
+                <!-- Twitter button -->
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="42goals">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                <!-- / Twitter button -->
+                <!-- Facebook button -->
+                <iframe src="http://www.facebook.com/plugins/like.php?href={@self}&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+                <!-- /Facebook button -->
+            </div>
+        </div>
+        {comments thread_type="post" thread_id=$post['id'] /}
+    </div>
+</div>
+{/block}

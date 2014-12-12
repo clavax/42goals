@@ -1,0 +1,31 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="me-profile">
+    <div class="wrap">
+        {community-profile community=\$community /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu community=\$community /}
+        <div id="community-description"><?php echo nl2br(\$community['description'])?></div>
+        
+        <h2 class="border"><?php echo (\$Conf->LNG->has('Recent_members') ? \$Conf->LNG->{"Recent_members"} : 'Recent_members')?> <small>(<a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?><?php echo (isset(\$community['name']) ? \$community['name'] : '')?>
+/members/"><?php echo (\$Conf->LNG->has('all_members') ? \$Conf->LNG->{"all_members"} : 'all_members')?></a>)</small></h2>
+        {users-list users=\$members /}
+
+        
+        
+        <h2 class="border"><?php echo (\$Conf->LNG->has('News_feed') ? \$Conf->LNG->{"News_feed"} : 'News_feed')?></h2>
+        {feed-list activities=\$activities /}
+    </div>
+</div>
+
+block
+);?>

@@ -1,0 +1,22 @@
+{block type="ground" loose="yes"}
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=$user /}
+        <h1>
+            <img src="{@img}site/feed.png" /> 
+            {~Your_feed}
+        </h1>
+        
+        {if $prev_page}<a href="{@this}{if $prev_page > 1}p{$prev_page}/{end}" id="news-less">{~Less}</a>{end}
+        
+        {feed-list activities=$activities /}
+        
+        {if $next_page}<a href="{@this}p{$next_page}/" id="news-more">{~More}</a>{end}
+    </div>
+</div>
+{/block}

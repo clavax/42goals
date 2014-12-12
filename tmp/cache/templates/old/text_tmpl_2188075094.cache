@@ -1,0 +1,8 @@
+Bonjour, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+.
+
+<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+ vous a ajouté dans sa liste d'ami!
+--
+L'équipe 42goals
+http://fr.42goals.com

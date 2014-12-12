@@ -1,0 +1,11 @@
+<div id="public-chart">
+    <h2>{$user}, {$goal} chart</h2>
+    <img src="http://chart.apis.google.com/chart?{$data|htmlspecialchars}" />
+    {if Access::loggedIn()}
+    <p><a href="{@home}goals/">Go to your goals</a></p>
+    {else}
+    <p>
+        <a href="{@home}registration/">Register</a> to make your own chart<br /> or try the <a href="{@home}demo/">demo</a>
+    </p>
+    {end}
+</div>

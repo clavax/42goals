@@ -1,0 +1,65 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="me-profile">
+    <div class="wrap">
+        <?php foreach (\$categories as \$category) {?>
+            <h2><?php echo (isset(\$category['title']) ? \$category['title'] : '')?>
+</h2>
+            <ul id="category-templates">
+                <?php foreach (\$templates as \$template) {?>
+                    <?php if (\$template['category'] == \$category['id']) {?>
+                <li>
+                    <img src="<?php echo (isset(\$template['icon']) ? \$template['icon'] : '')?>
+" />
+                    <a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?><?php echo (isset(\$category['name']) ? \$category['name'] : '')?>
+/<?php echo (isset(\$template['name']) ? \$template['name'] : '')?>
+/"><?php echo (isset(\$template['title']) ? \$template['title'] : '')?>
+</a>
+                </li>
+                    <?php }?>
+                <?php }?>
+            </ul>
+        <?php }?>
+    </div>
+</div>
+<div id="me-content">
+    <div id="template-description">
+            <h1><?php echo (\$Conf->LNG->has('Templates') ? \$Conf->LNG->{"Templates"} : 'Templates')?></h1>
+            <?php for (\$i = 0; \$i < 3; \$i ++) {?>
+            <ul class="templates-categories">
+                <?php foreach (\$categories3[\$i] as \$category) {?>
+                <li>
+                    <h3><?php echo (isset(\$category['title']) ? \$category['title'] : '')?>
+</h3>
+                    <ul>
+                        <?php foreach (\$templates as \$template) {?>
+                            <?php if (\$template['category'] == \$category['id']) {?>
+                        <li>
+                            <h4>
+                                <img src="<?php echo (isset(\$template['icon']) ? \$template['icon'] : '')?>
+" />
+                                <a href="<?php echo (\$Conf->URL->has('this') ? \$Conf->URL->{"this"} : 'this')?><?php echo (isset(\$category['name']) ? \$category['name'] : '')?>
+/<?php echo (isset(\$template['name']) ? \$template['name'] : '')?>
+/"><?php echo (isset(\$template['title']) ? \$template['title'] : '')?>
+</a>
+                            </h4>
+                        </li>
+                            <?php }?>
+                        <?php }?>
+                    </ul>
+                </li>
+                <?php }?>
+            </ul>
+            <?php }?>
+    </div>
+</div>
+
+
+block
+);?>

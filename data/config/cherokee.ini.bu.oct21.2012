@@ -1,0 +1,61 @@
+[kernel]
+log_format = "[%year-%month-%day %hours:%minutes:%seconds] %message"
+timezone = "GMT"
+log_errors = yes
+show_errors = yes
+trace_errors = yes
+
+[default]
+language = en
+
+[site]
+gzip_enabled = no
+single_lang = yes
+admin = 42goals
+email = info@42goals.com
+host = "http://42goals.com"
+sso = "http://50.97.37.186/api/login/"
+local = no
+beta = no
+
+[paypal]
+host1 = http://www.42goals.com/
+host = http://www.42goals.com/
+paypalemail = info@42goals.com
+returnurl = pay/paypalSucces
+cancelurl = pay/pending
+notifyurl = pay/paypalNotify
+paypalurl = https://www.paypal.com/webscr
+demo = no
+
+[database]
+type = mysql
+port = 3306
+host = localhost
+name = 42goals
+user = root
+pass = 
+charset = utf8
+persistant = on
+
+[twocheckout]
+secret = secret4goals
+vendor = 1438983
+demo = no
+
+[ftp]
+use = no
+
+[google]
+translate_key_en = ABQIAAAAinLME4MbfRoEttDiDoLPYBTIi94_9Jn5_qsJ4czlC7fjr6LFjxSMtcWKiSIxLOg5Ih6X3eZ523CZDA
+translate_key_ru = ABQIAAAAinLME4MbfRoEttDiDoLPYBS81RfC-vIgsBS5uket9sy7tzOFRBTvfpLGv7wK60CpD-Ajk7qXKzMVUQ
+
+[twitter]
+key = "85s2cIdRZtSCGQNUf6PXig"
+secret = "m4LOLTopD7jAZeDOG9HkrGySAyAPCo9DvpeJeso924"
+
+[facebook]
+id = "103692436343171"
+key = "296748b81e9e4d115de3e3f1c4e3c901"
+secret = "ff6b997f73cffb89c5b5a733db7275ca"
+

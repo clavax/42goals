@@ -1,0 +1,27 @@
+<ul id="main-menu">
+    <?php foreach ($menu as $item) {?>
+    <li>
+        <?php if ($item['url'] != $Conf->URL->this) {?>
+        <a href="<?php echo (isset($item['url']) ? $item['url'] : '')?>
+"><?php echo (isset($item['title']) ? $item['title'] : '')?>
+</a>
+        <?php } else {?>
+        <a href="<?php echo (isset($item['url']) ? $item['url'] : '')?>
+"><?php echo (isset($item['title']) ? $item['title'] : '')?>
+</a>
+        <?php }?>
+    </li>
+    <?php }?>
+    <?php foreach ($languages as $name => $language) {?>
+        <?php if ($name != $Conf->ENV->language) {?>
+    <li>
+        <a href="http://<?php echo (isset($language->domain) ? $language->domain : 'language->domain')?>
+/<?php echo htmlspecialchars($query)?>"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/<?php echo (isset($name) ? $name : '')?>
+.png" alt="<?php echo (isset($name) ? $name : '')?>
+" title="<?php echo (isset($language->in_title) ? $language->in_title : 'language->in_title')?>
+" /> <?php echo (isset($language->in_title) ? $language->in_title : 'language->in_title')?>
+</a>
+    </li>
+        <?php }?>
+    <?php }?>
+</ul>

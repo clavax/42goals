@@ -1,0 +1,6 @@
+<div id="form-container">
+    <div class="wrap">
+        <p><?php echo (isset($message) ? $message : '')?>
+</p>
+    </div>
+</div>

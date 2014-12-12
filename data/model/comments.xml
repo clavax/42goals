@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<model>
+	<table type="primary">
+		<field name="id"></field>
+		<field name="user"></field>
+		<field name="thread_type"></field>
+		<field name="thread_id"></field>
+		<field name="reply_to"></field>
+		<field name="date"></field>
+		<field name="text"></field>
+	</table>
+</model>

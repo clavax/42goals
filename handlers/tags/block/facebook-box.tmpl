@@ -1,0 +1,24 @@
+<!--                    <div id="fb-root"></div>-->
+<!--                    <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script>-->
+<!--                    <script type="text/javascript">FB.init("e20d86eee87d7ca08564f555c473e779");</script>-->
+<!--                    <fb:fan profile_id="116620018366861" connections="18" width="403" height="360"></fb:fan>-->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: 'your app id', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<div id="facebook">
+    <fb:like-box href="http://www.facebook.com/platform"></fb:like-box>
+<!--    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F42goals&amp;width=250&amp;connections=10&amp;stream=false&amp;header=false&amp;height=250&amp;css=http://line25.com/wp-content/uploads/2010/facebook/demo/style.css?1" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:587px;" allowTransparency="true"></iframe>-->
+</div>
+<script type="text/javascript">
+FB.XFBML.parse(document.getElementById('facebook'));
+</script>

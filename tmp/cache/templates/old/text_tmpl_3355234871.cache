@@ -1,0 +1,8 @@
+Hello, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+!
+
+<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+ has added you as a friend.
+--
+The 42goals team
+http://42goals.com

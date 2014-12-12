@@ -1,0 +1,8 @@
+Bonjour, <?php echo (isset($name) ? $name : '')?>
+!
+Votre nouveau mot de passe pour votre compte sur <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?>: <?php echo (isset($pass) ? $pass : '')?>
+
+Vous pouvez le modifier dans les paramètres sur le site web: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/.
+--
+L'équipe 42goals
+http://fr.42goals.com

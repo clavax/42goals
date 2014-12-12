@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<model>
+	<table type="primary">
+		<field name="id"></field>
+		<field name="user"></field>
+		<field name="date"></field>
+		<field name="number"></field>
+		<field name="txn_id"></field>
+		<field name="type"></field>
+		<field name="quantity"></field>
+		<field name="payment_gateway"></field>
+		<field name="data"></field>
+	</table>
+</model>

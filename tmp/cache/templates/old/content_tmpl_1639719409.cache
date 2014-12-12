@@ -1,0 +1,10 @@
+<?php $Template->tag("block", array('type' => <<<d900bc885d7553375aec470198a9514f3
+sky
+d900bc885d7553375aec470198a9514f3
+), <<<block
+
+    <h1><?php echo (\$Conf->LNG->has('title_404') ? \$Conf->LNG->{"title_404"} : 'title_404')?></h1>
+    <p class="warning"><?php echo (\$Conf->LNG->has('Error_404') ? \$Conf->LNG->{"Error_404"} : 'Error_404')?></p>
+
+block
+);?>

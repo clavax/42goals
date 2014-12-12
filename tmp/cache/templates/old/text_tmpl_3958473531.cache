@@ -1,0 +1,20 @@
+Bonjour, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+.
+
+Vous avez reçu un nouveau commentaire de <?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+:
+
+"<?php echo (isset($data['text']) ? $data['text'] : '')?>
+"
+
+Voir le commentaire: <?php echo (isset($host) ? $host : '')?>
+<?php echo (isset($url) ? $url : '')?>
+#comment-<?php echo (isset($data['id']) ? $data['id'] : '')?>
+
+Répondre commentaire: <?php echo (isset($host) ? $host : '')?>
+<?php echo (isset($url) ? $url : '')?>
+#reply-<?php echo (isset($data['id']) ? $data['id'] : '')?>
+
+--
+L'équipe 42goals
+http://fr.42goals.com

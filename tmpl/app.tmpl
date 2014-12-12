@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    {block type="head" /}
+    <body{if $page_id} id="{$page_id}"{end} class="app">
+        <div id="wrapper" class="gray">
+            {block type="ie-warning" /}
+            <div id="header">
+                <div class="bg"></div>
+                <div class="wrap">
+                {block type="logo" /}
+                {main-menu /}
+                {userbox /}
+                </div>
+            </div>
+            <div id="content">
+                {$content}
+            </div>
+        </div>
+        <div id="footer">
+            <div class="deco"></div>
+            <div class="wrap">
+                <p id="credits">
+                    &copy; {~owner}, 2014
+                </p>
+                {bottom-menu /}
+                <img src="{@img}site/footer-logo.png" alt="42goals" class="logo" />
+            </div>
+        </div>
+    {block type="counters" /}
+    </body>
+</html>

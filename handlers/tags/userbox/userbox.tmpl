@@ -1,0 +1,40 @@
+{if Access::loggedIn()}
+<div id="userbox">
+    {if $Conf->ENV->user->premium}
+        <a href="{@home}pay/">
+            <img src="{@img}site/premium.png" alt="*" title="Premium account" />
+            {~Premium_extend}
+        </a>
+    {else}
+        <a href="{@home}pay/">
+            <img src="{@img}site/premium.png" alt="*" title="Premium account" />
+            {~Premium_upgrade}!
+        </a>
+    {end}
+    <a href="{@home}goals/">{~Goals}</a>
+
+    {feed-count /}
+    
+    {notifications /}
+    
+    <div class="profile">
+        <a id="userbox-name" href="{@home}users/{$Conf.ENV.user.login}/">
+            <img src="{if $Conf->ENV->user->thumbnail}{@userpics}{$Conf.ENV.user.thumbnail|urlencode}{else}{@img}site/no-thumbnail.png{end}" />
+            {$Conf.ENV.user.name|strip_tags|htmlspecialchars} 
+        </a>
+        <ul id="userbox-menu">
+{*            <li><a href="{@home}users/{$Conf.ENV.user.login}/friends/">{~Friends}</a></li>
+            <li><a href="{@home}users/{$Conf.ENV.user.login}/posts/">{~Posts}</a></li>*}
+            <li><a href="{@home}users/{$Conf.ENV.user.login}/compare/">{~Compare}</a></li>
+            <li><a href="{@home}archive/">{~Archive}</a></li>
+            <li><a href="{@home}settings/">{~Settings}</a></li>
+            <li><a href="#logout" onclick="Auth.logout()">{~Sign_out}</a></li>
+        </ul>
+    </div>
+</div>
+{else}
+<div id="userbox">
+    <a href="{@home}login/{if $Conf->URL->self != $Conf->URL->home}?redirect={$Conf.URL.self|urlencode}{end}" class="btn button"><span><span>{~Sign_in}</span></span></a>
+    <a href="{@home}registration/" class="btn button"><span><span>{~Register}</span></span></a>
+</div>
+{end}

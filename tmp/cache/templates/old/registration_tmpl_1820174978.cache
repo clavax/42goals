@@ -1,0 +1,101 @@
+﻿<div id="form-container">
+    <div class="wrap">
+        <?php if ($Conf->ENV->language == 'ru') {?>
+        <h1>Зачем регистрироваться?</h1>
+        <ul>
+            <li>Регистрация в 42гола абсолютно бесплатна.</li>
+            <li>Вам не нужно платить за использование сервисом (если вы не выбрали подписку на <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>premium/">премиум аккаунт</a>).</li>
+            <li>Регистрация нужна для защиты вашей персональной информации.</li>
+            <li>Также вы можете войти, используя существующий Твиттер или Фейсбук аккаунт. Тогда вам не нужно заполнять никаких форм.</li>
+        </ul>
+        <?php } elseif ($Conf->ENV->language == 'fr') {?>
+        <h1>Pourquoi s'inscrire?</h1>
+        <ul>
+            <li>L'inscription a 42goals est totalement gratuite.</li>
+            <li>Vous ne serez pas facture pour l'utilisation de notre service (sauf si vous avez specifiquement choisi un compte <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>premium/">premium</a>).</li>
+            <li>L'inscription est necessaire pour proteger vos informations personnelles.</li>
+            <li>Vous pouvez egalement vous connecter avec votre compte Twitter ou Facebook pour eviter de remplir ce formulaire.</li>
+        </ul>
+        <?php } elseif ($Conf->ENV->language == 'jp') {?>
+        <h1>なぜ登録しますか？</h1>
+        <ul>
+            <li>42goalsでの登録は、全てにおいて無料です。</li>
+            <li>当社のサービスを使用するための請求は一切ありません。(<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>premium/">プレミアム・アカウント</a>のサインアップを選択される場合を除く)。</li>
+            <li>登録は、あなたの個人情報を保護するために必要とされます。</li>
+            <li>あらゆるフォームへの入力を避けたい場合、ご自身のTwitter or Facebookのアカウントを用いてサインインすることもできます。</li>
+        </ul>
+        <?php } else {?>
+        <h1>Why register?</h1>
+        <ul>
+            <li>Registration at 42goals is totally free.</li>
+            <li>You will not be charged for using our service (unless you choose specifically to sign up for a <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>premium/">premium account</a>).</li>
+            <li>The registration is needed to protect your personal information.</li>
+            <li>You can also sign in with your existing Twitter or Facebook account to avoid filling any forms.</li>
+        </ul>
+        <?php }?>
+    </div>
+    <form id="registration-form" class="common-form" action="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/registration/" method="post" onsubmit="Registration.submit(this); return false;">
+        <fieldset>
+            <ul class="fields">
+                <li class="third-party">
+                    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>system/twitter/connect/?redirect=<?php echo (isset($redirect) ? $redirect : '')?>
+" class="btn"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/login-with-twitter.png" alt="Twitterでサインイン" /></a>
+                    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>system/facebook/connect/?redirect=<?php echo (isset($redirect) ? $redirect : '')?>
+" class="btn"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/login-with-facebook.png" alt="Facebookでサインイン" /></a>
+                </li>
+                <li>
+                    <label for="reg-name" class="fixed"><?php echo ($Conf->LNG->has('Name') ? $Conf->LNG->{"Name"} : 'Name')?></label>
+                    <input id="reg-name" class="text" name="data[name]" onchange="Registration.setLoginExample(this);" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('name_hint') ? $Conf->LNG->{"name_hint"} : 'name_hint')?></i>
+                </li>
+                <li>
+                    <label for="reg-email" class="fixed"><?php echo ($Conf->LNG->has('Email') ? $Conf->LNG->{"Email"} : 'Email')?></label>
+                    <input id="reg-email" class="text" name="data[email]" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('email_hint') ? $Conf->LNG->{"email_hint"} : 'email_hint')?></i>
+                </li>
+                <li>
+                    <label for="reg-login" class="fixed"><?php echo ($Conf->LNG->has('Login') ? $Conf->LNG->{"Login"} : 'Login')?></label>
+                    <input id="reg-login" class="text" name="data[login]" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('login_hint') ? $Conf->LNG->{"login_hint"} : 'login_hint')?>, e.g.: <span id="login-example" onclick="this.parentNode.previousTag('INPUT').value=this.innerHTML;">yourname</span></i>
+                </li>
+                <li>
+                    <label for="reg-password" class="fixed"><?php echo ($Conf->LNG->has('Password') ? $Conf->LNG->{"Password"} : 'Password')?></label>
+                    <input type="password" class="text" id="reg-password" name="data[password]" autocomplete="off" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('password_hint') ? $Conf->LNG->{"password_hint"} : 'password_hint')?></i>
+                </li>
+                <li>
+                    <label for="reg-password2" class="fixed"><?php echo ($Conf->LNG->has('Confirm_password') ? $Conf->LNG->{"Confirm_password"} : 'Confirm_password')?></label>
+                    <input type="password" class="text" id="reg-password2" name="data[password2]" autocomplete="off" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('password2_hint') ? $Conf->LNG->{"password2_hint"} : 'password2_hint')?></i>
+                </li>
+                <li>
+                    <label for="reg-captcha" class="fixed"><?php echo ($Conf->LNG->has('Control_digits') ? $Conf->LNG->{"Control_digits"} : 'Control_digits')?></label>
+                    <input class="text small" id="reg-captcha" name="data[captcha]" />
+                    <img src="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>system/captcha/" alt="CAPTCHA" id="captcha" />
+                    <br />
+                    <i><?php echo ($Conf->LNG->has('captcha_hint') ? $Conf->LNG->{"captcha_hint"} : 'captcha_hint')?></i>
+                </li>
+            </ul>
+            <input type="hidden" name="premium" value="<?php if (isset($_GET['premium'])) {?>1<?php }?>" />
+            <div class="submit">
+                <p id="registration-agreement">
+                <?php if ($Conf->ENV->language == 'ru') {?>
+                    Нажимая на "<?php echo ($Conf->LNG->has('Submit') ? $Conf->LNG->{"Submit"} : 'Submit')?>", вы соглашаетесь на нашу <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>privacy/" target="_blank">политику конфиденциальности</a>.
+                <?php } elseif ($Conf->ENV->language == 'fr') {?>
+                    En cliquant sur &laquo;Soumettre&raquo;, vous acceptez notre <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>privacy/" target="_blank">politique de confidentialite</a>.
+                <?php } elseif ($Conf->ENV->language == 'jp') {?>
+                    "送信"ボタンをクリックすることで、当社の<a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>privacy/" target="_blank">個人情報保護方針</a>に同意するものとみなします。
+                <?php } else {?>
+                    By clicking on "Submit" button, you are agreeing to our <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>privacy/" target="_blank">privacy policy</a>.                    
+                <?php }?>
+                </p>
+                <button type="submit" class="submit-button button"><span><span><?php echo ($Conf->LNG->has('Submit') ? $Conf->LNG->{"Submit"} : 'Submit')?></span></span></button>
+            </div>
+        </fieldset>
+    </form>
+</div>

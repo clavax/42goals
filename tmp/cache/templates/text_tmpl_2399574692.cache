@@ -1,0 +1,20 @@
+Здравствуйте, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+.
+
+Вы получили новый комментарий от <?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
+:
+
+"<?php echo (isset($data['text']) ? $data['text'] : '')?>
+"
+
+Просмотреть комментарий: <?php echo (isset($host) ? $host : '')?>
+<?php echo (isset($url) ? $url : '')?>
+#comment-<?php echo (isset($data['id']) ? $data['id'] : '')?>
+
+Ответить: <?php echo (isset($host) ? $host : '')?>
+<?php echo (isset($url) ? $url : '')?>
+#reply-<?php echo (isset($data['id']) ? $data['id'] : '')?>
+
+--
+Команда 42гола
+http://ru.42goals.com

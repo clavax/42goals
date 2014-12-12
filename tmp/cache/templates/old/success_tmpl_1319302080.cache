@@ -1,0 +1,8 @@
+<div class="fix-width">
+    <h2>Success!</h2>
+    <p>
+        Your payment has been processed successfully.
+        <br />Thank you for buying a premium account at 42goals!
+        <br />Now, you may <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>goals/">go to your goals</a> and use all the features.
+    </p>
+</div>

@@ -1,0 +1,7 @@
+<h1 id="logo">
+    <?php if ($Conf->URL->this == $Conf->URL->home) {?>
+    <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/logo.png" alt="42goals" />
+    <?php } else {?>
+    <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/logo.png" alt="42goals" /></a>
+    <?php }?>
+</h1>

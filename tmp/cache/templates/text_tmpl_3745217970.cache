@@ -1,0 +1,10 @@
+Hello, <?php echo (isset($user['name']) ? $user['name'] : '')?>
+!
+
+You've just received the "Premium" badge!
+Check your profile: <?php echo (isset($host) ? $host : '')?>
+<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($user['login']) ? $user['login'] : '')?>
+/
+--
+The 42goals team
+http://42goals.com

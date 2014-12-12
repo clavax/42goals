@@ -1,0 +1,14 @@
+<ul id="me-menu">
+    {foreach $menu as $item}
+        {if !isset($item['hide']) || empty($item['hide'])}
+    <li{if $item['url'] == $Conf->URL->self} class="current"{end}>
+        <img src="{@img}site/{$item['icon']}.png" />
+        {if $item['url'] != $Conf->URL->self}
+        <a href="{$item['url']}">{$item['title']}</a>
+        {else}
+        <b>{$item['title']}</b>
+        {end}        
+    </li>
+        {end}
+    {end}
+</ul>

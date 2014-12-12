@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=320" />
+        <link rel="apple-touch-icon" href="{@img}/site/iphone-icon.png" />
+        <link rel="shortcut icon" href="{@main}favicon.ico" />
+        <title>{if isset($page_title)}{$page_title} / {end}{~site_title}</title>
+        {if $Conf->CNF->site->local}
+        {css type="mobile" packed="no" /}
+        {js type="mobile" packed="no" /}
+        {else}
+        {css type="mobile" packed="yes" /}
+        {js type="mobile" packed="yes" /}
+        {end}
+    </head>
+    <body{if isset($page_id)} id="{$page_id}"{end}>
+        <div id="wrapper">
+            <div id="header">
+                <h1 id="logo">
+                {if !isset($no_desktop_link)}
+                    <a href="{@home}"><img src="{@img}site/logo-m.png" alt="42goals" /></a>
+                {else}
+                    <img src="{@img}site/logo-m.png" alt="42goals" />
+                {end}
+                </h1>
+                {if Access::loggedIn()}
+                <div id="userbox">
+                    <b>{$Conf.ENV.user.name}</b>
+                    <a href="{$Conf.CNF.site.sso}deletecookie/{$Conf.ENV.SID}/?redirect={@self}" onclick="Auth.logout(); return false;" class="exit"><img src="{@img}site/exit.png" alt="Logout" /></a>
+                </div>
+                {end}
+            </div>
+            <div id="content">
+            {$content}
+            </div>
+        </div>
+        <div id="footer">
+            <p id="credits">
+            {if !isset($no_desktop_link)}
+                &copy; <a href="http://{@host}">{~owner}</a>, 2010
+            {else}
+                &copy; {~owner}, 2010
+            {end}
+            </p>
+            {if !isset($no_desktop_link)}
+            <p id="desktop"><a href="{@home}?desktop">{~Desktop_version}</a></p>
+            {end}
+        </div>
+        {block type="counters" /}
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<?php $Template->tag("block", array('type' => <<<d578552719239a72a2d45ad422f67d24d
+ground
+d578552719239a72a2d45ad422f67d24d
+,'loose' => <<<da6105c0a611b41b08f1209506350279e
+yes
+da6105c0a611b41b08f1209506350279e
+), <<<block
+
+<div id="me-profile">
+    <div class="wrap">
+        {user-profile user=\$user /}
+    </div>
+</div>
+<div id="me-content">
+    <div class="wrap">
+        {me-menu user=\$user /}
+
+        <?php if (Access::loggedIn() && \$user['id'] == \$Conf->ENV->UID) {?>
+        <p id="find-friends"><a href="<?php echo (\$Conf->URL->has('home') ? \$Conf->URL->{"home"} : 'home')?>users/" class="button"><span><span><?php echo (\$Conf->LNG->has('Find_friends') ? \$Conf->LNG->{"Find_friends"} : 'Find_friends')?></span></span></a></p>
+    
+            <?php if (isset(\$user['requests_in']) && !empty(\$user['requests_in'])) {?>
+            <h2 class="border"><?php echo (\$Conf->LNG->has('Requests_in') ? \$Conf->LNG->{"Requests_in"} : 'Requests_in')?></h2>
+                {users-list users=\$user['requests_in'] /}
+            <?php }?>
+    
+            <?php if (isset(\$user['requests_out']) && !empty(\$user['requests_out'])) {?>
+            <h2 class="border"><?php echo (\$Conf->LNG->has('Requests_out') ? \$Conf->LNG->{"Requests_out"} : 'Requests_out')?></h2>
+                {users-list users=\$user['requests_out'] /}
+            <?php }?>
+    
+            <?php if (isset(\$user['friends']) && !empty(\$user['friends'])) {?>
+            <h2 class="border"><?php echo (\$Conf->LNG->has('Your_friends') ? \$Conf->LNG->{"Your_friends"} : 'Your_friends')?></h2>
+                {users-list users=\$user['friends'] /}
+            <?php }?>
+        <?php } else {?>
+            <?php if (isset(\$user['friends']) && !empty(\$user['friends'])) {?>
+                {users-list users=\$user['friends'] /}
+            <?php } else {?>
+                <p class="empty-message">No friends :(</p>
+            <?php }?>
+        <?php }?>
+    </div>
+</div>
+
+block
+);?>

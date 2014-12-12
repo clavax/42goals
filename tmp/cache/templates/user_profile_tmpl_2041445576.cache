@@ -1,0 +1,110 @@
+<?php if (Access::loggedIn() && $user['id'] == $Conf->ENV->UID) {?>
+<form action="<?php echo ($Conf->URL->has('self') ? $Conf->URL->{"self"} : 'self')?>" id="profile-form" method="post" onsubmit="Me.Profile.save(this); return false;">
+    <fieldset>
+        <ul class="fields">
+            <li>
+                <div id="profile-picture"<?php if (!$Conf->ENV->user->picture) {?>class="empty"<?php }?>>
+                    <?php if ($Conf->ENV->user->picture) {?>
+                    <img src="<?php echo ($Conf->URL->has('userpics') ? $Conf->URL->{"userpics"} : 'userpics')?><?php echo urlencode($Conf->ENV->user->picture)?>" alt="" />
+                    <?php }?>
+                    <i><?php echo ($Conf->LNG->has('Picture_upload_help') ? $Conf->LNG->{"Picture_upload_help"} : 'Picture_upload_help')?></i>
+                    <div class="bg"></div>
+                    <div id="profile-picture-uploader"></div>
+                </div>
+            </li>
+            <li>
+                <div class="inputwrap"><input id="profile-name" name="name" value="<?php echo htmlspecialchars($Conf->ENV->user->name)?>" title="<?php echo ($Conf->LNG->has('Profile_name_hint') ? $Conf->LNG->{"Profile_name_hint"} : 'Profile_name_hint')?>" /></div>
+            </li>
+            <li>
+                <div class="locationwrap"><input id="profile-location" name="location" value="<?php echo htmlspecialchars($Conf->ENV->user->location)?>" title="<?php echo ($Conf->LNG->has('Profile_location_hint') ? $Conf->LNG->{"Profile_location_hint"} : 'Profile_location_hint')?>" /></div>
+            </li>
+            <li>
+                <div class="inputwrap"><input id="profile-url" name="url" class="url" value="<?php echo htmlspecialchars($Conf->ENV->user->url)?>" title="<?php echo ($Conf->LNG->has('Profile_url_hint') ? $Conf->LNG->{"Profile_url_hint"} : 'Profile_url_hint')?>" /></div>
+            </li>
+            <li>
+                <div class="inputwrap"><textarea id="profile-bio" name="bio" title="<?php echo ($Conf->LNG->has('Profile_bio_hint') ? $Conf->LNG->{"Profile_bio_hint"} : 'Profile_bio_hint')?>"><?php echo htmlspecialchars($Conf->ENV->user->bio)?></textarea></div>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+<div id="profile-tools">
+    <div id="profile-publicity" class="<?php if ($Conf->ENV->user->public) {?>public<?php } else {?>private<?php }?>">
+        <p id="profile-public">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/btn-public.png" alt="public" onclick="Me.Profile.setPublic(0)" /> 
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading24.gif" alt="" class="loading" /> 
+            <span><?php echo ($Conf->LNG->has('profile_is_public') ? $Conf->LNG->{"profile_is_public"} : 'profile_is_public')?></span>
+        </p>
+        <p id="profile-private">
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/btn-private.png" alt="private" onclick="Me.Profile.setPublic(1)" />
+            <img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading24.gif" alt="" class="loading" />  
+            <span><?php echo ($Conf->LNG->has('profile_is_private') ? $Conf->LNG->{"profile_is_private"} : 'profile_is_private')?></span>
+        </p>
+    </div>
+</div>
+<?php } else {?>
+<div id="profile-picture"<?php if ($user['picture']) {?> class="filled"<?php }?>>
+    <img src="<?php if ($user['picture']) {?><?php echo ($Conf->URL->has('userpics') ? $Conf->URL->{"userpics"} : 'userpics')?><?php echo urlencode($user['picture'])?><?php } else {?><?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/no-userpic.png<?php }?>" alt="" />
+</div>
+<div id="profile-info">
+    <h1><?php echo htmlspecialchars(strip_tags($user['name']))?></h1>
+    <ul>
+        <?php if ($user['location']) {?><li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/location.png" /> <?php echo htmlspecialchars(strip_tags($user['location']))?></li><?php }?>
+        <?php if ($user['url']) {?><li><span id="profile-url" title="<?php echo (isset($user['url']) ? $user['url'] : '')?>
+"><?php echo htmlspecialchars(strip_tags($user['short_url']))?></span></li><?php }?>
+        <?php if ($user['bio']) {?><li><i><?php echo nl2br(htmlspecialchars($user['bio']))?></i></li><?php }?>
+    </ul>
+</div>
+<?php }?>
+
+<?php if (Access::loggedIn() && $Conf->ENV->UID != $user['id']) {?>
+<div id="connection-tools">
+    <div class="connection <?php if ($user['connection'] == 'accepted') {?>accepted<?php } elseif ($user['connection'] == 'requested') {?>requested<?php } else {?>none<?php }?>">
+        <p class="accepted"><a href="#remove" onclick="Connection.remove(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/remove-friend.png" /> <?php echo ($Conf->LNG->has('remove_friend') ? $Conf->LNG->{"remove_friend"} : 'remove_friend')?></a></p>
+        <p class="requested"><a href="#cancel" onclick="Connection.remove(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/remove-friend.png" /> <?php echo ($Conf->LNG->has('cancel_request') ? $Conf->LNG->{"cancel_request"} : 'cancel_request')?></a></p>
+        <p class="none"><a href="#add" onclick="Connection.request(<?php echo (isset($user['id']) ? $user['id'] : '')?>
+, this); return false;"><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/add-friend.png" /> <?php echo ($Conf->LNG->has('add_friend') ? $Conf->LNG->{"add_friend"} : 'add_friend')?></a></p>
+        <p class="loading"><span><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/loading16.gif" /> <?php echo ($Conf->LNG->has('loading') ? $Conf->LNG->{"loading"} : 'loading')?></span></p>
+    </div>
+</div>
+<?php }?>
+
+<?php if (isset($user['badges']) && $user['badges']) {?>
+<h2><?php echo ($Conf->LNG->has('Badges') ? $Conf->LNG->{"Badges"} : 'Badges')?></h2>
+<ul id="profile-badges">
+    <?php foreach ($user['badges'] as $badge) {?>
+    <li><img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>badges/<?php echo (isset($badge) ? $badge : '')?>
+.png" /></li>
+    <?php }?>
+</ul>
+<?php }?>
+
+<?php if (isset($user['friends']) && $user['friends']) {?>
+<h2><?php echo ($Conf->LNG->has('Friends') ? $Conf->LNG->{"Friends"} : 'Friends')?></h2>
+<ul id="profile-friends">
+    <?php foreach ($user['friends'] as $friend) {?>
+    <li>
+        <a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>users/<?php echo (isset($friend['login']) ? $friend['login'] : '')?>
+/">
+            <img src="<?php if ($friend['thumbnail']) {?><?php echo ($Conf->URL->has('userpics') ? $Conf->URL->{"userpics"} : 'userpics')?><?php echo (isset($friend['thumbnail']) ? $friend['thumbnail'] : '')?>
+<?php } else {?><?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/no-thumbnail.png<?php }?>" />
+            <b><?php echo (isset($friend['name']) ? $friend['name'] : '')?>
+</b>
+        </a>
+    </li>
+    <?php }?>
+</ul>
+<?php }?>
+
+<?php if ($communities) {?>
+<h2><?php echo ($Conf->LNG->has('Communities') ? $Conf->LNG->{"Communities"} : 'Communities')?></h2>
+<ul id="profile-communities">
+    <?php foreach ($communities as $community) {?>
+    <li><a href="<?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>communities/<?php echo (isset($community['name']) ? $community['name'] : '')?>
+/" title="<?php echo (isset($community['title']) ? $community['title'] : '')?>
+"><img src="<?php echo ($Conf->URL->has('communitypics') ? $Conf->URL->{"communitypics"} : 'communitypics')?><?php echo (isset($community['thumbnail']) ? $community['thumbnail'] : '')?>
+" /></a></li>
+    <?php }?>
+</ul>
+<?php }?>
