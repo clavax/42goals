@@ -1,0 +1,86 @@
+table.date-picker { 
+    position: absolute;
+    border: 1px solid darkgray;
+    background: white;
+    border-collapse: collapse;
+    padding: 1px;
+}
+
+    .date-picker caption {
+        font-weight: bold;
+        text-align: center;
+        padding: 0px 0px 0px;
+        position: relative;
+        background: white;
+    }
+    
+        .date-picker caption a {
+            text-decoration: none;
+            border: none;
+            position: absolute;
+            width: 16px;
+        }
+        
+        .date-picker caption .prev {
+            left: 2px;
+            top: 0px;
+        }
+
+        .date-picker caption .next {
+            right: 2px;
+            top: 0px;
+        }
+
+    .date-picker th {
+        font-weight: normal;
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    .date-picker th.holiday {
+        color: red;
+    }
+    
+    
+    .date-picker td {
+        border: 1px solid #eee;
+        padding: 1px;
+        width: 16px;
+        height: 16px;
+        text-align: right;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .date-picker td.today {
+        background: #ccf;
+    }
+
+    .date-picker td.current {
+        background: #cfc;
+    }
+        
+    .date-picker td.over {
+        background: #cfc;
+    }
+    
+.time-picker {
+    position: absolute;
+    background: white;
+    border: 1px solid darkgray;
+    height: 200px;
+    width: 50px;
+    overflow: auto;
+    list-style: none;
+    padding: 2px;
+}
+
+    .time-picker li {
+        text-align: left;
+        cursor: pointer;
+        padding: 2px 0px;
+    }
+    
+    .time-picker li.over {
+        background: #ccf;
+    }

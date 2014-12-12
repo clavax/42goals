@@ -1,0 +1,53 @@
+#icons-toolbar {
+    padding-left: 20px;
+}
+
+    #icons-toolbar a {
+        /*line-height: 20px;*/
+        margin-left: 10px;
+        font-size: 12px;
+        vertical-align: top;
+    }
+
+#icons-list {
+    list-style: none;
+    margin: 20px;
+}
+
+    #icons-list li {
+        display: inline;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        position: relative;
+        text-align: center;
+        background: #fefefe;
+        vertical-align: top;
+    }
+
+    #icons-list li.over {
+        background: #eee;
+    }
+    
+    #icons-list li.selected {
+        background: #fff389;
+    }
+    
+        #icons-list .icon {
+            margin-top: 15px;
+        }
+    
+        #icons-list .remove {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+    
+.marker {
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    margin-left: 3px;
+    border-left: 1px dotted red;
+}

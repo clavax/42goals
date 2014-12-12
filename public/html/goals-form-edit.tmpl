@@ -1,0 +1,211 @@
+<img id="goals-form-close" src="{%URL.img}site/chart-close.png" onclick="Goals.Edit.hide(); return false;" />
+<fieldset>
+    <dl>
+        <dt>{%LNG.Editing_goal}</dt>
+        <dd>
+            <fieldset>
+                <input type="hidden" name="id" />
+                <ul class="fields">
+                    <li>
+                        <label class="block">{%LNG.Title}</label>
+                        <input name="title" class="text" />
+                    </li>
+                    <li class="clearfix">
+                        <label class="block">{%LNG.Type}</label>
+                        <blockquote class="hint">
+                            <p>{%LNG.Goal_type_info}</p>
+                            <ul>
+                                <li>{%LNG.Numeric_type_hint}</li>
+                                <li>{%LNG.Counter_type_hint}</li>
+                                <li>{%LNG.Boolean_type_hint}</li>
+                                <li>{%LNG.Time_type_hint}</li>
+                                <li>{%LNG.Timer_type_hint}</li>
+                            </ul>
+                        </blockquote>
+                        <ul class="fields">
+                            <li>
+                                <input type="radio" id="edit-type-numeric" name="type" value="numeric" onclick="Goals.Edit.setType(this.value)" />
+                                <label for="edit-type-numeric">{%LNG.numeric}: <i class="ex">3.14, 100, 299792, {%LNG.etc}</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-type-counter" name="type" value="counter" onclick="Goals.Edit.setType(this.value)" />
+                                <label for="edit-type-counter">{%LNG.counter}: <i class="ex">1, 2, 3 ...</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-type-boolean" name="type" value="boolean" onclick="Goals.Edit.setType(this.value)" />
+                                <label for="edit-type-boolean">{%LNG.boolean}: <i class="ex">{%LNG._yes} {%LNG.or} {%LNG._no}</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-type-time" name="type" value="time" onclick="Goals.Edit.setType(this.value)" />
+                                <label for="edit-type-time">{%LNG.time}: <i class="ex">7:30</i></label>
+                            </li>
+                            <li>
+                            {%if ENV.user.valid}
+                                <input type="radio" id="edit-type-timer" name="type" value="timer" onclick="Goals.Add.setType(this.value)" />
+                                <label for="edit-type-timer">{%LNG.timer}: <i class="ex">&#9656;7:30</i></label>
+                            {%else}
+                                <a href="{%URL.home}premium/" onclick="return show_premium();" class="premium">
+                                    <img src="{%URL.img}site/premium.png" alt="*" title="Premium feature" />
+                                </a>
+                                <label for="edit-type-timer">{%LNG.timer}: <i class="ex">&#9656;7:30</i></label>
+                            {%end}
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="type counter">
+                        <label class="block">{%LNG.Item_icon}</label>
+                        <blockquote class="hint">
+                            <p>{%LNG.Item_icon_hint}</p>
+                        </blockquote>
+                        <div class="goals-icon-item"></div>
+                    </li>
+                    <li class="type boolean">
+                        <label class="block">{%LNG.Yes_icon}</label>
+                        <blockquote class="hint">
+                            <p>
+                                {%LNG.Yes_icon_hint}
+                            </p>
+                        </blockquote>
+                        <div class="goals-icon-true"></div>
+                    </li>
+                    <li class="type boolean">
+                        <label class="block">{%LNG.No_icon}</label>
+                        <blockquote class="hint">
+                            <p>{%LNG.No_icon_hint}</p>
+                        </blockquote>
+                        <div class="goals-icon-false"></div>
+                    </li>
+                </ul>
+                <p class="additional-parameters-toggler"><a href="#additional-parameters" class="script" onclick="this.parentNode.nextTag('UL').flipClass('hidden'); return false;">{%LNG.Additional_parameters}</a> &darr;</p>
+                <ul class="fields additional-parameters">
+                    <li>
+                        <label class="block">{%LNG.Description}</label>
+                        <textarea name="text"></textarea>
+                    </li>
+                    <li class="type numeric counter">
+                        <label class="block">{%LNG.Unit}</label>
+                        <blockquote class="hint">
+                            <p>{%LNG.Unit_hint}</p>
+                        </blockquote>
+                        <input type="text" name="unit" class="text" />
+                        <br />
+                        <input type="checkbox" id="edit-prepend" name="prepend" value="yes" />
+                        <label for="edit-prepend">{%LNG.prepend_hint}</label>
+                    </li>
+                    <li class="type numeric counter time timer">
+                        <label class="block">{%LNG.Aggregate_function}</label>
+                        <blockquote class="hint">
+                            <p>{%LNG.Aggregate_hint}</p>
+                        </blockquote>
+                        <ul class="fields">
+                            <li>
+                                <input type="radio" id="add-function-none" name="aggregate" value="" />
+                                <label for="add-function-none">{%LNG.none_function}: <i class="ex">{%LNG.show_the_last_value}</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-function-sum" name="aggregate" value="sum" />
+                                <label for="edit-function-sum">{%LNG.summation}: <i class="ex">1 + 2 + 3 = 6</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-function-avg" name="aggregate" value="avg" />
+                                <label for="edit-function-avg">{%LNG.average}: <i class="ex">(1 + 2 + 3) / 3 = 2</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-function-max" name="aggregate" value="max" />
+                                <label for="edit-function-max">{%LNG.maximim}: <i class="ex">max(1, 2, 3) = 3</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="edit-function-min" name="aggregate" value="min" />
+                                <label for="edit-function-min">{%LNG.minimum}: <i class="ex">min(1, 2, 3) = 1</i></label>
+                            </li>
+                        </ul>
+                    </li>        
+                </ul>
+                <div class="buttons">
+                    <button type="submit" class="button"><span><span>{%LNG.Save}</span></span></button>
+                    {%LNG.or}
+                    <a href="#cancel" class="script" onclick="Goals.Edit.hide(); return false;">{%LNG.cancel}</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <span id="delete-goal">{%LNG.You_may_also} 
+                    {%if ENV.user.valid}
+                        <a href="#archive" class="script" onclick="Goals.archive(Goals.Edit.element.id.value); return false;">{%LNG.archive_goal}</a> 
+                    {%else}
+                        <img src="{%URL.img}site/premium.png" alt="*" title="Premium feature" />
+                        <a href="{%URL.home}premium/" onclick="return show_premium();" class="script">{%LNG.archive_goal}</a>
+                    {%end}
+                    {%LNG.or} <a href="#delete" class="script" onclick="Goals.remove(Goals.Edit.element.id.value); return false;">{%LNG.del}</a> {%LNG.this_goal}</span>
+                </div>
+            </fieldset>
+        </dd>
+        <dt>{%LNG.Setting_plan}</dt>
+        <dd>
+            <p class="info">{%LNG.Planning_info}</p>
+            <blockquote class="hint">
+                <p>{%LNG.Planning_hint}</p>
+            </blockquote>
+            <div id="goals-plan" class="goals-plan"></div>
+            <div class="buttons">
+                <button type="button" class="button" onclick="Goals.Edit.hide(); return false;"><span><span>{%LNG.Done_planning}</span></span></button>
+            </div>
+        </dd>
+        <dt>{%LNG.Statistics}</dt>
+        <dd>
+                    
+            <div id="chart-constructor">
+                <dl>
+                    <dt class="first"><span>1. {%LNG.Choose_chart_type}:</span></dt>
+                    <dt class="second"><span>2. {%LNG.Choose_period_and_group}:</span></dt>
+                    <dt class="third"><span>3. {%LNG.Additional_options}:</span></dt>
+                    <dd class="first">
+                        <div>
+<!--                            <select id="chart-goal" onchange="Goals.Edit.Chart.draw()">-->
+<!--                                {%for goal in Data.goals}-->
+<!--                                    {%if goal}-->
+<!--                                <option value="{%goal.id}">{%goal.title}</option>-->
+<!--                                    {%end}-->
+<!--                                {%end}-->
+<!--                            </select>-->
+<!--                            <br /><br />-->
+                            <div id="chart-type"></div>
+                        </div>
+                    </dd>
+                    <dd class="second">
+                        <div>
+                            <b>{%LNG.Period}:</b> 
+                            <div id="chart-period"></div>
+                            <br /><br />
+                            <b>{%LNG.Group_by}:</b>
+                            <div id="chart-groupby"></div>
+                        </div>
+                    </dd>
+                    <dd class="third">
+                        <div>
+                            <ul id="chart-advanced">
+                                <li>
+                                    <input type="checkbox" class="checkbox" id="chart-accumulate" onclick="Goals.Edit.Chart.draw()" />
+                                    <label for="chart-accumulate">{%LNG.accumulate_values}</label>
+                                </li>
+                                <li>    
+                                    <input type="checkbox" class="checkbox" id="chart-fill-empty" onclick="Goals.Edit.Chart.draw()" />
+                                    <label for="chart-fill-empty">{%LNG.fill_empty_values}</label>
+                                </li>
+                                <li>     
+                                    <input type="checkbox" class="checkbox" id="chart-interpolate" onclick="Goals.Edit.Chart.draw()" />
+                                    <label for="chart-interpolate">{%LNG.interpolate_line}</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="chart-canvas"></div>
+            <div id="chart-image" class="hidden"></div>
+            <div id="chart-table"></div>
+                        
+            <div class="buttons">
+                <button type="button" class="button" onclick="Goals.Edit.hide(); return false;"><span><span>{%LNG.Back_to_week_view}</span></span></button>
+            </div>
+        </dd>
+    </dl>
+</fieldset>

@@ -1,0 +1,13 @@
+{%if ENV.UID}
+<fieldset>
+    <input type="hidden" name="thread_type" value="{%ENV.thread_type}" />
+    <input type="hidden" name="thread_id" value="{%ENV.thread_id}" />
+    <input type="hidden" name="thread_chk" value="{%ENV.thread_chk}" />
+    <input type="hidden" name="reply_to" value="0" />
+    <img src="{%if ENV.user.thumbnail}{%URL.userpics}{%ENV.user.thumbnail}{%else}{%URL.img}site/no-thumbnail.png{%end}" />
+    <div class="text"><textarea name="text"></textarea></div>
+    <div class="buttons">
+        <button class="button" type="submit"><span><span>{%LNG.Submit}</span></span></button>
+    </div>
+</fieldset>
+{%end}

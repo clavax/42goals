@@ -1,0 +1,141 @@
+.range-calendar {
+    position: relative;
+    width: 450px;
+    margin: 10px auto;
+}
+    
+    .range-calendar a.go {
+        position: absolute;
+        top: 50%;
+        margin-top: -0.6em;
+        text-decoration: none;
+        font-size: 32px;
+    }
+    
+    .range-calendar a.prev {
+        left: -20px;
+    }
+    
+    .range-calendar a.next {
+        right: -20px;
+    }
+    
+    .range-calendar p {
+        color: #999;
+        font-size: 11px;
+        text-align: center;
+    }
+    
+    .range-calendar ul {
+        list-style: none;
+    }
+    
+        .range-calendar ul > li {
+            display: inline-block;
+            padding: 0px 10px;
+            vertical-align: top;
+    
+            } * html .range-calendar ul > li {
+            display: inline;
+                
+            } *:first-child+html .range-calendar ul > li {
+            display: inline;
+        }
+
+            .range-calendar table { 
+                border-collapse: collapse;
+                border-spacing: 0px;
+                padding: 1px;
+                font-size: 10px;
+            }
+            
+                .range-calendar caption {
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 2px 0px;
+                    position: relative;
+                    background: #ddd;
+                    border: 1px solid #666;
+                    width: 100%;
+                    padding-right: 1px;
+                }
+                
+                .range-calendar th {
+                    font-weight: normal;
+                    text-align: center;
+                    background: #eee;
+                    border: 1px solid #eee;
+                }
+                
+                .range-calendar th.holiday {
+                    color: red;
+                }
+                
+                .range-calendar td {
+                    border: 1px solid #eee;
+                    border-left: none;
+                    border-right: none;
+                    width: 18px;
+                    height: 16px;
+                    vertical-align: middle;
+                    cursor: pointer;
+                }
+                
+                    .range-calendar td small {
+                        font-size: 10px;
+                        display: block;
+                        height: 14px;
+                        text-align: right;
+                        padding-top: 2px;
+                        padding-right: 2px;
+                    }
+    
+                    .range-calendar td.today small {
+                        outline: 1px solid rgb(176, 43, 44);
+                    }
+            
+                    .range-calendar td.marked small {
+                        background: rgb(53, 106, 160);
+                        color: white;
+                        border-radius: 0px !important;
+                    }
+                    
+                    .range-calendar td.start small {
+                        background: rgb(53, 106, 160);
+                        color: white;
+                        border-top-left-radius: 7px;
+                        border-bottom-left-radius: 7px;
+                        border-top-right-radius: 0px !important;
+                        border-bottom-right-radius: 0px !important;
+                        -moz-border-radius-topleft: 7px;
+                        -moz-border-radius-bottomleft: 7px;
+                        -moz-border-radius-topright: 0px !important;
+                        -moz-border-radius-bottomright: 0px !important;
+                    }
+
+                    .range-calendar td.end small {
+                        background: rgb(53, 106, 160);
+                        color: white;
+                        border-top-right-radius: 7px;
+                        border-bottom-right-radius: 7px;
+                        border-top-left-radius: 0px !important;
+                        border-bottom-left-radius: 0px !important;
+                        -moz-border-radius-topright: 7px;
+                        -moz-border-radius-bottomright: 7px;
+                        -moz-border-radius-topleft: 0px !important;
+                        -moz-border-radius-bottomleft: 0px !important;
+                    }
+                    
+                    .range-calendar td.one small {
+                        background: rgb(53, 106, 160);
+                        color: white;
+                        border-radius: 7px;
+                        -moz-border-radius: 7px;
+                    }
+                    
+                    .range-calendar td.over small {
+                        background: rgb(0, 140, 0);
+                        color: white;
+                        border-radius: 7px;
+                        -moz-border-radius: 7px;
+                    }

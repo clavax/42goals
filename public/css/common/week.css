@@ -1,0 +1,870 @@
+#goals-wrapper {
+    /*padding-top: 100px;*/
+    padding-bottom: 50px;
+}
+
+#demo-warning {
+    padding: 10px;
+    width: 1000px;
+    margin: 0px auto 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#goal-add {
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#goals-page #blog-entry {
+    font-size: 14px;
+    line-height: 18px;
+    margin-left: 30px;
+    margin-top: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#frame {
+    position: relative;
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+    #frame.no-goals table {
+    	display: none;
+    }
+
+    #frame .empty {
+    	display: none;
+        padding: 50px 125px 40px;
+        font-size: 14px;
+    }
+
+    #frame .building {
+        padding: 50px 125px 40px;
+        font-size: 14px;
+    }
+
+    #frame.no-goals .empty {
+    	display: block;
+    }
+
+table#data {
+    /*border-collapse: collapse;*/
+    border-spacing: 0px;
+    position: relative;
+    width: 100%;
+    
+    } * html table#data {
+    border-collapse: collapse;
+    
+    } *:first-child+html table#data {
+    border-collapse: collapse;
+}
+
+    /*********************************************
+     * Head
+     *********************************************/
+
+    table#data > thead th {
+        padding: 10px 5px;
+        text-align: center;
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+    table#data > thead td {
+        padding: 10px 5px;
+        text-align: center;
+        font-weight: normal;
+        font-size: 12px;
+        background: #fff;
+        width: 14%;
+    }
+
+    table#data > thead td.today {
+        background: #fef9d4;
+    }
+
+    table#data > thead > tr > td:first-of-type {
+        border-top: 1px solid #fff;
+        border-left: 1px solid #e4e4e4;
+        border-radius: 6px 0px 0px 0px;
+        -moz-border-radius: 6px 0px 0px 0px;
+    }
+    
+    table#data > thead > tr > td:last-of-type {
+        border-right: 1px solid #e4e4e4;
+        border-radius: 0px 6px 0px 0px;
+        -moz-border-radius: 0px 6px 0px 0px;
+    }
+
+        table#data > thead td b {
+            font-size: 20px;
+            font-weight: normal; 
+        }
+    
+        table#data > thead td.weekend {
+            color: crimson; 
+        }
+        
+        table#data > thead th.first {
+            text-align: right;
+            width: 115px;
+        }
+        
+            table#data > thead th.first p {
+                margin-right: 22px;
+                white-space: nowrap;
+                display: inline;
+            }
+
+        table#data > thead th.last {
+            text-align: left;
+            width: 220px;
+            min-width: 220px;
+        }
+        
+            table#data > thead th.last p {
+                margin-left: 5px;
+                white-space: nowrap;
+                display: inline;
+            }
+    
+            table#data > thead th.last .open-calendar {
+                position: absolute;
+                right: 25px;
+                top: 16px;
+                cursor: pointer;
+            }
+    
+            table#data > thead th.last .calendar {
+                position: absolute;
+                right: 25px;
+                top: 50px;
+                background: #fff;
+                font-size: 11px;
+                border-collapse: collapse;
+                z-index: 10;
+            }
+        
+                table#data > thead th.last .calendar caption {
+                    font-size: 14px;
+                }
+            
+                    table#data > thead th.last .calendar caption .prev,
+                    table#data > thead th.last .calendar caption .next {
+                        position: absolute;
+                        text-decoration: none;
+                    }
+                    
+                    table#data > thead th.last .calendar caption .prev {
+                        left: 5px;
+                    }
+                    
+                    table#data > thead th.last .calendar caption .next {
+                        right: 5px;
+                    }
+        
+                table#data > thead th.last .calendar th {
+                    text-align: right;
+                    padding: 2px 3px;
+                    font-size: 11px;
+                    font-weight: bold;
+                    width: 20px;
+                }
+
+                table#data > thead th.last .calendar td {
+                    text-align: right;
+                    padding: 2px 3px;
+                    width: 20px;
+                }
+        
+                table#data > thead th.last .calendar tr:hover td {
+                    background: #fef9d4;
+                    cursor: pointer;
+                }
+
+    /*********************************************
+     * Body
+     *********************************************/
+
+    table#data > tbody > tr > th {
+        /*width: 100px;*/
+        min-width: 100px;
+    }
+
+    table#data > tbody th.title {
+        text-align: left;
+    }
+
+    table#data > tbody th.before {
+        border-top: 1px solid red;
+    }
+    
+    table#data > tbody th.after {
+        border-bottom: 1px solid red;
+    }
+    
+        table#data > tbody th .wrap {
+            position: relative;
+            padding: 10px 10px 5px 20px;
+        }
+
+        table#data > tbody th h2 {
+            font-size: 18px;
+            font-weight: normal;
+            display: inline;
+        }
+
+        table#data > tbody th h2 * {
+            vertical-align: middle;
+        }
+        
+        table#data > tbody th h2 img {
+            margin-right: 2px;
+            margin-left: -16px;
+        }
+        
+        table#data > tbody th h2 a {
+            font-size: 14px;
+            display: inline-block;
+            width: 75px;
+        }
+    
+        table#data > tbody .own th h2:hover {
+            cursor: pointer;
+            color: #3e4b99;
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+        }
+        
+        table#data > tbody th .drag {
+            cursor: move;
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            display: none;
+        }
+        
+        table#data > tbody th .graph {
+            cursor: pointer;
+            display: none;
+        }
+        
+        table#data > tbody th.last {
+            text-align: left;
+            padding: 0px 10px;
+            font-weight: normal;
+            width: 200px;
+        }
+            
+            table#data > tbody tr:hover .graph {
+                display: inline;
+            }
+            
+            table#data > tbody th.last .total {
+                display: inline-block;
+                font-size: 11px;
+                color: #666;
+                white-space: nowrap;
+                margin-bottom: 2px;
+                line-height: 14px;
+                width: 140px;
+            }
+            
+                table#data > tbody th.last .total table {
+                    
+                }
+                    
+                    table#data > tbody th.last .total table thead th {
+                        
+                    }
+            
+                table#data > tbody th.last .total div {
+                    display: inline-block;
+                    vertical-align: top;
+
+                    } * html table#data > tbody th.last .total div {
+                    display: inline;
+                        
+                    } *:first-child+html table#data > tbody th.last .total div {
+                    display: inline;
+                }
+            
+                table#data > tbody th.last .total div.weekly {
+                    min-width: 50%;
+                }
+                
+                table#data > tbody th.last .total div.monthly {
+                    min-width: 50%;
+                }
+                
+                table#data > tbody th.last .total h3 {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            
+                table#data > tbody th.last .total small {
+                    font-size: 11px;
+                    /*color: #999;*/
+                }
+            
+                table#data > tbody th.last .total strong {
+                    color: #000;
+                    font-weight: normal;
+                }
+            
+                table#data > tbody th.last .total b {
+                    font-size: 12px;
+                    color: #000;
+                    font-weight: normal;
+                }
+            
+            table#data > tbody th.last .chart {
+                display: inline-block;
+                height: 20px;
+                padding: 2px;
+                cursor: pointer;
+                position: relative;
+                vertical-align: bottom;
+                width: 60px;
+            }
+            
+                table#data > tbody th.last .chart span {
+                    position: absolute;
+                    display: inline-block;
+                    width: 1px;
+                    margin-right: 1px;
+                    background: #4096ee;
+                }
+                
+                table#data > tbody th.last .chart span.neg {
+                    background: red;
+                }
+                    
+                    table#data > tbody th.last .chart .axis {
+                        position: absolute;
+                        width: 100%;
+                        border-top: 1px solid #eee;
+                        left: 0px;
+                        height: 0px;
+                        font-size: 1px;
+                        overflow: hidden;
+                    }
+        
+            table#data > tbody .own th:hover img {
+                display: inline;
+            }
+    
+        #frame .clone {
+            cursor: move;
+            background: crimson;
+            color: #fff;
+            padding: 3px;
+        }
+    
+    table#data > tbody > tr > td {
+        min-height: 24px;
+        padding: 10px 5px;
+        text-align: center;
+        border-top: 1px solid #d1d1d1;
+        background: #fff;
+        vertical-align: top;
+    }
+    
+    table#data > tbody > tr.own > td {
+        cursor: pointer;
+    }
+    
+    table#data > tbody td.today {
+        background: #fef9d4;
+    }
+    
+    table#data > tbody .own td:hover {
+        background: #f0fcea;
+    }
+    
+    table#data > tbody > tr > td:first-of-type {
+        border-left: 1px solid #e4e4e4;
+    }
+    
+    table#data > tbody > tr > td:last-of-type {
+        border-right: 1px solid #e4e4e4;
+    }
+    
+    table#data > tbody > tr:last-child > td {
+        border-bottom: 1px solid #afafaf;
+    }
+    
+    table#data > tbody > tr:last-child > td:first-of-type {
+        border-radius: 0px 0px 0px 6px;
+        -moz-border-radius: 0px 0px 0px 6px;
+    }
+    
+    table#data > tbody > tr:last-child > td:last-of-type {
+        border-radius: 0px 0px 6px 0px;
+        -moz-border-radius: 0px 0px 6px 0px;
+    }
+    
+        table#data > tbody td .wrap {
+            min-height: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        table#data > tbody td .numeric {
+            height: 44px;
+            white-space: nowrap;
+        }
+        
+        table#data > tbody td .boolean {
+        }
+        
+        table#data > tbody td .counter {
+        }
+    
+        table#data > tbody td big {
+            font-size: 18px;
+        }
+
+        table#data > tbody .wrap > img {
+            border: 1px solid transparent;
+            border-radius: 8px;
+            -moz-border-radius: 8px;
+            max-width: 24px;
+            max-height: 24px;
+        }
+
+        table#data > tbody .own .wrap > img {
+            cursor: pointer;
+        }
+
+        table#data > tbody .own .counter > img:hover {
+            border-color: crimson;
+        }
+        
+        table#data > tbody .own .counter > img.plan:hover {
+            border-color: transparent;
+        }
+
+        table#data > tbody td .wrap > .number {
+            font-size: 18px;
+            font-family: Arial;
+            text-align: center;
+            line-height: 44px;
+        }
+
+        table#data > tbody td .wrap > .neg {
+            color: red;
+        }
+
+        table#data > tbody td .number > span {
+            margin-left: 0.3ex;
+            color: #999;
+        }
+
+        table#data > tbody td .left > span {
+            margin-right: 0.3ex;
+        }
+        
+        table#data > tbody td .wrap > .number.plan {
+            color: #ddd;
+        }
+        
+        table#data > tbody td .wrap > .number.plan > span {
+            color: #ddd;
+        }
+
+        table#data > tbody td .comment {
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: none;
+            font-size: 0px;
+            background: url("../../img/site/comment.png") no-repeat center center;
+        }
+        
+        table#data > tbody .own td:hover .comment {
+            display: block;
+        }
+        
+        table#data > tbody .own td.commented .comment {
+            display: block;
+        }
+        
+        table#data > tbody .own td .comment:hover {
+            background-image: url("../../img/site/comment-hover.png");
+        }
+
+/* Goals comment */
+#goals-comment {
+    width: 200px;
+    height: 60px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #666;
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    left: 0px;
+    z-index: 15;
+    text-align: left;
+}
+
+#goals-comment.right {
+    left: auto;
+    right: 20px;
+}
+
+#goals-comment.bottom {
+    top: auto;
+    bottom: 0px;
+}
+
+    #goals-comment .corner-border {
+        position: absolute;
+        border: 5px solid transparent;
+        left: 15px;
+        top: -16px;
+        border-bottom: 11px solid #666;
+        font-size: 1px;
+    }
+
+    #goals-comment .corner-bg {
+        position: absolute;
+        border: 4px solid transparent;
+        left: 16px;
+        top: -14px;
+        border-bottom: 10px solid #fff;
+        font-size: 1px;
+    }
+
+    #goals-comment .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    #goals-comment textarea {
+        width: 170px;
+        height: 50px;
+        border: none;
+        resize: none;
+        outline: none;
+        font-family: Arial;
+    }
+    
+/* Timer */    
+    
+table#data > tbody .wrap > img.timer {
+	vertical-align: middle;
+	margin-left: -1em;
+	visibility: hidden;
+}
+
+table#data > tbody td:hover .wrap > img.timer {
+	visibility: visible;
+}
+    
+
+table#data > tbody td.active .wrap > img.timer {
+	visibility: visible;
+}
+    
+table#data > tbody td .wrap > .time {
+    font-size: 18px;
+    font-family: Arial;
+    text-align: center;
+    line-height: 44px;
+	display: inline;
+    vertical-align: middle;
+}
+    
+    table#data > tbody td .wrap > .time.plan {
+        color: #ccc;
+    }
+	
+	table#data > tbody td .wrap > .time span {
+		font-size: 18px;
+		vertical-align: middle;
+		display: inline-block;
+	}
+	
+	table#data > tbody td .wrap > .time .secs {
+	    font-size: 10px;
+		margin-top: -7px;
+		margin-left: 2px;
+	}
+	
+	table#data > tbody td .wrap > .time .tick {
+		vertical-align: middle;
+		font-family: Courier New;
+		margin-top: -1px;
+	}
+
+/* Goals number */
+.goals-number-input {
+    width: 125px;
+    height: 30px;
+    padding: 10px 5px;
+    background: #fff;
+    border: 1px solid #666;
+    position: absolute;
+    z-index: 15;
+    text-align: left;
+}
+
+    .goals-number-input .corner-border {
+        position: absolute;
+        border: 5px solid transparent;
+        left: -13px;
+        top: 20px;
+        border-right: 8px solid #666;
+        font-size: 1px;
+    }
+
+    .goals-number-input .corner-bg {
+        position: absolute;
+        border: 4px solid transparent;
+        left: -11px;
+        top: 21px;
+        border-right: 7px solid #fff;
+        font-size: 1px;
+    }
+
+    .goals-number-input .close {
+        cursor: pointer;
+        vertical-align: middle;
+        margin-left: -26px;
+    }
+    
+    .goals-number-input .clear {
+        cursor: pointer;
+        vertical-align: middle;
+        margin-left: 10px;
+        } * html .goals-number-input .clear {
+        margin-left: 0px;
+        } *:first-child+html .goals-number-input .clear {
+        margin-left: 0px;
+    }
+
+    .goals-number-input label {
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+        width: 1em;
+        text-align: center;
+        font-family: monospace;
+        font-weight: bold;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .goals-number-input input {
+        width: 50px;
+        font-family: Arial;
+        font-size: 16px;
+        vertical-align: middle;
+        padding: 5px 23px 5px 3px;
+        border: 1px inset #ccc;
+        background: transparent;
+        text-align: right;
+        margin: 0px 5px;
+    }
+
+.goals-time-input {
+    height: 45px;
+}
+
+    .goals-time-input .ex {
+        position: absolute;
+        bottom: 5px;
+        left: 27px;
+        color: #666;
+    }
+    
+        .goals-time-input a {
+            color: #666;
+        }
+
+/* tabs */
+#tabs {
+	position: relative;
+    border-bottom: 1px solid #afb6bc;
+    min-height: 26px;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+    #tabs #all-goals {
+        position: absolute;
+        left: 20px;
+        top: 5px;
+        width: 105px;
+        text-align: left;
+    	padding: 0px 4px;
+    	font-size: 12px;
+        margin-left: -3px;
+    }
+    
+        #tabs #all-goals.selected a {
+            border: none !important;
+            color: #000;
+        }
+
+    #tabs #add-tab {
+    	display: inline-block;
+    	padding: 0px 4px;
+    	border: 1px solid #afb6bc;
+    	border-radius: 3px;
+    	-moz-border-radius: 3px;
+    	-webkit-border-radius: 3px;
+    	text-decoration: none;
+    	font-size: 14px;
+        font-weight: bold;
+        color: #727272;
+    	vertical-align: middle;
+        background: #eee url("../../img/site/tab-bg.png") repeat-x top left;
+        margin-left: -3px;
+        } * html #tabs #add-tab {
+        display: inline;
+        } *:first-child+html #tabs #add-tab {
+        display: inline; 
+    }
+
+    #tabs ul {
+    	display: inline-block;
+        min-width: 1px;
+    	list-style: none;
+    	margin-left: 125px;
+    	position: relative;
+        bottom: -1px;
+        vertical-align: middle;
+        } * html #tabs ul {
+        display: inline;
+        } *:first-child+html #tabs ul {
+        display: inline; 
+    }
+    
+        #tabs li {
+        	display: inline-block;
+            border: 1px solid #afb6bc;
+            border-bottom: 1px solid #afb6bc;
+            border-radius: 4px 4px 0px 0px;
+            -moz-border-radius: 4px 4px 0px 0px;
+            margin-right: 4px;
+            background: #eee url("../../img/site/tab-bg.png") repeat-x top left;
+    
+            } * html #tabs li {
+            display: inline;
+            } *:first-child+html #tabs li {
+            display: inline;        
+        }
+        
+        #tabs li.current {
+            background: #fff;
+            border-bottom: 1px solid #fff;
+        }
+        
+        #tabs li.dragover {
+        	background: crimson;
+            color: #fff;
+        }
+        
+        #tabs li.dragover a,
+        #tabs li.dragover b {
+            color: #fff;
+        }
+        
+	        #tabs ul a {
+	            display: inline-block;
+                padding: 5px 5px;
+                font-size: 12px;
+                vertical-align: middle;
+                text-decoration: none;
+                color: #707070;
+                font-weight: bold;
+	        }
+	        
+	        #tabs ul .current a {
+	        	color: #000;
+            }
+	        
+	        #tabs ul a.disabled {
+	        	color: #ccc;
+                padding: 5px 25px;
+            }
+	        
+            #tabs ul .btn {
+                visibility: hidden;
+                vertical-align: middle;
+            }
+
+            #tabs li:hover .btn {
+                visibility: visible;
+            }
+            
+            #tabs ul .move {
+            	margin-left: 2px;
+                cursor: move;
+            }
+            
+            #tabs ul .edit {
+            	margin-right: 2px;
+                cursor: pointer;
+            }
+
+		    #tabs ul .enter {
+		        cursor: pointer;
+		        vertical-align: middle;
+		        margin-left: -20px;
+		    }
+		    
+		    #tabs ul .trash {
+		        cursor: pointer;
+		        vertical-align: middle;
+		        margin-left: 10px;
+		        margin-right: 10px;
+		    }
+		
+		    #tabs ul input {
+		        width: 70px;
+		        font-family: Arial;
+		        font-size: 12px;
+                font-weight: bold;
+		        vertical-align: middle;
+		        padding: 5px 23px 5px 3px;
+		        border: none;
+		        background: #fff;
+		        text-align: right;
+		        margin: 0px 0px 1px 0px;
+		    }            	
+            
+            #tabs .editing {
+            	display: none;
+            }
+            
+            #tabs .mode-editing .default {
+            	display: none;
+            }
+            
+            #tabs .mode-editing .editing {
+            	display: inline;
+            }
+
+.tabs-marker {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: url("../../img/site/marker.gif") no-repeat center center;
+}

@@ -1,0 +1,85 @@
+@import "general.css";
+
+body {
+    font: normal normal normal 12px Arial;
+    overflow: hidden;
+}
+
+button::-moz-focus-inner { 
+    border: 0;
+    padding: 0;
+}
+
+* html button { 
+    overflow: visible;
+    width: 0;
+}
+
+*:first-child+html button {
+    overflow: visible;
+    width: auto !important;
+}
+
+.button {
+    background: url("../../img/site/button-left.png") no-repeat left center;
+    display: inline-block;
+    height: 31px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .button > span {
+        background: url("../../img/site/button-right.png") no-repeat right center;
+        display: block;
+        height: 31px;
+    }
+    
+        .button > span > span {
+            background: url("../../img/site/button-bg.png") repeat-x left center;
+            margin: 0px 16px;
+            display: block;
+            height: 31px;
+            line-height: 31px;
+            color: #717171;
+            font-weight: bold;
+        }
+    
+    .button:disabled {
+        background-image: url("../../img/site/button-left.png");
+        cursor: default;
+    }
+    
+        .button:disabled > span {
+            background-image: url("../../img/site/button-right.png");
+        }
+        
+            .button:disabled > span > span {
+                background-image: url("../../img/site/button-bg.png");
+                color: #717171;
+                font-weight: normal;
+            }
+
+#upload-form {
+    text-align: center;
+    overflow: hidden;
+}
+
+#upload-input {
+    margin-top: -30px;
+    height: 30px;
+}
+
+#upload-form input {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity: 0);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#upload-form button {
+    position: absolute;
+}

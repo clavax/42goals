@@ -1,0 +1,113 @@
+<fieldset>
+    <img id="goals-form-close" src="{%URL.img}site/close.png" onclick="Templates.Form.hide(); return false;" />
+    <input type="hidden" name="id" />
+    <input type="hidden" name="template" value="yes" />
+    <ul class="fields">
+        <li>
+            <label class="block">Approved?</label>
+            <input type="radio" id="approved-no" name="approved" value="no" />
+            <label for="approved-no">no</label>
+            &nbsp;
+            &nbsp;
+            <input type="radio" id="approved-yes" name="approved" value="yes" />
+            <label for="approved-yes">yes</label>
+        </li>
+        <li>
+            <label class="block">Title</label>
+            <input name="title" class="text" />
+        </li>
+        <li>
+            <label class="block">Name (for URL)</label>
+            <input name="name" class="text" />
+        </li>
+        <li>
+            <label class="block">Type</label>
+            <ul class="fields">
+                <li>
+                    <input type="radio" id="type-numeric" name="type" value="numeric" onclick="Templates.Form.setType(this.value)" />
+                    <label for="type-numeric">numeric: <i class="ex">3.14, 100, 299792, etc.</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="type-counter" name="type" value="counter" onclick="Templates.Form.setType(this.value)" />
+                    <label for="type-counter">counter: <i class="ex">1, 2, 3 ...</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="type-boolean" name="type" value="boolean" onclick="Templates.Form.setType(this.value)" />
+                    <label for="type-boolean">boolean: <i class="ex">yes or no</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="type-time" name="type" value="time" onclick="Templates.Form.setType(this.value)" />
+                    <label for="type-time">time: <i class="ex">7:30</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="type-timer" name="type" value="timer" onclick="Templates.Form.setType(this.value)" />
+                    <label for="type-timer">timer: <i class="ex">&#9656;7:30</i></label>
+                </li>
+            </ul>
+        </li>
+        <li class="type counter">
+            <label class="block">Item icon</label>
+            <div id="goals-icon-item"></div>
+        </li>
+        <li class="type boolean">
+            <label class="block">"Yes" icon</label>
+            <div id="goals-icon-true"></div>
+        </li>
+        <li class="type boolean">
+            <label class="block">"No" icon</label>
+            <div id="goals-icon-false"></div>
+        </li>
+        <li>
+            <label class="block">Preview (short text for template list)</label>
+            <textarea name="preview"></textarea>
+        </li>
+        <li>
+            <label class="block">Description (for template page)</label>
+            <textarea name="description"></textarea>
+        </li>
+        <li>
+            <label class="block">Instructions (how to use it)</label>
+            <textarea name="instructions"></textarea>
+        </li>
+        <li class="type numeric counter">
+            <label class="block">Unit of measurement</label>
+            <input type="text" name="unit" class="text small" />
+            <i class="ex">(for example: km, $, m<sup>2</sup>)</i>
+            <br />
+            <input type="checkbox" id="prepend" name="prepend" value="yes" />
+            <label for="prepend">should be in front (as for $100)</label>
+        </li>
+        <li class="type numeric counter">
+            <label class="block">Aggregate function</label>
+            <ul class="fields">
+                <li>
+                    <input type="radio" id="function-none" name="aggregate" value="none" />
+                    <label for="function-none">none: <i class="ex">show the last value</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="function-sum" name="aggregate" value="sum" />
+                    <label for="function-sum">summation: <i class="ex">1 + 2 + 3 = 6</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="function-avg" name="aggregate" value="avg" />
+                    <label for="function-avg">average: <i class="ex">(1 + 2 + 3) / 3 = 2</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="function-max" name="aggregate" value="max" />
+                    <label for="function-max">maximim: <i class="ex">max(1, 2, 3) = 3</i></label>
+                </li>
+                <li>
+                    <input type="radio" id="function-min" name="aggregate" value="min" />
+                    <label for="function-min">minimum: <i class="ex">min(1, 2, 3) = 1</i></label>
+                </li>
+            </ul>
+        </li>        
+    </ul>
+    <div class="buttons">
+        <button type="submit">Save</button>
+        or
+        <a href="#cancel" class="script" onclick="Templates.Form.hide(); return false;">cancel</a>
+        &nbsp;&nbsp;&nbsp;
+        You may also <a href="#delete" class="script" onclick="Templates.remove(Templates.Form.element.id.value); return false;">delete</a> this template
+    </div>
+</fieldset>

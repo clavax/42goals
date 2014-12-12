@@ -1,0 +1,518 @@
+@import "general.css";
+
+body {
+    font: normal normal normal 12px Arial;
+    color: #000;
+    background: #adc6dc url("../../img/site/bg.png") repeat-x center top;
+}
+
+a {
+    color: #1b86d9;
+}
+
+a img {
+    border: none;
+}
+
+a.script {
+    text-decoration: none;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+}
+
+.rounded {
+    background: #eee;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+}
+
+.shadowed {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#progress {
+    position: fixed;
+    right: 20px;
+    top: 0px;
+    min-height: 18px;
+    min-width: 200px;
+    margin-left: -100px;
+    background: #fff;
+    border-radius: 8px;
+    
+    } * html .progress {
+    position: absolute;
+    top: expression(document.body.scrollTop + (document.body.offsetHeight / 2) + 'px');
+}
+
+#progress p {
+    padding: 5px;
+    font: normal normal normal 14px Arial;
+    text-align: center;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 240px;
+    min-height: 100%;
+    margin: 0 auto;
+    text-align: left;
+
+    /* hide from ie6 */
+    } html>body #wrapper {
+    overflow: hidden;
+    
+    /* for ie6 */
+    } * html #wrapper {
+    height: 100%;
+}
+
+#header {
+    height: 60px;
+    position: relative;
+}
+
+    #logo {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: normal;
+        font-family: Arial;
+    }
+    
+        #logo img {
+            vertical-align: middle;
+        }
+    
+    
+        #logo span {
+            text-align: left;
+            display: inline-block;
+            font-family: Cambria, "Times New Roman", serif;
+            font-size: 18px;
+            color: #223f51;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    
+    #userbox {
+        position: absolute;
+        width: 100px;
+        right: 10px;
+        top: 10px;
+        background: #fff;
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        padding: 10px;
+    }
+        
+        #userbox b {
+            font-size: 12px;
+            font-weight: normal;
+        }
+        
+        #userbox .exit {
+            position: absolute;
+            top: 10px;
+            right: 9px;
+        }
+        
+        #userbox ul {
+            list-style: none;
+        }
+        
+            #userbox li {
+                display: inline-block;
+                margin-right: 1ex;
+        
+                } * html #userbox li {
+                display: inline;
+        
+                } *:first-child+html #userbox li {
+                display: inline;
+            }
+    
+#content {
+    padding: 0px 10px 60px;
+}
+
+#goals-tabs {
+    padding: 10px 0px 20px;
+}
+
+    #goals-tabs select {
+        width: 100%;
+        font-size: 16px;
+        padding: 5px 0px;
+    }
+
+#goals-table {
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+
+    #goals-table th {
+        padding: 10px 5px;
+        width: 100px;
+        text-align: left;
+        vertical-align: top;
+        border-left: 1px solid #e4e4e4;
+        border-bottom: 1px solid #d1d1d1;
+        height: 50px;
+    }
+
+    #goals-table td {
+        padding: 5px;
+        border-bottom: 1px solid #d1d1d1;
+        vertical-align: top;
+    }
+    
+        #goals-table td big {
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        #goals-table td input {
+            font-size: 24px;
+            padding: 5px;
+            width: 100px;
+        }
+        
+        #goals-table td select {
+            font-size: 24px;
+            padding: 5px;
+        }
+        
+        #goals-table td b {
+            font-size: 24px;
+        }
+    
+        #goals-table td.data button {
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        #goals-table td.data img {
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+    #goals-table td.add {
+        width: 24px;
+        border-right: 1px solid #e4e4e4;
+    }
+    
+        #goals-table td.add button {
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+    
+    h2 {
+        text-align: center;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+    
+        h2 b {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 0px 10px;
+            vertical-align: middle;
+        }
+    
+        h2 a {
+            font-size: 12px;
+            vertical-align: middle;
+            text-decoration: none;
+        }
+
+#description {
+    margin: 0px auto;
+    max-width: 600px;
+    font-size: 16px;
+}
+
+    #description p {
+        margin: 10px;
+    }
+
+    #description ul {
+        padding-left: 20px;
+        margin: 10px 0px 10px 20px;
+    }
+
+#footer {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    margin: -70px auto 0 auto;
+    text-align: left;
+    left: 0px;
+}
+
+    #credits {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        padding: 10px;
+    }
+
+    #desktop {
+        position: absolute;
+        top: 30px;
+        left: 150px;
+    }
+    
+    #bottom-menu {
+        list-style: none;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        width: 600px;
+        margin-left: -200px;
+    }
+    
+        #bottom-menu li {
+            display: inline-block;
+            margin-right: 30px;
+    
+            } * html #bottom-menu li {
+            display: inline;
+    
+            } *:first-child+html #bottom-menu li {
+            display: inline;
+        }
+        
+/* login */
+#auth {
+}
+
+    #auth fieldset {
+        padding: 20px 30px 0px 20px;
+        border: 0px;
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        background: #fff;
+    }
+    
+        #auth ul.fields {
+            list-style: none;
+        }
+        
+            #auth ul.fields li {
+                margin-bottom: 16px;
+            }
+        
+            #auth ul.fields li.third-party {
+                text-align: center;
+            }
+            
+                #auth ul.fields li.third-party img {
+                    margin-bottom: 10px;
+                }
+            
+                #auth label {
+                    width: 120px;
+                    display: inline-block;
+                    font-size: 16px;
+                    padding: 5px 0px;
+                }
+            
+                #auth label.inline {
+                    width: auto;
+                    display: inline;
+                    font-size: 14px;
+                }
+                
+                #auth input.text {
+                    width: 100%;
+                    padding: 5px;
+                    font-size: 16px;
+                }
+                
+                #auth #auth-remember {
+                    margin: 0px;
+                    padding: 0px;
+                }
+                
+                #auth .button {
+                    text-align: center;
+                }
+                
+                #auth button {
+                    padding: 5px 10px;
+                    font-size: 16px;
+                    margin: 0px auto 20px;
+                }
+
+    #auth p {
+        line-height: 24px;
+    }
+
+#welcome {
+    padding: 100px;
+    text-align: center;
+    font-size: 48px;
+}
+
+/*
+ *  goals
+*/
+#shadow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000)";
+    z-index: 20;
+}
+
+#mobile-number {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 0px;
+}
+
+    #mobile-number .wrapper {
+        margin: 50px auto;
+        max-width: 600px;
+    }
+    
+        #mobile-number .container {
+            padding: 10px;
+            margin: 0px 50px;
+            background: white;
+            border-radius: 6px;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+        }
+    
+        #mobile-number .input {
+            padding-right: 75px;
+            position: relative;
+        }
+        
+            #mobile-number .input input {
+                padding: 5px 35px;
+                font-size: 18px;
+                width: 100%;
+                text-align: right;
+            }
+            
+            #mobile-number .input .mode {
+                border: none;
+                background: none;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                font-family: Courier New;
+                font-size: 24px;
+                font-weight: bold;
+                cursor: pointer;
+                padding: 5px 15px;
+            }
+    
+            #mobile-number .input .backspace {
+                border: none;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                padding: 7px 10px 7px 10px;
+            }
+    
+        #mobile-number .keypad {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+            #mobile-number .keypad td {
+                width: 33.3%;
+                height: 60px;
+                text-align: center;
+                border: 1px solid #d1d1d1;
+            }
+            
+            #mobile-number .keypad button {
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            
+            #mobile-number .keypad button:hover {
+                background: #f0fcea;
+            }
+        
+        #mobile-number .buttons {
+            padding-top: 20px;
+            position: relative;
+        }
+        
+            #mobile-number .buttons button {
+                padding: 5px 10px;
+                margin-right: 20px;
+            }
+        
+            #mobile-number .buttons .clear {
+                position: absolute;
+                right: 2px;
+                top: 25px;
+            }
+            
+#authorize-form {
+    
+}
+
+    #authorize-form fieldset {
+        border: none;
+        padding: 40px;
+        text-align: center;
+    }
+    
+    #authorize-form fieldset button {
+        margin: 0 20px;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        color: #fff;
+        border: 1px outset white;
+        border-radius: 8px;
+    }
+    
+    #authorize-form fieldset button#deny-button {
+        background: #f88;
+        border-color: #f00;
+    }
+    
+    #authorize-form fieldset button#allow-button {
+        background: #8f8;
+        border-color: #0f0;
+    }

@@ -1,0 +1,233 @@
+#goals-form-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.goals-form {
+    margin: 0px 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    position: relative;
+}
+
+    .goals-form fieldset {
+        border: none;
+    }
+
+    .goals-form > fieldset {
+        position: relative;
+        width: 900px;
+        margin: 0px auto;
+    }
+        .goals-form .info {
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .goals-form blockquote.hint {
+            float: right;
+            clear: both;
+            width: 45%;
+            border-left: 1px solid #666;
+            padding-left: 10px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+            
+            .goals-form .hint ul {
+                padding-left: 20px;
+            }
+            
+                .goals-form .hint li {
+                    margin-top: 5px;
+                    margin-bottom: 0px !important;
+                }
+    
+        .additional-parameters {
+            margin-top: 20px;
+        }
+    
+        .additional-parameters-toggler {
+            font-size: 16px;
+        }
+    
+        .goals-form ul.fields > li {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+        
+            .goals-form ul.fields > li li {
+                margin-bottom: 10px;
+                margin-right: 10px;
+            }
+        
+        .goals-form label {
+            vertical-align: middle;
+        }
+        
+        .goals-form input {
+            vertical-align: middle;
+        }
+        
+        .goals-form label.block {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: normal;
+            font-size: 16px;
+        }
+        
+        .goals-form i.ex {
+            font-weight: normal;
+            font-style: normal;
+            color: #666;
+        }
+        
+        .goals-form input.text {
+            width: 50%;
+            padding: 5px;
+            border: 1px inset #989696;
+        }
+        
+        .goals-form input.small {
+            width: 50px;
+        }
+        
+        .goals-form .error {
+            color: red;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+    
+        .goals-form textarea {
+            width: 100%;
+            padding: 4px;
+            height: 200px;
+            border: 1px inset #ccc;
+        }
+    
+        .goals-form .buttons {
+            position: relative;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+        
+            .goals-form .buttons button {
+                vertical-align: absmiddle;
+                margin: 10px 0px 5px 0px;
+            }
+            
+.goals-form dl.tabset {
+    background: transparent;
+    border: none;
+}
+
+    .goals-form dl.tabset dt.tab {
+        display: inline;
+        cursor: pointer;
+        margin: 0px 20px 0px 0px;
+        font-size: 24px;
+        font-weight: normal;
+        color: #356aa0;
+        border-bottom: 1px dashed #356aa0;
+    }
+    
+    .goals-form dl.tabset dt.active {
+        color: #000;
+        border: none;
+        /*background: #fff389;
+        padding: 3px;*/
+    }
+    
+    .goals-form dl.tabset dd.tab {
+        padding: 0px;
+        margin-top: 20px;
+    }
+    
+#goals-plan {
+    border-collapse: collapse;
+    width: 400px;
+    font-size: 14px;
+}
+
+    #goals-plan th {
+        padding: 10px;
+        border: 1px solid #e8effc;
+        position: relative;
+    }
+
+    #goals-plan .value {
+        width: 100px;
+    }
+
+    #goals-plan thead th {
+        background: #fbfcfe;
+        font-weight: normal;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    #goals-plan tbody th {
+        font-weight: normal;
+        text-align: left;
+    }
+
+    #goals-plan tfoot th {
+        text-align: left;
+    }
+
+    #goals-plan td {
+        padding: 0px 20px 0px 0px;
+        border: 1px solid #e5ecf4;
+    }
+    
+    #goals-plan tbody p {
+        margin-left: -36px;
+    }
+    
+    #goals-plan a {
+        vertical-align: middle;
+    }
+    
+    #goals-plan img {
+        vertical-align: middle;
+        margin-left: 4px;
+        margin-right: 16px;
+        visibility: hidden;
+        cursor: pointer;
+    }
+    
+    #goals-plan .row-over img {
+        visibility: visible;
+    }
+    
+    #goals-plan input {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        border: 0px;
+        font-size: 16px;
+        text-align: right;
+    }
+    
+    #goals-plan input:focus {
+        outline: 2px solid #89b6ff;
+    }
+    
+    #goals-plan input.empty {
+        color: #999;
+    }
+    
+#plan-calendar {
+    position: absolute;
+    background: #fff;
+    border-collapse: collapse;
+    z-index: 10;
+    margin-top: 10px;
+    width: 530px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,103 @@
+<fieldset>
+    <img id="goals-form-close" src="{%URL.img}site/close.png" onclick="Goals.Form.hide(); return false;" />
+    <dl>
+        <dt>{%LNG.Pick_template}</dt>
+        <dd>
+            <div id="templates-search">
+                <input type="search" name="q"
+                 onkeyup="Goals.initSearch(this)"
+                 title="{%LNG.search}&hellip;"
+                 value="{%LNG.search}&hellip;"
+                 class="empty"
+                 onfocus="if (this.value == this.title) {this.value = ''; this.removeClass('empty');}"
+                 onblur="if (this.value == '') {this.value = this.title; this.addClass('empty');};"
+                />
+            </div>
+            <div id="templates-pick" class="templates-pick">{%LNG.Loading_templates}...</div>
+        </dd>
+        <dt>{%LNG.Advanced_mode}</dt>
+        <dd>
+            <fieldset>
+                <input type="hidden" name="id" />
+                <ul class="fields">
+                    <li>
+                        <label class="block">{%LNG.Title}</label>
+                        <input name="title" class="text" />
+                    </li>
+                    <li>
+                        <label class="block">{%LNG.Type}</label>
+                        <ul class="fields">
+                            <li>
+                                <input type="radio" id="type-numeric" name="type" value="numeric" onclick="Goals.Form.setType(this.value)" />
+                                <label for="type-numeric">{%LNG.numeric}: <i class="ex">3.14, 100, 299792, {%LNG.etc}</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="type-counter" name="type" value="counter" onclick="Goals.Form.setType(this.value)" />
+                                <label for="type-counter">{%LNG.counter}: <i class="ex">1, 2, 3 ...</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="type-boolean" name="type" value="boolean" onclick="Goals.Form.setType(this.value)" />
+                                <label for="type-boolean">{%LNG.boolean}: <i class="ex">{%LNG._yes} {%LNG.or} {%LNG._no}</i></label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="type counter">
+                        <label class="block">{%LNG.Item_icon}</label>
+                        <div id="goals-icon-item"></div>
+                    </li>
+                    <li class="type boolean">
+                        <label class="block">{%LNG.Yes_icon}</label>
+                        <div id="goals-icon-true"></div>
+                    </li>
+                    <li class="type boolean">
+                        <label class="block">{%LNG.No_icon}</label>
+                        <div id="goals-icon-false"></div>
+                    </li>
+                </ul>
+                <p><a href="#additional-parameters" class="script" onclick="ID('additional-parameters').flipClass('hidden'); return false;">{%LNG.Additional_parameters}</a> &darr;</p>
+                <ul class="fields" id="additional-parameters">
+                    <li>
+                        <label class="block">{%LNG.Description}</label>
+                        <textarea name="text"></textarea>
+                    </li>
+                    <li class="type numeric counter">
+                        <label class="block">{%LNG.Unit}</label>
+                        <input type="text" name="unit" class="text small" />
+                        <i class="ex">({%LNG.unit_example})</i>
+                        <br />
+                        <input type="checkbox" id="prepend" name="prepend" value="yes" />
+                        <label for="prepend">{%LNG.prepend_hint}</label>
+                    </li>
+                    <li class="type numeric counter">
+                        <label class="block">{%LNG.Aggregate_function}</label>
+                        <ul class="fields">
+                            <li>
+                                <input type="radio" id="function-sum" name="aggregate" value="sum" />
+                                <label for="function-sum">{%LNG.summation}: <i class="ex">1 + 2 + 3 = 6</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="function-avg" name="aggregate" value="avg" />
+                                <label for="function-avg">{%LNG.average}: <i class="ex">(1 + 2 + 3) / 3 = 2</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="function-max" name="aggregate" value="max" />
+                                <label for="function-max">{%LNG.maximim}: <i class="ex">max(1, 2, 3) = 3</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="function-min" name="aggregate" value="min" />
+                                <label for="function-min">{%LNG.minimum}: <i class="ex">min(1, 2, 3) = 1</i></label>
+                            </li>
+                        </ul>
+                    </li>        
+                </ul>
+                <div class="buttons">
+                    <button type="submit">{%LNG.Save}</button>
+                    {%LNG.or}
+                    <a href="#cancel" class="script" onclick="Goals.Form.hide(); return false;">{%LNG.cancel}</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <span id="delete-goal">{%LNG.You_may_also} <a href="#delete" class="script" onclick="Goals.remove(Goals.Form.element.id.value); return false;">{%LNG.del}</a> {%LNG.this_goal}</span>
+                </div>
+            </fieldset>
+        </dd>
+    </dl>
+</fieldset>

@@ -1,0 +1,125 @@
+<img id="goals-form-close" src="{%URL.img}site/close.png" onclick="Goals.Form.hide(); return false;" />
+<fieldset>
+    <dl>
+        <dt>{%LNG.Pick_template}</dt>
+        <dd>
+            <p class="info">
+                Here is a list of templates for the most popular goals. To add a template to your goals, click on its title and press 'Add to your goals' button. 
+                You can change icons and perform other customization of the goal after you have added it.
+            </p>
+            
+            <div id="templates-pick" class="templates-pick">{%LNG.Loading_templates}...</div>
+        </dd>
+        <dt>{%LNG.Advanced_mode}</dt>
+        <dd>
+            <fieldset>
+                <input type="hidden" name="id" />
+                <ul class="fields">
+                    <li>
+                        <label class="block">{%LNG.Title}</label>
+                        <input name="title" class="text" />
+                    </li>
+                    <li class="clearfix">
+                        <label class="block">{%LNG.Type}</label>
+                        <blockquote class="hint">
+                            <p>The type of a goal is determined by the kind of information you would like to store.</p>
+                            <ul>
+                                <li>For information such as amount of <strong>money</strong> or number of <strong>miles</strong>, choose '<strong>numeric</strong>' type.</li>
+                                <li>If you want to count items, such as <strong>number of push-ups</strong> or <strong>cups of coffee</strong>, choose '<strong>counter</strong>'.</li>
+                                <li>For '<strong>yes or no</strong>' questions, such as 'Did I work well today?' or 'Have I read a book?', choose '<strong>boolean</strong>'.</li>
+                            </ul>
+                        </blockquote>
+                        <ul class="fields">
+                            <li>
+                                <input type="radio" id="type-numeric" name="type" value="numeric" onclick="Goals.Form.setType(this.value)" />
+                                <label for="type-numeric">{%LNG.numeric}: <i class="ex">3.14, 100, 299792, {%LNG.etc}</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="type-counter" name="type" value="counter" onclick="Goals.Form.setType(this.value)" />
+                                <label for="type-counter">{%LNG.counter}: <i class="ex">1, 2, 3 ...</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="type-boolean" name="type" value="boolean" onclick="Goals.Form.setType(this.value)" />
+                                <label for="type-boolean">{%LNG.boolean}: <i class="ex">{%LNG._yes} {%LNG.or} {%LNG._no}</i></label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="type counter">
+                        <label class="block">{%LNG.Item_icon}</label>
+                        <blockquote class="hint">
+                            <p>This icon depicts an item that you keep count. To add an item, click on the cell and one icon will be added. To remove an item, click on the icon.</p>
+                        </blockquote>
+                        <div id="goals-icon-item"></div>
+                    </li>
+                    <li class="type boolean">
+                        <label class="block">{%LNG.Yes_icon}</label>
+                        <blockquote class="hint">
+                            <p>
+                                This icon depicts a positive answer. Depending on the goal title it may have a positive or a negative meaning.
+                                In case of 'Work productivity' it has a positive meaning, while in case of 'Car malfunctioning' it has a negative meaning.
+                            </p>
+                        </blockquote>
+                        <div id="goals-icon-true"></div>
+                    </li>
+                    <li class="type boolean">
+                        <label class="block">{%LNG.No_icon}</label>
+                        <blockquote class="hint">
+                            <p>This icon depicts a negative answer.</p>
+                        </blockquote>
+                        <div id="goals-icon-false"></div>
+                    </li>
+                </ul>
+                <p id="additional-parameters-toggler"><a href="#additional-parameters" class="script" onclick="ID('additional-parameters').flipClass('hidden'); return false;">{%LNG.Additional_parameters}</a> &darr;</p>
+                <ul class="fields" id="additional-parameters">
+                    <li>
+                        <label class="block">{%LNG.Description}</label>
+                        <textarea name="text"></textarea>
+                    </li>
+                    <li class="type numeric counter">
+                        <label class="block">{%LNG.Unit}</label>
+                        <blockquote class="hint">
+                            <p>What your data is measured with. For example: km, $, m<sup>2</sup>.</p>
+                            <p>An example of the advanced format is: {0: cups, 1: cup, 2: cups}.</p>
+                        </blockquote>
+                        <input type="text" name="unit" class="text" />
+                        <br />
+                        <input type="checkbox" id="prepend" name="prepend" value="yes" />
+                        <label for="prepend">should be in front (as for <u>$</u>100 vs. 100<u>miles</u>)</label>
+                    </li>
+                    <li class="type numeric counter">
+                        <label class="block">{%LNG.Aggregate_function}</label>
+                        <blockquote class="hint">
+                            <p>We use the aggregate function to sum up the results over a period of time. 
+                            This option affects the value in the right part of the table and the values depicted in graphics.</p>
+                        </blockquote>
+                        <ul class="fields">
+                            <li>
+                                <input type="radio" id="function-sum" name="aggregate" value="sum" />
+                                <label for="function-sum">{%LNG.summation}: <i class="ex">1 + 2 + 3 = 6</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="function-avg" name="aggregate" value="avg" />
+                                <label for="function-avg">{%LNG.average}: <i class="ex">(1 + 2 + 3) / 3 = 2</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="function-max" name="aggregate" value="max" />
+                                <label for="function-max">{%LNG.maximim}: <i class="ex">max(1, 2, 3) = 3</i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="function-min" name="aggregate" value="min" />
+                                <label for="function-min">{%LNG.minimum}: <i class="ex">min(1, 2, 3) = 1</i></label>
+                            </li>
+                        </ul>
+                    </li>        
+                </ul>
+                <div class="buttons">
+                    <button type="submit">{%LNG.Save}</button>
+                    {%LNG.or}
+                    <a href="#cancel" class="script" onclick="Goals.Form.hide(); return false;">{%LNG.cancel}</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <span id="delete-goal">{%LNG.You_may_also} <a href="#delete" class="script" onclick="Goals.remove(Goals.Form.element.id.value); return false;">{%LNG.del}</a> {%LNG.this_goal}</span>
+                </div>
+            </fieldset>
+        </dd>
+    </dl>
+</fieldset>

@@ -1,0 +1,72 @@
+.console {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    text-align: left;
+    width: 100%;
+    height: 300px;
+    background: InfoBackground;
+    
+    } * html .console {
+    position: absolute;
+    top: expression(document.body.scrollTop + 'px');
+}
+
+.console ul {
+    list-style: none;
+    text-align: left;
+    position: relative;
+    overflow: auto;
+    height: 280px;
+}
+
+.console li {
+    position: relative;
+    margin-top: 5px;
+    padding: 10px 2px 2px 2px;
+    white-space: pre;
+    font: normal normal normal 12px Courier New, Courier, monospace;
+}
+
+.console li.error {
+    color: red;
+}
+
+.console span {
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    font-size: 10px;
+    color: gray;
+}
+
+.console .clear {
+    position: fixed;
+    right: 70px;
+    top: 3px;
+    
+    } * html .console .clear {
+    position: absolute;
+    top: expression((document.body.scrollTop + 3) + 'px');
+}
+
+.console .hide {
+    position: fixed;
+    right: 20px;
+    top: 3px;
+    top: expression((document.body.scrollTop + 3) + 'px');
+    
+    } * html .console .hide {
+    position: absolute;
+    top: expression((document.body.scrollTop + 3) + 'px');
+}
+
+.console form {
+}
+
+.console input {
+    width: 100%;
+    height: 20px;
+    border: none;
+    background: white;
+}

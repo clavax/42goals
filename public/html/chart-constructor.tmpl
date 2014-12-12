@@ -1,0 +1,58 @@
+<img src="{%URL.img}site/chart-close.png" onclick="Me.Constructor.hide()" alt="x" class="close" />
+
+<div id="chart-constructor">
+    <dl>
+        <dt class="first"><span>1. {%LNG.Choose_goal_and_type}:</span></dt>
+        <dt class="second"><span>2. {%LNG.Choose_period_and_group}:</span></dt>
+        <dt class="third"><span>3. {%LNG.Additional_options}:</span></dt>
+        <dd class="first">
+            <div>
+                <select id="chart-goal" onchange="Me.Constructor.draw()">
+                    {%for goal in Data.goals}
+                        {%if goal}
+                    <option value="{%goal.id}">{%goal.title}</option>
+                        {%end}
+                    {%end}
+                </select>
+                <br /><br />
+                <div id="chart-type"></div>
+            </div>
+        </dd>
+        <dd class="second">
+            <div>
+                <b>{%LNG.Period}:</b> 
+                <div id="chart-period"></div>
+                <br /><br />
+                <b>{%LNG.Group_by}:</b>
+                <div id="chart-groupby"></div>
+            </div>
+        </dd>
+        <dd class="third">
+            <div>
+                <ul id="chart-advanced">
+                    <li>
+                        <input type="checkbox" class="checkbox" id="chart-accumulate" onclick="Me.Constructor.draw()" />
+                        <label for="chart-accumulate">{%LNG.accumulate_values}</label>
+                    </li>
+                    <li>    
+                        <input type="checkbox" class="checkbox" id="chart-fill-empty" onclick="Me.Constructor.draw()" />
+                        <label for="chart-fill-empty">{%LNG.fill_empty_values}</label>
+                    </li>
+                    <li>     
+                        <input type="checkbox" class="checkbox" id="chart-interpolate" onclick="Me.Constructor.draw()" />
+                        <label for="chart-interpolate">{%LNG.interpolate_line}</label>
+                    </li>
+                </ul>
+            </div>
+        </dd>
+    </dl>
+</div>
+
+<div id="chart-canvas-container">
+    <div id="chart-canvas"></div>
+    <input type="text" id="chart-title" value="{%LNG.Set_title}" />
+</div>
+
+<div class="buttons">
+    <button class="button" type="button" onclick="Me.Constructor.apply()"><span><span>{%LNG.Save_chart}</span></span></button>
+</div>

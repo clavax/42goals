@@ -1,0 +1,12 @@
+<p>
+{%if ENV.language == 'ru'}
+    Мы выслали письмо с инструкциями по восстановлению пароля на ваш адрес.
+    <br />Проверьте эл. почту: {%if ENV.user}<a href="{%ENV.user.email|email_provider}">{%ENV.user.email|email_provider}{%else}<a href="{%data.email|email_provider}">{%data.email|email_provider}</a>{%end}
+{%elseif ENV.language == 'fr'}
+    Nous vous avons envoyé un e-mail avec des instructions pour votre récupération de mot de passe.
+    <br />Vérifiez votre e-mail: {%if ENV.user}<a href="{%ENV.user.email|email_provider}">{%ENV.user.email|email_provider}{%else}<a href="{%data.email|email_provider}">{%data.email|email_provider}</a>{%end}
+{%else}
+    We have sent you an email with instruction for your password recovery.
+    <br />Check your email: {%if ENV.user}<a href="{%ENV.user.email|email_provider}">{%ENV.user.email|email_provider}{%else}<a href="{%data.email|email_provider}">{%data.email|email_provider}</a>{%end}
+{%end}
+</p>

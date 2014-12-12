@@ -1,0 +1,147 @@
+#community-add {
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    } * html #community-add {
+    display: inline;
+    } *:first-child+html #community-add {
+    display: inline;
+}
+
+#communities-list {
+    list-style: none;
+    font-size: 18px;
+    margin: 20px;
+}
+
+    #communities-list > li {
+        padding-left: 30px;
+        margin-bottom: 10px;
+    }
+    
+.file-upload-frame {
+    width: 160px;
+    height: 30px;
+    border: none;
+    background: transparent;
+}
+
+#community-description {
+    padding: 20px 20px 0px 0px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+#community-tools {
+    margin: 10px 0px;
+}
+
+    #community-tools img {
+        vertical-align: middle;
+    }
+    
+    #community-tools a {
+        vertical-align: middle;
+    }
+    
+    #community-membership.joined #community-not-joined {
+        display: none;
+    }
+    
+    #community-membership.not-joined #community-joined {
+        display: none;
+    }
+    
+    #community-membership .loading {
+        display: none;
+    }
+    
+    #community-membership.loading img {
+        display: none;
+    }
+    #community-membership.loading img.loading {
+        display: inline;
+    }
+    
+.loose-width > .wrap > h1 {
+    font-weight: normal;
+    font-size: 24px;
+    padding: 20px 20px 0px;
+} 
+
+#communities-page-wrap {
+    padding-top: 20px;
+    margin: 0px 20px 20px;
+}
+
+#communities-page-wrap > .wrap {
+    padding: 20px;
+    background: #fff;
+}
+
+#communities-page-list {
+    list-style: none;
+    padding: 20px 0px;
+}
+
+    #communities-page-list > li {
+        width: 33.3%;
+        vertical-align: top;
+        margin-right: -1ex;
+        display: inline-block;
+        } * html #communities-page-list > li {
+        display: inline;
+        } *:first-child+html #communities-page-list > li {
+        display: inline;
+    }
+    
+        #communities-page-list > li > div {
+            background: #fff;
+            margin: 10px 20px 10px 0px;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            min-height: 120px;
+        }
+    
+        #communities-page-list > li img {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 10px;
+            width: 50px;
+        }
+        
+        #communities-page-list > li > div div {
+            display: inline-block;
+            vertical-align: top;
+            width: 74%;
+            } * html #communities-page-list li div div {
+            display: inline;
+            } *:first-child+html #communities-page-list > li > div div {
+            display: inline;
+        }
+        
+        #communities-page-list > li i {
+            display: block;
+        }
+        
+        #communities-page-list > li b {
+            display: block;
+            margin: 10px 0px;
+        }
+        
+        #communities-page-list > li p {
+            margin-left: 20px;
+            font-weight: bold;
+        }
+            
+            #communities-page-list > li ul {
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+                
+                #communities-page-list > li ul > li {
+                    margin-bottom: 5px;
+                }

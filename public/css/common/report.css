@@ -1,0 +1,41 @@
+#report-wrapper {
+    padding: 20px 20px;
+}
+
+#graph-wrap {
+    position: relative;
+    margin-right: 240px;
+}
+
+#graph-wrap div {
+    display: inline-block;
+    text-align: center;
+    float: left;
+    width: 49%;
+    height: 300px;
+    padding: 8px 0px;
+    margin: 8px 0px;
+}
+
+#graph-wrap div#graph1 {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 20px;
+}
+
+#graph-wrap div#graph2 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+#graph-wrap div#graph3 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 40px;
+    top: 150px;
+}

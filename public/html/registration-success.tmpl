@@ -1,0 +1,15 @@
+<p>
+{%if ENV.language == 'ru'}
+    Спасибо, {%data.name}! Ваша регистрация завершена.
+    <br />После подтверждения вашего адреса эл. почты, вы можете войти в свой аккаунт.
+    <br />Проверьте свою почту: <a href="{%data.email|email_provider}">{%data.email|email_provider}</a>
+{%elseif ENV.language == 'fr'}
+    Merci, {%data.name}! Votre inscription est terminée.
+    <br />Après confirmation de votre e-mail, vous pouvez accéder à votre compte.
+    <br />Vérifiez votre email: <a href="{%data.email|email_provider}">{%data.email|email_provider}</a>
+{%else}
+    Thank you, {%data.name}! Your registration is completed.
+    <br />After confirming your email, you can enter your account.
+    <br />Check your email: <a href="{%data.email|email_provider}">{%data.email|email_provider}</a>
+{%end}
+</p>
