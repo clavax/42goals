@@ -1,4 +1,0 @@
-<img src="<?php if ($Conf->ENV->user->thumbnail) {?><?php echo ($Conf->URL->has('userpics') ? $Conf->URL->{"userpics"} : 'userpics')?><?php echo (isset($Conf->ENV->user->thumbnail) ? $Conf->ENV->user->thumbnail : 'Conf->ENV->user->thumbnail')?>
-<?php } else {?><?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>site/no-thumbnail.png<?php }?>" />
-<span><?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
- добавил(а) вас в друзья</span>

@@ -1,4 +1,0 @@
-<?php echo '<?'?>xml version="1.0"?>
-<root><?php echo (isset($xml) ? $xml : '')?>
-
-</root>

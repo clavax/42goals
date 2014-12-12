@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<model>
-	<table type="primary">
-		<field name="id"></field>
-		<field name="src"></field>
-		<field name="user"></field>
-		<field name="position"></field>
-	</table>
-</model>

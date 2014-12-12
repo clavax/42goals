@@ -1,2 +1,0 @@
-<img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>badges/progressive.png" />
-<span>Vous venez de recevoir le "Progressif" badge!</span>

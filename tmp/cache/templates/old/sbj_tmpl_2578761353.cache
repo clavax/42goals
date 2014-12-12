@@ -1,2 +1,0 @@
-<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
- veut vous ajouter dans sa liste d'ami

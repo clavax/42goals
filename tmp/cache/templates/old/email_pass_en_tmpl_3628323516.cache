@@ -1,8 +1,0 @@
-Hello, <?php echo (isset($name) ? $name : '')?>
-!
-Your new password for your account at <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?>: <?php echo (isset($pass) ? $pass : '')?>
-
-You can change it in your settings on the web site: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/.
---
-The 42goals team
-http://42goals.com

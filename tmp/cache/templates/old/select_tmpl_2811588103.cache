@@ -1,9 +1,0 @@
-<select <?php foreach ($params as $key => $val) {?><?php echo (isset($key) ? $key : '')?>
-="<?php echo (isset($val) ? $val : '')?>
-"<?php }?>>
-<?php foreach ($options as $index => $title) {?>
-    <option value="<?php echo (isset($index) ? $index : '')?>
-"<?php if ((string)$index == (string)$value) {?> selected="selected"<?php }?>><?php echo (isset($title) ? $title : '')?>
-</option>
-<?php }?>
-</select>

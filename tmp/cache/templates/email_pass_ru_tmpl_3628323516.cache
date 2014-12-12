@@ -1,8 +1,0 @@
-Привет, <?php echo (isset($name) ? $name : '')?>
-!
-Ваш новый пароль для аккаунта на <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?>: <?php echo (isset($pass) ? $pass : '')?>
-
-Вы можете поменять его в настройках на сайте: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>settings/.
---
-Команда 42гола
-http://ru.42goals.com

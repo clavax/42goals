@@ -1,8 +1,0 @@
-Hello, <?php echo (isset($data['name']) ? $data['name'] : '')?>
-!
-To complete the registration, follow the link:  <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/registration/<?php echo (isset($code) ? $code : '')?>
-/<?php echo (isset($premium) ? $premium : '')?>
-
---
-The 42goals team
-http://42goals.com

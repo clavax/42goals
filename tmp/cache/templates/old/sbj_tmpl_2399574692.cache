@@ -1,1 +1,0 @@
-Новый комментарий от <?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>

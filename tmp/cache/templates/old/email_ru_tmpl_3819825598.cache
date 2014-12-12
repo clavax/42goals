@@ -1,8 +1,0 @@
-Привет, <?php echo (isset($data['name']) ? $data['name'] : '')?>
-!
-Чтобы завершить регистрацию, перейдите по ссылке: <?php echo ($Conf->URL->has('host') ? $Conf->URL->{"host"} : 'host')?><?php echo ($Conf->URL->has('home') ? $Conf->URL->{"home"} : 'home')?>api/registration/<?php echo (isset($code) ? $code : '')?>
-/<?php echo (isset($premium) ? $premium : '')?>
-
---
-Команда 42гола
-http://ru.42goals.com

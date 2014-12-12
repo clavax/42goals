@@ -1,2 +1,0 @@
-<img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>badges/newbie.png" />
-<span>Вы только что получили награду "Новичок"!</span>

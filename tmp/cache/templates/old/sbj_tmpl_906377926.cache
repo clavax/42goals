@@ -1,3 +1,0 @@
-<?php echo (isset($Conf->ENV->user->name) ? $Conf->ENV->user->name : 'Conf->ENV->user->name')?>
- has accepted to compare the goal "<?php echo (isset($data['goal']) ? $data['goal'] : '')?>
-"

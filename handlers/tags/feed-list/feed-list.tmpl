@@ -1,9 +1,0 @@
-{if $activities}
-<ul id="news-feed">
-    {foreach $activities as $activity}
-    <li class="clearfix">{$activity['text']}</li>
-    {end}
-</ul>
-{else}
-<p class="empty-message">{~No_activities}</p>
-{end}

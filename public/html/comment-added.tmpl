@@ -1,9 +1,0 @@
-<img src="{%if ENV.user.thumbnail}{%URL.userpics}{%ENV.user.thumbnail}{%else}{%URL.img}site/no-thumbnail.png{%end}" class="userpic" />
-<div class="comment">
-    <b><a href="{%URL.home}users/{%ENV.user.login}/">{%ENV.user.name}</a></b>
-    <div class="text">{%if data.text}{%data.text|htmlspecialchars}{%end}</div>
-    <div class="meta">
-        <small>{%LNG.just_now}</small>
-        <a href="#reply-{%data.id}" class="script">{%LNG.reply}</a>
-    </div>
-</div>

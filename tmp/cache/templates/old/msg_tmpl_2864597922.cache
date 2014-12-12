@@ -1,2 +1,0 @@
-﻿<img src="<?php echo ($Conf->URL->has('img') ? $Conf->URL->{"img"} : 'img')?>badges/newbie.png" />
-<span>あなたは、今まさに初心者”バッジを授与しました！</span>

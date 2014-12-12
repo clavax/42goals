@@ -1,8 +1,0 @@
-{if get_user_var('env_chart_type') == 'protovis'}
-<script type="text/javascript" src="{@js}3dparty/protovis/protovis-d3.3.js"></script>
-{else}
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-google.load("visualization", "1", {packages:["corechart"]});
-</script>
-{end}
