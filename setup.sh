@@ -1,9 +1,0 @@
-mkdir tmp
-mkdir tmp/logs
-mkdir tmp/email
-mkdir tmp/upload
-mkdir tmp/cache
-mkdir tmp/cache/templates
-mkdir tmp/cache/iconfinder
-mkdir tmp/cache/blog
-mkdir tmp/cache/translate
